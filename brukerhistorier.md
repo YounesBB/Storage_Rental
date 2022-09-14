@@ -1,32 +1,26 @@
 # Brukerhistorier
 
-Her samler vi brukerhistorier som har til hensikt å (av)dekke krav som systemet må tilfredsstille.
-Det finnes ulike former for brukerhistorier, med mer eller mindre stramme krav om form, her gjør vi det nokså uformelt,
-men prøver å oppsummere hver av dem litt strukturert.
+Det skal lages en app som kan brukes for å håndtere boder i, for eksempel, en bedrift som leier ut boder. Brukere
+av denne appen kan naturligvis deles in i to: Manager/admin og medarbeider/employee. 
 
-## Handleliste (us-1)
+## Manager/admin (us-1)
 
-Som privatperson ønsker jeg å holde oversikt over og orden på det jeg skal handle,
-så jeg er sikker på å få handlet det jeg trenger.
+Som Admin/Manager ønsker jeg å holde oversikt over bodene lagerbygget. 
 
-Brukeren har behov for å lage en handleliste i forkant av en handletur og
-så huke av underveis/etterpå hva som blir/ble handlet så en er sikker på at en får/har fått med alt.
-Når en lager en handlelista, så er det kjekt å kunne gjenbruke tidligere avhukede elementer,
-da en jo ofte handler de samme tingene på samme sted.
-Hvert punkt i handlelista trenger ikke å være mer enn en enkelt tekst, og de må kunne hukes av og på.
+Admin har behov for å kunne legge til boder i et systemet med deres størrelse. Samtidig har admin behov
+for å kunne registrere at en bod er leid ut når en kunde leier boden og omvendt. 
 
 ### Viktig å kunne se
 
-- når en handler: oversikt over hva som gjenstår å handle
-- det en har handlet: ting man har handlet tidligere
+- Oversikt over boder
+- Statusen til bodene: Leiet ut eller ikke
 
 ### Viktig å kunne gjøre
 
-- legge inn nye elementer
-- huke av elementer
-- gjenbruke gamle (avhukede) elementer
+- Legge til nye boder
+- Registrere boder som leid ut når en kunde leier ut boden
 
-## Ukas gjøremål (us-2)
+## Medarbeider/employee (us-2)
 
 Som privatperson ønsker jeg å holde oversikt over og orden på gjøremål,
 så jeg er sikker på å få gjort dem i tide.
