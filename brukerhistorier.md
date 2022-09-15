@@ -22,18 +22,15 @@ for å kunne registrere at en bod er leid ut når en kunde leier boden og omvend
 
 ## Medarbeider/employee (us-2)
 
-Som privatperson ønsker jeg å holde oversikt over og orden på gjøremål,
-så jeg er sikker på å få gjort dem i tide.
+Som lagermedarbeider ønsker jeg å kunne holde oversikt over bodene i lagerbygget
 
-Brukeren har behov for å notere ned gjøremål, f.eks. i kommende uke, og gjerne knytte en frist til enkeltelementer.
-Elementer som ikke har en frist har implisitt samme frist som lista.
+Lagermedarbeider må kunne se hvilke boder som er utleid, og hvilke som er ledige.
 
 ### Viktig å kunne se
 
-- oversikt over hvilke gjøremål som må gjøres først pga. frist som har gått ut eller går ut snart
-- hvor mange gjøremål som gjenstår
+- Oversikt over boder
+- Status til bodene: Leiet ut eller ikke
 
 ### Viktig å kunne gjøre
 
-- legge inn nye elementer m/frist
-- huke av elementer, slik at de forsvinner
+- Sende forespørsel til admin om utleie til kunde(?)
