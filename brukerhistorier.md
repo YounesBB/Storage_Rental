@@ -33,4 +33,4 @@ Lagermedarbeider må kunne se hvilke boder som er utleid, og hvilke som er ledig
 
 ### Viktig å kunne gjøre
 
-- Sende forespørsel til admin om utleie til kunde(?)
+- Registrere boder som leid ut når en kunde leier ut boden
