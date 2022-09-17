@@ -6,7 +6,7 @@ import javafx.fxml.FXML;
 public class LoginController {
 
     @FXML
-    private void switchToSecondary() throws IOException {
-        App.setRoot("secondary");
+    private void switchToOverview() throws IOException {
+        App.setRoot("overview");
     }
 }
