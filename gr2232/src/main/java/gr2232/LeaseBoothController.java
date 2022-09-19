@@ -32,6 +32,11 @@ public class LeaseBoothController implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         leaseSize.getItems().addAll(sizes);
     }
+
+    @FXML
+    public void onGoBack() throws IOException {
+        App.setRoot("login");
+    }
   
     //Add function to assign location automatically
 
