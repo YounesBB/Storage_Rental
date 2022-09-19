@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gr2232.allTenants">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gr2232.allTenantsController">
    <children>
       <Text layoutX="218.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="All tenants">
          <font>
@@ -17,16 +17,16 @@
       </Text>
       <StackPane layoutX="1.0" layoutY="148.0" prefHeight="253.0" prefWidth="600.0">
          <children>
-            <TableView id="Tableviewid" prefHeight="201.0" prefWidth="337.0">
+            <TableView id="Tableviewid" fx:id="tableView" prefHeight="201.0" prefWidth="337.0">
               <columns>
-                <TableColumn id="SizeColumn" prefWidth="76.0" text="Size" />
-                <TableColumn id="LocationColumn" prefWidth="115.99996948242188" text="Location" />
-                  <TableColumn id="NameColumn" prefWidth="294.0" text="Name" />
-                  <TableColumn id="StausColumn" prefWidth="112.66668701171875" text="Status" />
+                <TableColumn id="SizeColumn" fx:id="sizeColumn" prefWidth="76.0" text="Size" />
+                <TableColumn id="LocationColumn" fx:id="locationColumn" prefWidth="115.99996948242188" text="Location" />
+                  <TableColumn id="NameColumn" fx:id="nameColumn" prefWidth="294.0" text="Name" />
+                  <TableColumn id="StausColumn" fx:id="statusColumn" prefWidth="112.66668701171875" text="Status" />
               </columns>
             </TableView>
          </children>
       </StackPane>
-      <Button id="backid" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToOverviewpage" text="Back" />
+      <Button id="backid" fx:id="backButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToOverviewpage" text="Back" />
    </children>
 </AnchorPane>
