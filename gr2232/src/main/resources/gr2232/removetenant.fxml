@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -7,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gr2232.RemoveTenantController">
    <children>
       <Text layoutX="208.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Remove tenant">
          <font>
@@ -16,15 +17,16 @@
       </Text>
       <StackPane layoutY="139.0" prefHeight="268.0" prefWidth="600.0">
          <children>
-            <TableView prefHeight="268.0" prefWidth="600.0">
+            <TableView fx:id="tenantTable" prefHeight="268.0" prefWidth="600.0">
               <columns>
-                <TableColumn prefWidth="75.0" text="Location" />
-                <TableColumn prefWidth="75.0" text="Size" />
-                  <TableColumn prefWidth="357.0" text="Name" />
-                  <TableColumn prefWidth="92.0" text="Remove?" />
+                <TableColumn fx:id="locationColumn" prefWidth="75.0" text="Location" />
+                <TableColumn fx:id="sizeColumn" prefWidth="75.0" text="Size" />
+                  <TableColumn fx:id="nameColumn" prefWidth="357.0" text="Name" />
+                  <TableColumn fx:id="removeColumn" prefWidth="92.0" text="Remove?" />
               </columns>
             </TableView>
          </children>
       </StackPane>
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#goToOverView" text="Back" />
    </children>
 </AnchorPane>
