@@ -27,4 +27,9 @@ public class RegisterBoothController {
         //Testing that aquired number is correct
         System.out.println(getIntFromTextField(inputLargeBooth));
     }
+
+    @FXML
+    public void onGoBack() throws IOException {
+        App.setRoot("login");
+    }
 } 

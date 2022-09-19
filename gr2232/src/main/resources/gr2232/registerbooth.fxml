@@ -6,7 +6,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gr2232.RegisterBoothController">
    <children>
       <Text layoutX="203.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add new booths">
@@ -22,5 +21,6 @@
       <Text layoutX="95.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter the amount of new booths to add, according to their size" />
       <Text layoutX="181.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Medium" />
       <Text layoutX="185.0" layoutY="244.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Small" />
+      <Button layoutX="33.0" layoutY="30.0" mnemonicParsing="false" onAction="#onGoBack" text="Back" />
    </children>
 </AnchorPane>
