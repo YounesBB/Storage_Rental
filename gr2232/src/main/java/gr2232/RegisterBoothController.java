@@ -30,6 +30,6 @@ public class RegisterBoothController {
 
     @FXML
     public void onGoBack() throws IOException {
-        App.setRoot("login");
+        App.setRoot("overviewpage");
     }
 } 

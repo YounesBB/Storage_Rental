@@ -1,5 +1,7 @@
 package gr2232;
 
+import java.io.IOException;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -19,23 +21,28 @@ public class OverviewPageController {
     private Button unitsOverviewButton;
 
     @FXML
-    void goToAddUnitsPage(ActionEvent event) {
-
+    void goToAddUnitsPage(ActionEvent event) throws IOException {
+        App.setRoot("registerbooth");
     }
 
     @FXML
-    void goToLeaseOutPage(ActionEvent event) {
-
+    void goToLeaseOutPage(ActionEvent event) throws IOException {
+        App.setRoot("leasebooth");
     }
 
     @FXML
-    void goToRemoveTenantPage(ActionEvent event) {
-
+    void goToRemoveTenantPage(ActionEvent event) throws IOException {
+        App.setRoot("removetenant");
     }
 
     @FXML
-    void goToUnitsOverviewPage(ActionEvent event) {
+    void goToUnitsOverviewPage(ActionEvent event) throws IOException {
+        App.setRoot("allTenants");
+    }
 
+    @FXML
+    void goToLogIn(ActionEvent event) throws IOException {
+        App.setRoot("login");
     }
 
 }
