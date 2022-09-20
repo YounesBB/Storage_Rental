@@ -7,8 +7,9 @@ public class Unit {
     private Integer location;
     private char size;
 
-    public Unit(char size) {
+    public Unit(char size, Integer location) {
         setSize(size);
+        setLocation(location);
     }
 
     public void setSize(char size) {
@@ -18,7 +19,7 @@ public class Unit {
         }
         else {
             throw new IllegalArgumentException("Unit size must either be S,M or L!");
-        }
+        }  
     }
 
     public char getSize() {
