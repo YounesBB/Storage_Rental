@@ -35,7 +35,7 @@ public class LeaseBoothController implements Initializable{
 
     @FXML
     public void onGoBack() throws IOException {
-        App.setRoot("login");
+        App.setRoot("overviewpage");
     }
   
     //Add function to assign location automatically

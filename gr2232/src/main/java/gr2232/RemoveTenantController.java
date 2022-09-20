@@ -25,7 +25,7 @@ public class RemoveTenantController {
 
     @FXML
     private void goToOverView() throws IOException {
-        App.setRoot("login");
+        App.setRoot("overviewpage");
     }
 
 }

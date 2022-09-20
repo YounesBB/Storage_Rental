@@ -7,6 +7,6 @@ public class LoginController {
 
     @FXML
     private void switchToOverview() throws IOException {
-        App.setRoot("overview");
+        App.setRoot("overviewpage");
     }
 }
