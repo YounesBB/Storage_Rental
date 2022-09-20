@@ -45,7 +45,6 @@ public class UnitList {
         return null;
     }
 
-
     //TODO: Encapsulate, valdiation
     //Creates and adds Unit to UnitList
     public void createUnit(char size) {
