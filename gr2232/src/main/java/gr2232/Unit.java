@@ -69,7 +69,7 @@ public class Unit {
         test.setSize('L');
         System.out.println(test.getSize());
         
-        //Throws exception as planned
+        //Throws exception as planned PP
         //test.setSize('R');
 
         System.out.println(test.getIsRented());
