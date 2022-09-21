@@ -3,7 +3,7 @@ package gr2232;
 public class Unit {
 
     private boolean isRented = false;
-    private String customerName;
+    private String customerName = "null";
     private Integer location;
     private char size;
 
