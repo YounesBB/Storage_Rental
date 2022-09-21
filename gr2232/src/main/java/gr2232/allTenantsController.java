@@ -41,9 +41,6 @@ public class allTenantsController {
     @FXML
     public void initialize() {
         UnitList unitList = new UnitList();
-        Unit testUnit = new Unit('S', 21);
-        testUnit.setCustomerName("Foo Bar");
-        unitList.getUnitListEntries().add(testUnit);
         this.unitList = unitList;
         updateTable();
     }
