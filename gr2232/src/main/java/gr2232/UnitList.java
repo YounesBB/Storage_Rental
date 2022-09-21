@@ -6,9 +6,10 @@ import java.util.List;
 public class UnitList {
     
     //List of all units
-    private List<Unit> unitList = new ArrayList<>();
-    private Integer locationIncrementer = 0;
-    public UnitList() {
+    private static List<Unit> unitList = new ArrayList<>();
+    static Integer locationIncrementer = 0;
+
+    public UnitList() { 
 
     }
 
@@ -33,7 +34,7 @@ public class UnitList {
     }
     
     public List<Unit> getUnitListEntries() {
-        return this.unitList;
+        return UnitList.unitList;
     }
 
     public Unit getUnitByLocation(Integer location) {
@@ -48,8 +49,9 @@ public class UnitList {
     //TODO: Encapsulate, valdiation
     //Creates and adds Unit to UnitList
     public void createUnit(char size) {
-        Unit unitToAdd = new Unit(size,this.locationIncrementer);
-        this.locationIncrementer = this.locationIncrementer++;
+        Unit unitToAdd = new Unit(size,UnitList.locationIncrementer);
+        UnitList.locationIncrementer = UnitList.locationIncrementer + 1;
+        System.out.println(locationIncrementer);
         getUnitListEntries().add(unitToAdd);
     }
 
