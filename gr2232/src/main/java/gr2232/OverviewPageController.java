@@ -22,7 +22,7 @@ public class OverviewPageController {
 
     @FXML
     void goToAddUnitsPage(ActionEvent event) throws IOException {
-        App.setRoot("registerbooth");
+        App.setRoot("registerboothSimple");
     }
 
     @FXML
