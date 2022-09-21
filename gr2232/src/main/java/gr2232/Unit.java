@@ -7,8 +7,9 @@ public class Unit {
     private Integer location;
     private char size;
 
-    public Unit(char size) {
+    public Unit(char size, Integer location) {
         setSize(size);
+        setLocation(location);
     }
 
     public void setSize(char size) {
@@ -18,7 +19,7 @@ public class Unit {
         }
         else {
             throw new IllegalArgumentException("Unit size must either be S,M or L!");
-        }
+        }  
     }
 
     public char getSize() {
@@ -41,11 +42,19 @@ public class Unit {
 
 
     public void setCustomerName(String name) {
-        if (getIsRented()) {
+        /* if (getIsRented()) {
             this.customerName = name;
         }
         else {
             throw new IllegalStateException("Cannot set customername when the unit is not rented!");
+        } */
+        if (getIsRented() == false) {
+            toggleIsRented();
+            this.customerName = name;
+        }
+        else {
+            //Do not toggle, changing customer to the unit
+            this.customerName = name;
         }
     }
 
@@ -62,9 +71,16 @@ public class Unit {
         this.location = loc;
     }
 
+    public void setUnitFree() {
+        if (getIsRented()) {
+            toggleIsRented();
+        }
+        setCustomerName("null");
+    }
+
     //Testing/debugging
     public static void main(String args[]) {
-        Unit test = new Unit('M');
+        Unit test = new Unit('M',0);
         System.out.println(test.getSize());
         test.setSize('L');
         System.out.println(test.getSize());
