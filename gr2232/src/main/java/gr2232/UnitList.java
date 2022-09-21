@@ -8,7 +8,7 @@ public class UnitList {
     //List of all units
     private List<Unit> unitList = new ArrayList<>();
     private Integer locationIncrementer = 0;
-    public UnitList() {
+    public UnitList() { 
 
     }
 
