@@ -10,7 +10,7 @@ This means that the bussiness owner/manager can in the program:
 2. View leased out and free units. 
 3. Lease out units or remove tenanats from units. 
 
-The usercharacters used in this project can be read [here](brukerkarakterer.md)
+The usercharacters used in this project can be read [here](brukerhistorier.md)
 
 Most of the logic/code of the program is in [gr2232/src/main/java/gr2232](gr2232/src/main/java/gr2232) 
 
