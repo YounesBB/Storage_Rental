@@ -50,8 +50,6 @@ public class UnitTest{
         newUnit.toggleIsRented();
         newUnit.setCustomerName("john doe");
         assertEquals("john doe", newUnit.getCustomerName());
-        newUnit.toggleIsRented();
-        assertThrows(IllegalStateException.class, () -> newUnit.setCustomerName("jane doe"));
     }
 
     @Test 
