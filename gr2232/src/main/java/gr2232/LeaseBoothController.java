@@ -43,12 +43,15 @@ public class LeaseBoothController implements Initializable {
 
     @FXML
     void getSizeValue(ActionEvent event) throws IOException {
-        showFreeBooth(unitSize.getValue());
+        if (unitSize.getValue() == null) {
+            throw new NullPointerException();
+        } else {
+            showFreeBooth(unitSize.getValue());
+        }
     }
 
     public void showFreeBooth(String boothSize) {
-        List<Unit> freeUnits = units.getFreeUnits();
-        List<Unit> free = units.getFreeUnitsWithCertainSize(boothSize, freeUnits);
+        List<Unit> free = units.getFreeUnitsWithCertainSize(boothSize);
         if (free.isEmpty()) {
             unitLocation.setText("There is no more Units of this size to lease out!");
             this.location = null; 
@@ -69,17 +72,15 @@ public class LeaseBoothController implements Initializable {
 
     }
 
-    public void clearFields() {
-        UnitOwner.clear();
-        unitSize.setValue("");
-        unitLocation.setText(""); 
-    }
 
-    @FXML
+ @FXML
     void leaseOut(ActionEvent event) throws IOException{
-        units.getUnitByLocation(this.location).setCustomerName(UnitOwner.getText());
-        clearFields();
-        
+        if (UnitOwner.getText() == null || unitSize.getValue() == null) {
+            throw new IllegalArgumentException("Must select size and give customername!");
+        } else {
+            units.getUnitByLocation(this.location).setCustomerName(UnitOwner.getText());
+            App.setRoot("leasebooth");
+        }
     }
 
     
