@@ -13,6 +13,10 @@ public class UnitList {
 
     }
 
+    /**
+     * Returns a list of units that's been rented yet
+     * @return rentedUnits
+     */
     public List<Unit> getRentedUnits() {
         List<Unit> rentedUnits = new ArrayList<>();
         for (var entry : getUnitListEntries()) {
@@ -23,6 +27,10 @@ public class UnitList {
         return rentedUnits;
     }
 
+    /**
+     * Retunrs a list of units that's not been rented
+     * @return freeUnits
+     */
     public List<Unit> getFreeUnits() {
         List<Unit> freeUnits = new ArrayList<>();
         for (var entry : getUnitListEntries()) {
@@ -33,6 +41,11 @@ public class UnitList {
         return freeUnits;
     }
 
+    /**
+     * Returns a list of units, that are of a certain size and that's not been rented.
+     * @param size String of Size: Large, Medium, Small
+     * @return
+     */
     public List<Unit> getFreeUnitsWithCertainSize(String size) { 
         try {
             char s = size.charAt(0); 
@@ -52,11 +65,19 @@ public class UnitList {
     }
 
     
-    
+    /**
+     * Returns all units in the system
+     * @return unitList
+     */
     public List<Unit> getUnitListEntries() {
         return UnitList.unitList;
     }
 
+    /**
+     * Returns a unit with a given location
+     * @param location
+     * @return
+     */
     public Unit getUnitByLocation(Integer location) {
         for (var entry : getUnitListEntries()) {
             if (entry.getLocation().equals(location)) {
@@ -81,9 +102,6 @@ public class UnitList {
         }
     }
 
-    //TODO: Encapsulate, valdiation
-    //Creates and adds Unit to UnitList
-    
     /**
      * Creates a Unit, and adds it to the UnitList
      * Location is added automatically by incrementing locationnumber
@@ -104,6 +122,9 @@ public class UnitList {
        getUnitListEntries().add(unit);
     }
 
+    /**
+     * Clears the global list of units
+     */
     public void clearUnitList() {
         getUnitListEntries().clear();
     }
