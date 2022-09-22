@@ -55,10 +55,9 @@ public class UnitList {
         getUnitListEntries().add(unitToAdd);
     }
 
-    //Adds allready made Unit to UnitList
-    //public void addUnit(Unit u) {
-    //   getUnitListEntries().add(u);
-    //}
+    public void addUnit(Unit u) {
+       getUnitListEntries().add(u);
+    }
 
     public void clearUnitList() {
         getUnitListEntries().clear();
