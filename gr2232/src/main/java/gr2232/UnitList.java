@@ -73,7 +73,7 @@ public class UnitList {
         getUnitListEntries().clear();
     }
 
-    public static void main(String args[]) {
+    /* public static void main(String args[]) {
         UnitList testList = new UnitList();
         //Empty list, no objects
         testList.getUnitListEntries();
@@ -97,5 +97,5 @@ public class UnitList {
         System.out.println(testList.getUnitListEntries());
 
 
-    }
+    } */
 }
