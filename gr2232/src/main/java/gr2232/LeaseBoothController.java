@@ -65,19 +65,14 @@ public class LeaseBoothController implements Initializable {
 
     public void clearFields() {
         UnitOwner.clear();
-        unitLocation.setText("");
-        unitSize.setValue("");
+        
         
     }
 
     @FXML
     void leaseOut(ActionEvent event) throws IOException{
         // finn unit med size x og location y. 
-        System.out.println(units.getFreeUnits());
-        System.out.println(units.getRentedUnits());
         units.getUnitByLocation(this.location).setCustomerName(UnitOwner.getText());
-        System.out.println(units.getFreeUnits());
-        System.out.println(units.getRentedUnits());
         clearFields();
         
     }
