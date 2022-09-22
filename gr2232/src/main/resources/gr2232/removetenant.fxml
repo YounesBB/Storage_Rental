@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -15,7 +16,7 @@
             <Font size="24.0" />
          </font>
       </Text>
-      <StackPane layoutY="139.0" prefHeight="268.0" prefWidth="600.0">
+      <StackPane layoutX="705.0" layoutY="100.0" prefHeight="268.0" prefWidth="600.0">
          <children>
             <TableView fx:id="tenantTable" prefHeight="268.0" prefWidth="600.0">
               <columns>
@@ -28,5 +29,7 @@
          </children>
       </StackPane>
       <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#goToOverView" text="Back" />
+      <ChoiceBox fx:id="tenantSelector" layoutX="225.0" layoutY="134.0" prefWidth="150.0" />
+      <Button layoutX="241.0" layoutY="248.0" mnemonicParsing="false" onAction="#onRemoveTenant" text="Remove tenant" />
    </children>
 </AnchorPane>
