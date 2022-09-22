@@ -14,6 +14,10 @@ public class UnitListFileSupport {
         this.units = entry;
     }
     
+    /**
+     * Iterates over all existing units, getting required unit-information, and writing a line containing the data.
+     * @param filename
+     */
     public void writeListToFile(String filename) {
         try {
             PrintWriter writer = new PrintWriter(filename);
@@ -34,9 +38,16 @@ public class UnitListFileSupport {
     }
 
 
+    /**
+     * Iterates over textfile, each line contains unit-information
+     * @param filename
+     * @retun unitList
+     * @throws FileNotFoundException
+     */
     public UnitList getListFromFile(String filename) throws FileNotFoundException{
         Scanner scanner = new Scanner(new File(filename));
         UnitList unitList = new UnitList();
+        
         while (scanner.hasNextLine()) {
             String line = scanner.nextLine();
             String [] lineData = line.split(",");
