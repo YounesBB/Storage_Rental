@@ -24,6 +24,6 @@
          </font>
       </Text>
       <Text layoutX="188.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter filename to load/Save system" />
-      <TextArea fx:id="responseText" layoutX="190.0" layoutY="215.0" prefHeight="43.0" prefWidth="200.0" />
+      <TextArea fx:id="responseText" editable="false" layoutX="200.0" layoutY="271.0" prefHeight="43.0" prefWidth="200.0" />
    </children>
 </AnchorPane>
