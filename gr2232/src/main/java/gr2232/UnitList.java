@@ -48,6 +48,12 @@ public class UnitList {
 
     //TODO: Encapsulate, valdiation
     //Creates and adds Unit to UnitList
+    
+    /**
+     * Creates a Unit, and adds it to the UnitList
+     * Location is added automatically by incrementing locationnumber
+     * @param size
+     */
     public void createUnit(char size) {
         Unit unitToAdd = new Unit(size,UnitList.locationIncrementer);
         UnitList.locationIncrementer = UnitList.locationIncrementer + 1;
@@ -55,10 +61,13 @@ public class UnitList {
         getUnitListEntries().add(unitToAdd);
     }
 
-    //Adds allready made Unit to UnitList
-    //public void addUnit(Unit u) {
-    //   getUnitListEntries().add(u);
-    //}
+    /**
+     * Adds an existing unit to the unitlist
+     * @param Unit to add
+     */
+    public void addUnit(Unit unit) {
+       getUnitListEntries().add(unit);
+    }
 
     public void clearUnitList() {
         getUnitListEntries().clear();

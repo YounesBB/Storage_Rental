@@ -40,6 +40,10 @@ public class Unit {
         this.isRented = !this.isRented;
     }
 
+    public void setIsRented(boolean b) {
+        this.isRented = b;
+    }
+
 
     public void setCustomerName(String name) {
         /* if (getIsRented()) {

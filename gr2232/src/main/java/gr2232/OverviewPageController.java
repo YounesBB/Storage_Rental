@@ -45,4 +45,9 @@ public class OverviewPageController {
         App.setRoot("login");
     }
 
+    @FXML
+    void goToSettings(ActionEvent event) throws IOException {
+        App.setRoot("adminpanel");
+    }
+
 }
