@@ -32,6 +32,20 @@ public class UnitList {
         }
         return freeUnits;
     }
+
+    public List<Unit> getUnitsWithCertainSize(String size, List<Unit> list) { 
+        char s = size.charAt(0); 
+        List<Unit> UnitsOfSizeS = new ArrayList<>(); 
+        for (var entry : getUnitListEntries()) {
+            if (entry.getSize() == s ) {
+                UnitsOfSizeS.add(entry);
+            }
+        }
+        return UnitsOfSizeS;
+        
+    }
+
+    
     
     public List<Unit> getUnitListEntries() {
         return UnitList.unitList;

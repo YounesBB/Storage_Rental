@@ -43,7 +43,8 @@ public class RegisterBoothController {
             return number;
         }
         catch (final NumberFormatException e) { 
-            return null;
+            throw new IllegalArgumentException("The number can not be a decimal or empty!"); // burde endres. Stopper programmet helt om ikke alle felt har fått et tall 0 =<
+            //Tolke at et tomt felt betyr 0 bod?
         }
     }
 
@@ -82,7 +83,7 @@ public class RegisterBoothController {
         getInputValues();
         makeBooths();
         clearFields(); 
-        System.out.println(units.getUnitListEntries()); //testkode
+        System.out.println(units.getUnitListEntries()); //testcode
     
     }
 
