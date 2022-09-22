@@ -43,17 +43,20 @@ public class RemoveTenantController {
     @FXML 
     void onRemoveTenant() throws IOException {
         UnitList unitList = new UnitList();
-
         String tenantLine = tenantSelector.getValue();
-        String[] tenantData = tenantLine.split(",");
-        Integer location = Integer.parseInt(tenantData[1]);
+        if (tenantLine == null) {
+            throw new IllegalArgumentException("Must select a tenant to remove!");
+        } else {
+            String[] tenantData = tenantLine.split(",");
+            Integer location = Integer.parseInt(tenantData[1]);
 
-        Unit unitToRemoveTenant = unitList.getUnitByLocation(location);
-        unitToRemoveTenant.setIsRented(false);
-        unitList.updateUnitByLocation(location, unitToRemoveTenant);
+            Unit unitToRemoveTenant = unitList.getUnitByLocation(location);
+            unitToRemoveTenant.setIsRented(false);
+            unitList.updateUnitByLocation(location, unitToRemoveTenant);
 
-        updateTenantList();
-        tenantSelector.setItems(tenantList);
+            updateTenantList();
+            tenantSelector.setItems(tenantList);
+    }
 
     }
 
