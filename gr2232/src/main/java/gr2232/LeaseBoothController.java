@@ -48,7 +48,7 @@ public class LeaseBoothController implements Initializable {
 
     public void showFreeBooth(String boothSize) {
         List<Unit> freeUnits = units.getFreeUnits();
-        Integer location = units.getUnitsWithCertainSize(boothSize, freeUnits).get(0).getLocation();  //skriv kode for hvis liste er tom
+        Integer location = units.getFreeUnitsWithCertainSize(boothSize, freeUnits).get(0).getLocation();  //skriv kode for hvis liste er tom
         this.location = location;
 
         unitLocation.setText(Integer.toString(location));

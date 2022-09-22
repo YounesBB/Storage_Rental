@@ -33,7 +33,7 @@ public class UnitList {
         return freeUnits;
     }
 
-    public List<Unit> getUnitsWithCertainSize(String size, List<Unit> list) { 
+    public List<Unit> getFreeUnitsWithCertainSize(String size, List<Unit> list) { 
         char s = size.charAt(0); 
         List<Unit> UnitsOfSizeS = new ArrayList<>(); 
         for (var entry : getFreeUnits()) {
