@@ -71,8 +71,8 @@ public class LeaseBoothController implements Initializable {
 
     public void clearFields() {
         UnitOwner.clear();
-        
-        
+        unitSize.setValue("");
+        unitLocation.setText(""); 
     }
 
     @FXML
