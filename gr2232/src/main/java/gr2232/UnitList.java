@@ -36,7 +36,7 @@ public class UnitList {
     public List<Unit> getUnitsWithCertainSize(String size, List<Unit> list) { 
         char s = size.charAt(0); 
         List<Unit> UnitsOfSizeS = new ArrayList<>(); 
-        for (var entry : getUnitListEntries()) {
+        for (var entry : getFreeUnits()) {
             if (entry.getSize() == s ) {
                 UnitsOfSizeS.add(entry);
             }
