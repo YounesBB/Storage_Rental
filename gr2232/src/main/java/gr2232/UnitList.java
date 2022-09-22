@@ -46,6 +46,21 @@ public class UnitList {
         return null;
     }
 
+    /**
+     * Replaces the unit given by location. Iterates over Unitlist array
+     * @param location Unit location
+     * @param Unit New unit to swap current unit
+     */
+    public void updateUnitByLocation(Integer location, Unit newUnit) {
+        Integer counter = 0;
+        for (var entry : getUnitListEntries()) {
+            if (entry.getLocation().equals(location)) {
+                getUnitListEntries().set(counter, newUnit);
+            }
+            counter ++;
+        }
+    }
+
     //TODO: Encapsulate, valdiation
     //Creates and adds Unit to UnitList
     
