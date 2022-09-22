@@ -49,12 +49,6 @@ public class Unit {
 
 
     public void setCustomerName(String name) {
-        /* if (getIsRented()) {
-            this.customerName = name;
-        }
-        else {
-            throw new IllegalStateException("Cannot set customername when the unit is not rented!");
-        } */
         if (getIsRented() == false) {
             toggleIsRented();
             this.customerName = name;
@@ -73,7 +67,6 @@ public class Unit {
         return this.location;
     }
 
-    //UnitList will get the location when added. Atleast what I have in mind atm
     public void setLocation(Integer loc) {
         this.location = loc;
     }
