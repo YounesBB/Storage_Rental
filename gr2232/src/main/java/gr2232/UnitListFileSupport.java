@@ -54,7 +54,9 @@ public class UnitListFileSupport {
             //Location, Size, Name, Status
             Integer location = Integer.parseInt(lineData[0]);
             Character size = lineData[1].charAt(0);
+            System.out.println(lineData);
             String name = lineData[2];
+            System.out.println(lineData[2]);
             Boolean status = Boolean.parseBoolean(lineData[3]);
             Unit u = new Unit(size,location);
             u.setCustomerName(name);

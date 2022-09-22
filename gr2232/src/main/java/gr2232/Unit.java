@@ -41,7 +41,7 @@ public class Unit {
     }
 
     public void setIsRented(boolean b) {
-        if (getIsRented()) {
+        if (getIsRented() && !b) {
             setCustomerName("null");
         }
         this.isRented = b;

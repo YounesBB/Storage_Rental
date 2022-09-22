@@ -5,6 +5,7 @@ import java.io.IOException;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 public class AdminPanelController {
@@ -13,9 +14,13 @@ public class AdminPanelController {
     private TextField fileUrl;
 
     @FXML
+    private TextArea responseText;
+
+    @FXML
     void onClearSystem(ActionEvent event) {
         UnitList unitList = new UnitList();
         unitList.clearUnitList();
+        responseText.setText("System cleared!");
     }
 
     @FXML
@@ -33,8 +38,10 @@ public class AdminPanelController {
         try {
             unitList.clearUnitList();
             unitList = fileHandler.getListFromFile(fileName);
+            responseText.setText("Loaded!");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
+            responseText.setText("Error loading file");
         }
     }
 
@@ -45,6 +52,7 @@ public class AdminPanelController {
 
         String fileName = fileUrl.getText();
         fileHandler.writeListToFile(fileName);
+        responseText.setText("Saved!");
 
     }
 
