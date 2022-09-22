@@ -48,8 +48,14 @@ public class LeaseBoothController implements Initializable {
 
     public void showFreeBooth(String boothSize) {
         List<Unit> freeUnits = units.getFreeUnits();
-        Integer location = units.getFreeUnitsWithCertainSize(boothSize, freeUnits).get(0).getLocation();  //skriv kode for hvis liste er tom
-        this.location = location;
+        List<Unit> free = units.getFreeUnitsWithCertainSize(boothSize, freeUnits);
+        if (free.isEmpty()) {
+            unitLocation.setText("There is no more Units of this size to lease out!");
+            this.location = null; 
+        } else {
+            Integer location = free.get(0).getLocation();
+            this.location = location;
+        }
 
         unitLocation.setText(Integer.toString(location));
 
@@ -71,7 +77,6 @@ public class LeaseBoothController implements Initializable {
 
     @FXML
     void leaseOut(ActionEvent event) throws IOException{
-        // finn unit med size x og location y. 
         units.getUnitByLocation(this.location).setCustomerName(UnitOwner.getText());
         clearFields();
         
