@@ -8,46 +8,46 @@ import javafx.scene.control.Button;
 
 public class OverviewPageController {
 
-    @FXML
-    private Button addUnitsButton;
+  @FXML
+  private Button addUnitsButton;
 
-    @FXML
-    private Button leaseOutButton;
+  @FXML
+  private Button leaseOutButton;
 
-    @FXML
-    private Button removeTenantButton;
+  @FXML
+  private Button removeTenantButton;
 
-    @FXML
-    private Button unitsOverviewButton;
+  @FXML
+  private Button unitsOverviewButton;
 
-    @FXML
-    void goToAddUnitsPage(ActionEvent event) throws IOException {
-        App.setRoot("registerbooth");
-    }
+  @FXML
+  void goToAddUnitsPage(ActionEvent event) throws IOException {
+    App.setRoot("registerbooth");
+  }
 
-    @FXML
-    void goToLeaseOutPage(ActionEvent event) throws IOException {
-        App.setRoot("leasebooth");
-    }
+  @FXML
+  void goToLeaseOutPage(ActionEvent event) throws IOException {
+    App.setRoot("leasebooth");
+  }
 
-    @FXML
-    void goToRemoveTenantPage(ActionEvent event) throws IOException {
-        App.setRoot("removetenant");
-    }
+  @FXML
+  void goToRemoveTenantPage(ActionEvent event) throws IOException {
+    App.setRoot("removetenant");
+  }
 
-    @FXML
-    void goToUnitsOverviewPage(ActionEvent event) throws IOException {
-        App.setRoot("allTenants");
-    }
+  @FXML
+  void goToUnitsOverviewPage(ActionEvent event) throws IOException {
+    App.setRoot("allTenants");
+  }
 
-    @FXML
-    void goToLogIn(ActionEvent event) throws IOException {
-        App.setRoot("login");
-    }
+  @FXML
+  void goToLogIn(ActionEvent event) throws IOException {
+    App.setRoot("login");
+  }
 
-    @FXML
-    void goToSettings(ActionEvent event) throws IOException {
-        App.setRoot("adminpanel");
-    }
+  @FXML
+  void goToSettings(ActionEvent event) throws IOException {
+    App.setRoot("adminpanel");
+  }
 
 }
