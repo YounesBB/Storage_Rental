@@ -54,10 +54,13 @@ public class UnitListFileSupport {
         Type unitType = new TypeToken<List<Unit>>() {}.getType();
         JsonReader reader = new JsonReader(new FileReader(filename));
         List<Unit> list = gson.fromJson(reader, unitType);
-
         UnitList ul = new UnitList();
-        ul.getUnitListEntries().clear();
-        ul.getUnitListEntries().addAll(list);
+        if (list.size() == 0) {
+            throw new IllegalStateException("Corrupted file!");
+        } else {
+            ul.getUnitListEntries().clear();
+            ul.getUnitListEntries().addAll(list);    
+        };
         return ul;
     }
 }
