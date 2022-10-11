@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gr2232.AdminPanelController">
+   <children>
+      <Button layoutX="186.0" layoutY="320.0" mnemonicParsing="false" onAction="#onClearSystem" text="Clear system?" textFill="#ff1818">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Button>
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#onGoBack" text="Back" />
+      <TextField fx:id="fileUrl" layoutX="204.0" layoutY="113.0" />
+      <Button layoutX="204.0" layoutY="144.0" mnemonicParsing="false" onAction="#onLoad" text="Load" />
+      <Button layoutX="313.0" layoutY="144.0" mnemonicParsing="false" onAction="#onSave" text="Save" />
+      <Text layoutX="189.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adminpanel">
+         <font>
+            <Font size="37.0" />
+         </font>
+      </Text>
+      <Text layoutX="188.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter filename to load/Save system" />
+      <TextArea fx:id="responseText" editable="false" layoutX="200.0" layoutY="271.0" prefHeight="43.0" prefWidth="200.0" />
+   </children>
+</AnchorPane>
