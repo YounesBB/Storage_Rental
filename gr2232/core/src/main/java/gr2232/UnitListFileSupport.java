@@ -27,14 +27,10 @@ public class UnitListFileSupport {
      */
     public void writeListToFile(String filename) {
         UnitList ul = new UnitList();
-        Gson gson = new Gson();
-        String test = gson.toJson(ul.getUnitListEntries());
-        System.out.println(test);
-        try {
-            PrintWriter writer = new PrintWriter(filename);
-            writer.println(test);
-            writer.flush();
-            writer.close();
+        String jsonFilename = filename + ".json";
+        try (Writer writer = new FileWriter(jsonFilename)) {
+            Gson gson = new GsonBuilder().create();
+            gson.toJson(ul.getUnitListEntries, writer);
         }
         catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -51,8 +47,9 @@ public class UnitListFileSupport {
      */
     public UnitList getListFromFile(String filename) throws FileNotFoundException{
         Gson gson = new Gson();
+        String jsonFilename = filename + ".json";
         Type unitType = new TypeToken<List<Unit>>() {}.getType();
-        JsonReader reader = new JsonReader(new FileReader(filename));
+        JsonReader reader = new JsonReader(new FileReader(jsonFilename));
         List<Unit> list = gson.fromJson(reader, unitType);
         UnitList ul = new UnitList();
         if (list.size() == 0) {
