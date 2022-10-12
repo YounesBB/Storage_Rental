@@ -46,7 +46,7 @@ public class AdminPanelController {
     }
 
     @FXML
-    void onSave(ActionEvent event) {
+    void onSave(ActionEvent event) throws IOException {
         UnitList unitList = new UnitList();
         final UnitListFileSupport fileHandler = new UnitListFileSupport(unitList.getUnitListEntries());
 

@@ -12,12 +12,12 @@
             <Font size="35.0" />
          </font>
       </Text>
-      <Button fx:id="userButton" layoutX="59.0" layoutY="168.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="188.0" text="Employee" onAction="#switchToOverview">
+      <Button fx:id="userButton" layoutX="59.0" layoutY="168.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="188.0" text="Employee" onAction="#switchToOverviewAsEmployee">
          <font>
             <Font size="28.0" />
          </font>
       </Button>
-      <Button fx:id="adminButton" layoutX="353.0" layoutY="168.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="188.0" text="Manager" onAction="#switchToOverview">
+      <Button fx:id="adminButton" layoutX="353.0" layoutY="168.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="188.0" text="Manager" onAction="#switchToOverviewAsManager">
          <font>
             <Font size="28.0" />
          </font>
