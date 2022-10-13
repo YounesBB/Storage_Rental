@@ -16,6 +16,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
 public class AppTest extends ApplicationTest {
@@ -24,9 +25,14 @@ public class AppTest extends ApplicationTest {
     private LoginController controller;
     private FXMLLoader loader;
 
+    private Button newBoothButton;
+    private TextField smallBooths;
+    private TextField mediumBooths;
+    private TextField largeBooths;
+
     @Override
     public void start(final Stage stage) throws Exception {
-        final FXMLLoader loader = new FXMLLoader(getClass().getResource("login.fxml"));
+        final FXMLLoader loader = new FXMLLoader(getClass().getResource("registerbooth.fxml"));
         this.loader = loader;
         this.parent = loader.load();
         this.controller = loader.getController();
@@ -34,10 +40,17 @@ public class AppTest extends ApplicationTest {
         stage.show();
     }
 
+    @BeforeEach
+    public void initialize() {
+        this.newBoothButton = (Button) parent.lookup("#getNewBoothButton");
+        this.smallBooths = (TextField) parent.lookup("#inputSmallBooth");
+        this.mediumBooths = (TextField) parent.lookup("#inputMediumBooth");
+        this.largeBooths = (TextField) parent.lookup("#inputLargeBooth");
+    }
+
     @Test
     public void testController() {
-        final Button employeeButton = (Button) parent.lookup("#userButton");
-        AnchorPane loginPage = loader.getRoot();
+        controller.clickOn(smallBooths).type(2);
         clickOn(employeeButton);
         AnchorPane currentPage = loader.getRoot();
         assertNotEquals(currentPage, loginPage);
