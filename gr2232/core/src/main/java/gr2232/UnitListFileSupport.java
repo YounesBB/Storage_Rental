@@ -3,9 +3,10 @@ package gr2232;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.Writer;
-import java.io.FileWriter;
 import java.lang.reflect.Type;
 import java.util.List;
 import java.util.Scanner;
@@ -27,13 +28,14 @@ public class UnitListFileSupport {
     /**
      * Uses GSON to turn all unitentries(List) into a jsonfile
      * @param filename
+     * @throws IOException
      */
-    public void writeListToFile(String filename) {
+    public void writeListToFile(String filename) throws IOException {
         UnitList ul = new UnitList();
         String jsonFilename = filename + ".json";
         try (Writer writer = new FileWriter(jsonFilename)) {
             Gson gson = new GsonBuilder().create();
-            gson.toJson(ul.getUnitListEntries, writer);
+            gson.toJson(ul.getUnitListEntries(), writer);
         }
         catch (FileNotFoundException e) {
             e.printStackTrace();

@@ -10,6 +10,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.testfx.api.FxAssert;
 import org.testfx.framework.junit5.ApplicationTest;
+import org.testfx.util.WaitForAsyncUtils;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -17,12 +18,13 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 
 public class AppTest extends ApplicationTest {
 
     private Parent parent;
-    private LoginController controller;
+    private RegisterBoothController controller;
     private FXMLLoader loader;
 
     private Button newBoothButton;
@@ -48,11 +50,19 @@ public class AppTest extends ApplicationTest {
         this.largeBooths = (TextField) parent.lookup("#inputLargeBooth");
     }
 
+    //Might want to change so that empty input == 0 in controller?
     @Test
-    public void testController() {
-        controller.clickOn(smallBooths).type(2);
-        clickOn(employeeButton);
-        AnchorPane currentPage = loader.getRoot();
-        assertNotEquals(currentPage, loginPage);
+    public void testInputSize() throws InterruptedException {
+        UnitList ul = new UnitList();
+        clickOn("#inputSmallBooth").write("4");
+        WaitForAsyncUtils.waitForFxEvents();
+        clickOn("#inputMediumBooth").write("0");
+        WaitForAsyncUtils.waitForFxEvents();
+        clickOn("#inputLargeBooth").write("0");
+        WaitForAsyncUtils.waitForFxEvents();
+        clickOn("#getNewBoothButton");
+        WaitForAsyncUtils.waitForFxEvents();
+        System.out.println(ul.getUnitListEntries());
+        assertEquals(ul.getUnitListEntries().size(), 4);
     }
 }

@@ -21,6 +21,16 @@ public class OverviewPageController {
   private Button unitsOverviewButton;
 
   @FXML
+  void initialize() {
+    if(HandleUser.getIsManager()) {
+      this.addUnitsButton.setDisable(false);
+    }
+    else {
+      this.addUnitsButton.setDisable(true);
+    }
+  }
+
+  @FXML
   void goToAddUnitsPage(ActionEvent event) throws IOException {
     App.setRoot("registerbooth");
   }
