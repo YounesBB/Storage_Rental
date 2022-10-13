@@ -25,6 +25,8 @@ public class AppRegisterBoothTest extends ApplicationTest {
 
     @Override
     public void start(final Stage stage) throws Exception {
+        UnitList ul = new UnitList();
+        ul.clearUnitList();
         final FXMLLoader loader = new FXMLLoader(getClass().getResource("registerbooth.fxml"));
         this.loader = loader;
         this.parent = loader.load();
@@ -46,6 +48,6 @@ public class AppRegisterBoothTest extends ApplicationTest {
         clickOn("#getNewBoothButton");
         WaitForAsyncUtils.waitForFxEvents();
         System.out.println(ul.getUnitListEntries());
-        assertEquals(ul.getUnitListEntries().size(), 4);
+        assertEquals(4, ul.getUnitListEntries().size());
     }
 }
