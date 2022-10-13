@@ -16,21 +16,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
-import javafx.scene.input.KeyCode;
-import javafx.scene.layout.AnchorPane;
 
-public class AppTest extends ApplicationTest {
+public class AppRegisterBoothTest extends ApplicationTest {
 
     private Parent parent;
     private RegisterBoothController controller;
     private FXMLLoader loader;
-
-    private Button newBoothButton;
-    private TextField smallBooths;
-    private TextField mediumBooths;
-    private TextField largeBooths;
 
     @Override
     public void start(final Stage stage) throws Exception {
@@ -40,14 +31,6 @@ public class AppTest extends ApplicationTest {
         this.controller = loader.getController();
         stage.setScene(new Scene(parent));
         stage.show();
-    }
-
-    @BeforeEach
-    public void initialize() {
-        this.newBoothButton = (Button) parent.lookup("#getNewBoothButton");
-        this.smallBooths = (TextField) parent.lookup("#inputSmallBooth");
-        this.mediumBooths = (TextField) parent.lookup("#inputMediumBooth");
-        this.largeBooths = (TextField) parent.lookup("#inputLargeBooth");
     }
 
     //Might want to change so that empty input == 0 in controller?
