@@ -1,7 +1,7 @@
-package gr2232;
+package gr2232.ui;
 
 import java.io.IOException;
-
+import gr2232.core.HandleUser;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

@@ -1,8 +1,9 @@
-package gr2232;
+package gr2232.ui;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-
+import gr2232.core.UnitList;
+import gr2232.core.UnitListFileSupport;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;

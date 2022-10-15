@@ -88,7 +88,7 @@
                 <!-- Default configuration for running -->
                 <!-- Usage: mvn javafx:run -->
                 <configuration>
-                    <mainClass>gr2232.App</mainClass>
+                    <mainClass>gr2232.ui.App</mainClass>
                 </configuration>
             </plugin>
 
@@ -102,6 +102,12 @@
             <plugin>
                 <groupId>com.github.spotbugs</groupId>
                 <artifactId>spotbugs-maven-plugin</artifactId>
+                <configuration>
+                        <!--<skip>true</skip>-->
+                        <xmlOutput>false</xmlOutput>
+                        <htmlOutput>true</htmlOutput>
+                        <excludeFilterFile>../config/spotbugs/exclude.xml</excludeFilterFile>
+                </configuration> 
             </plugin>
             <!-- Configure jacoco code coverage -->
             <plugin>

@@ -1,6 +1,7 @@
-package gr2232;
+package gr2232.ui;
 
 import java.io.IOException;
+import gr2232.core.HandleUser;
 import javafx.fxml.FXML;
 
 public class LoginController {

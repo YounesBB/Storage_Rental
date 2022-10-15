@@ -1,4 +1,4 @@
-package gr2232;
+package gr2232.core;
 
 import java.util.ArrayList;
 import java.util.List;

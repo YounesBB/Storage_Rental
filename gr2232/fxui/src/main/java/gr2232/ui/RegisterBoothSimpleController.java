@@ -1,4 +1,4 @@
-package gr2232;
+package gr2232.ui;
 
 import java.io.IOException;
 import javafx.event.ActionEvent;

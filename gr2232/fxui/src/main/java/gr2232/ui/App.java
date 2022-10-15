@@ -1,4 +1,4 @@
-package gr2232;
+package gr2232.ui;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
