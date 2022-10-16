@@ -32,17 +32,23 @@ public class Unit {
   // Toggles isRented boolean
   public void toggleIsRented() {
     // Encapsulate customername, remove name is state is set to not rented
-    if (getIsRented()) {
+    if (getIsRented()) { 
       setCustomerName("null");
     }
     this.isRented = !this.isRented;
   }
 
-  public void setIsRented(boolean b) {
-    if (getIsRented() && !b) {
+  public void RemoveTenantFromUnit() {
+    if (getIsRented()) { 
       setCustomerName("null");
+      setIsRented(false); 
+    } else {
+      throw new IllegalArgumentException("The unit does not have a tenant!");
     }
-    this.isRented = b;
+  }
+
+  public void setIsRented(boolean b) { 
+    this.isRented = b; 
   }
 
 
@@ -72,23 +78,6 @@ public class Unit {
     if (getIsRented()) {
       toggleIsRented();
     }
-  }
-
-  // Testing/debugging
-  public static void main(String args[]) {
-    Unit test = new Unit('M', 0);
-    System.out.println(test.getSize());
-    test.setSize('L');
-    System.out.println(test.getSize());
-
-    // Throws exception as planned PP
-    // test.setSize('R');
-
-    System.out.println(test.getIsRented());
-    // Throws exception as planned
-    // Must set state to rented before setting customer name
-    // test.setCustomerName("Magnus Svendsen");
-
   }
 
 }
