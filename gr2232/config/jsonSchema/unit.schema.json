@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "http://example.com/unit.schema.json",
+  "type": "array",
+  "title": "Unit schema",
+  "description": "This is a Unit in Unitlist",
+  "required": [
+      "isRented",
+      "customerName",
+      "location",
+      "size"
+  ],
+  "properties": {
+      "isRented": {
+          "type": "boolean",
+          "default": false,
+          "description": "Shows if a Unit is rented or not",
+          "examples": [
+              false, 
+              true
+          ]
+      },
+      "customerName": {
+          "type": "string",
+          "default": "null",
+          "description": "The name of the person that the unit belongs to",
+          "examples": [
+              "null",
+              "Tom"
+          ]
+      },
+      "location": {
+          "type": "integer",
+          "title": "The location/adress of a unit.",
+          "examples": [
+              0,
+              1, 
+              2
+          ]
+      },
+      "size": {
+          "type": "string",
+          "description": "The size category of a unit",
+          "examples": [
+              "L",
+              "M", 
+              "S"
+          ]
+      }
+  },
+  "examples": [{
+      "isRented": false,
+      "customerName": "null",
+      "location": 0,
+      "size": "L"
+  }, {
+      "isRented": true,
+      "customerName": "Tom",
+      "location": 1,
+      "size": "M"
+  }
+  ]
+}
