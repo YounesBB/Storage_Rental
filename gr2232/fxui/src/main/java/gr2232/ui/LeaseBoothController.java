@@ -67,7 +67,7 @@ public class LeaseBoothController implements Initializable {
 
   @FXML
   void leaseOut(ActionEvent event) throws IOException {
-    if (UnitOwner.getText() == "" || unitSize.getValue() == null || unitLocation.getText() == "") {
+    if (UnitOwner.getText().equals("") || unitSize.getValue() == null || unitLocation.getText().equals("")) {
       throw new IllegalArgumentException("Must select size and give customername!");
     } else {
       units.getUnitByLocation(this.location).setCustomerName(UnitOwner.getText());

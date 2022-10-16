@@ -38,7 +38,7 @@ public class Unit {
     this.isRented = !this.isRented;
   }
 
-  public void RemoveTenantFromUnit() {
+  public void removeTenantFromUnit() {
     if (getIsRented()) { 
       setCustomerName("null");
       setIsRented(false); 

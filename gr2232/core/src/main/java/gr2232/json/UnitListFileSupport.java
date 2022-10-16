@@ -1,4 +1,4 @@
-package gr2232.core;
+package gr2232.json;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -13,6 +13,7 @@ import java.io.Writer;
 import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
+import gr2232.core.*;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -32,7 +33,7 @@ public class UnitListFileSupport {
    */
   public void writeListToFile(String filename) throws IOException {
     UnitList ul = new UnitList();
-    String jsonFilename = filename + ".json";
+    String jsonFilename = filename + ".model.json";
     try (Writer writer = new BufferedWriter(new OutputStreamWriter(
         new FileOutputStream(jsonFilename), StandardCharsets.UTF_8));) {
       Gson gson = new GsonBuilder().create();
@@ -54,7 +55,7 @@ public class UnitListFileSupport {
    */
   public UnitList getListFromFile(String filename) throws FileNotFoundException, UnsupportedEncodingException {
     Gson gson = new Gson();
-    String jsonFilename = filename + ".json";
+    String jsonFilename = filename + ".model.json";
     FileInputStream stream = new FileInputStream(jsonFilename);
     Type unitType = new TypeToken<List<Unit>>() {
     }.getType();
