@@ -20,8 +20,8 @@
       <Text layoutX="140.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Location" />
       <TextArea fx:id="unitLocation" editable="false" layoutX="214.0" layoutY="194.0" prefHeight="8.0" prefWidth="200.0" />
       <TextField fx:id="UnitOwner" layoutX="213.0" layoutY="108.0" prefHeight="26.0" prefWidth="200.0" />
-      <Button layoutX="269.0" layoutY="303.0" mnemonicParsing="false" onAction="#leaseOut" text="Submit" />
-      <Button layoutX="40.0" layoutY="32.0" mnemonicParsing="false" onAction="#goBackToOverviewPage" text="Back" />
+      <Button fx:id="submitButton" layoutX="269.0" layoutY="303.0" mnemonicParsing="false" onAction="#leaseOut" text="Submit" />
+      <Button fx:id="backButton" layoutX="40.0" layoutY="32.0" mnemonicParsing="false" onAction="#goBackToOverviewPage" text="Back" />
       <ComboBox fx:id="unitSize" onAction="#getSizeValue" layoutX="213.0" layoutY="155.0" prefWidth="150.0" />
    </children>
 </AnchorPane>

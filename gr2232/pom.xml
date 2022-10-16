@@ -34,6 +34,7 @@
                         <argLine>
                         @{argLine} --add-opens gr2232/gr2232=ALL-UNNAMED --add-exports javafx.graphics/com.sun.javafx.application=ALL-UNNAMED
                         </argLine>
+                        <skipTests>false</skipTests>
                     </configuration>
                 </plugin>
 
@@ -84,7 +85,7 @@
                     <artifactId>spotbugs-maven-plugin</artifactId>
                     <version>4.5.0.0</version>
                     <configuration>
-                        <!--<skip>true</skip>-->
+                        <!-- <skip>true</skip> -->
                         <xmlOutput>false</xmlOutput>
                         <htmlOutput>true</htmlOutput>
                         <excludeFilterFile>config/spotbugs/exclude.xml</excludeFilterFile>
@@ -98,7 +99,7 @@
                         </goals>
                         </execution>
                     </executions>
-                </plugin>
+                </plugin> 
                 <!-- Configure jacoco code coverage -->
                 <plugin>
                     <groupId>org.jacoco</groupId>
