@@ -9,14 +9,7 @@ foo@bar:~/gr2232/gr2232
 mvn install
 ```
 
-The project is now ready to use. The project contains JUnit tests, aswell as GUI tests using TestFX.
-To run tests for the project, do:
-
-```console
-foo@bar:~/gr2232/gr2232
-mvn test
-```
-
+The project is now ready to use. 
 To run the project on your computer, navigate to the FXUI directory, and execute the following command:
 
 ```console
@@ -30,6 +23,27 @@ This project uses Spotbugs to find possible errors,bugs and vulnerabilities. Kee
 foo@bar:~/gr2232/gr2232
 mvn verify
 ```
+
+The project contains JUnit tests, aswell as GUI tests using TestFX.
+To run tests for the project, do:
+
+```console
+foo@bar:~/gr2232/gr2232
+mvn test
+```
+
+To see the test-coverage for the project, execute the following command:
+```console
+foo@bar:~/gr2232/gr2232
+mvn jacoco:report
+```
+Then navigate to the following directories:
+```console
+foo@bar:~/gr2232/gr2232/core/target/site/jacoco
+
+foo@bar:~/gr2232/gr2232/fxui/target/site/jacoco
+```
+And open the corresponding index.html files. 
  
 ### **A system for managing storage units!**
 
