@@ -1,8 +1,10 @@
-##Release 2
+## Release 2
 
-Tjooo
 
 
 Diagrams
 ![Sequence diagram](./SequenceDiagram.png)
 ![Package diagram](./packageDiagram.png)
+
+
+Click [here](./workhabits.md) to read about workhabits and teamwork.
