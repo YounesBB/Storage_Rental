@@ -1,4 +1,4 @@
-package gr2232;
+package gr2232.ui;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -7,6 +7,9 @@ import org.junit.jupiter.api.Test;
 import org.testfx.framework.junit5.ApplicationTest;
 import org.testfx.util.WaitForAsyncUtils;
 
+import gr2232.core.Unit;
+import gr2232.core.UnitList;
+import gr2232.ui.LeaseBoothController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;

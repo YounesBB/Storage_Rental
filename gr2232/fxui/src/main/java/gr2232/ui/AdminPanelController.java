@@ -34,7 +34,7 @@ public class AdminPanelController {
     @FXML
     void onLoad(ActionEvent event) {
         UnitList unitList = new UnitList();
-        final UnitListFileSupport fileHandler = new UnitListFileSupport(unitList.getUnitListEntries());
+        final UnitListFileSupport fileHandler = new UnitListFileSupport();
 
         String fileName = fileUrl.getText();
 
@@ -54,7 +54,7 @@ public class AdminPanelController {
     @FXML
     void onSave(ActionEvent event) throws IOException {
         UnitList unitList = new UnitList();
-        final UnitListFileSupport fileHandler = new UnitListFileSupport(unitList.getUnitListEntries());
+        final UnitListFileSupport fileHandler = new UnitListFileSupport();
 
         String fileName = fileUrl.getText();
         fileHandler.writeListToFile(fileName);

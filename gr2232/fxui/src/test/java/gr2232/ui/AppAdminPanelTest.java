@@ -1,4 +1,4 @@
-package gr2232;
+package gr2232.ui;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -6,6 +6,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.testfx.framework.junit5.ApplicationTest;
 import org.testfx.util.WaitForAsyncUtils;
+
+import gr2232.core.Unit;
+import gr2232.core.UnitList;
+import gr2232.ui.AdminPanelController;
+
 import org.testfx.api.FxAssert;
 
 import javafx.fxml.FXMLLoader;
