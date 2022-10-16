@@ -9,7 +9,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gr2232.AdminPanelController">
    <children>
-      <Button layoutX="186.0" layoutY="320.0" mnemonicParsing="false" onAction="#onClearSystem" text="Clear system?" textFill="#ff1818">
+      <Button fx:id="clearButton" layoutX="186.0" layoutY="320.0" mnemonicParsing="false" onAction="#onClearSystem" text="Clear system?" textFill="#ff1818">
          <font>
             <Font size="27.0" />
          </font>

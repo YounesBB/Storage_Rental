@@ -34,6 +34,7 @@
                         <argLine>
                         @{argLine} --add-opens gr2232/gr2232=ALL-UNNAMED --add-exports javafx.graphics/com.sun.javafx.application=ALL-UNNAMED
                         </argLine>
+                        <skipTests>false</skipTests>
                     </configuration>
                 </plugin>
 
