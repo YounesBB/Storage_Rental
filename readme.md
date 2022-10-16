@@ -2,13 +2,27 @@
 
 ## Getting started
 
-Clone or download the repository. Navigate into gr2232. Do the following command:
+Clone or download the repository. Navigate into gr2232. Execute the following command in your terminal:
 
 ```console
-foo@bar:gr2232/gr2232
+foo@bar:~/gr2232/gr2232
 mvn install
 ```
 
+The project is now ready to use. The project contains JUnit tests, aswell as GUI tests using TestFX.
+To run tests for the project, do:
+
+```console
+foo@bar:~/gr2232/gr2232
+mvn test
+```
+
+To run the project on your computer, navigate to the FXUI directory, and execute the following command:
+
+```console
+foo@bar:~/gr2232/gr2232/fxui
+mvn javafx:run
+```
  
 ### **A system for managing storage units!**
 
