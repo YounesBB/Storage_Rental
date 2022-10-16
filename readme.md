@@ -23,6 +23,13 @@ To run the project on your computer, navigate to the FXUI directory, and execute
 foo@bar:~/gr2232/gr2232/fxui
 mvn javafx:run
 ```
+
+This project uses Spotbugs to find possible errors,bugs and vulnerabilities. Keep in mind Spotbugs will issue a Build Fail if any spotbugs are found. Project also uses Checkstyle to keep the same styling and indendation on the files. To run these plugins, execute the following command:
+
+```console
+foo@bar:~/gr2232/gr2232
+mvn verify
+```
  
 ### **A system for managing storage units!**
 
