@@ -25,13 +25,13 @@ The major implementations of this release are as follows:
     - Using Spotbugs to find and adress potential bugs and errors
     - Using Checkstyle to have a consistent styling
 
+
+Click [here](./workhabits.md) to read about workhabits and teamwork.
+
+Click [here](../../config/jsonSchema/unit.schema.json) to see the JSON schema, that is a documentation for the JSON-data files. 
+
 Sequence diagram:
 ![Sequence diagram](./SequenceDiagram.png)
 
 Package diagram:
 ![Package diagram](./packageDiagram.png)
-
-
-Click [here](./workhabits.md) to read about workhabits and teamwork.
-
-Click [here](../../config/jsonSchema/unit.schema.json) to see the JSON schema.
