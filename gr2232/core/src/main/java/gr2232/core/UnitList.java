@@ -120,7 +120,7 @@ public class UnitList {
    */
   public void createUnit(char size) {
     Unit unitToAdd = new Unit(size, UnitList.locationIncrementer);
-    UnitList.locationIncrementer = UnitList.locationIncrementer + 1;
+    incrementLocation();
     System.out.println(locationIncrementer);
     getUnitListEntries().add(unitToAdd);
   }
