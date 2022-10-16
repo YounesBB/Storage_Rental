@@ -2,6 +2,8 @@ package gr2232.ui;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+
 import gr2232.core.UnitList;
 import gr2232.core.UnitListFileSupport;
 import javafx.event.ActionEvent;
@@ -43,6 +45,9 @@ public class AdminPanelController {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             responseText.setText("Error loading file");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+            responseText.setText("Unsupported encoding");
         }
     }
 
