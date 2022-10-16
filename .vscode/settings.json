@@ -3,7 +3,8 @@
     "java.format.settings.url": "gr2232/config/checkstyle/eclipse-java-google-style.xml",
     "[java]": {
     "editor.tabSize": 2,
-    "editor.detectIndentation": false
+    "editor.detectIndentation": false,
+    "editor.insertSpaces": true
     },
     "java.dependency.packagePresentation": "hierarchical" 
 }

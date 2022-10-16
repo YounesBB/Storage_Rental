@@ -69,11 +69,11 @@ public class Unit {
     this.location = loc;
   }
 
-    public void setUnitFree() {
-        if (getIsRented()) {
-            toggleIsRented();
-        }
+  public void setUnitFree() {
+    if (getIsRented()) {
+      toggleIsRented();
     }
+  }
 
   // Testing/debugging
   public static void main(String args[]) {
