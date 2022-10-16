@@ -46,8 +46,7 @@ foo@bar:~/gr2232/gr2232/fxui/target/site/jacoco
 And open the corresponding index.html files. 
  
 
-Click here to see documentation for the second release. 
-[gr2232/docs/release2/readme.md](gr2232/src/main/java/gr2232) 
+Click [here](gr2232/docs/release2/readme.md) to see documentation for the second release. 
 
 
 
