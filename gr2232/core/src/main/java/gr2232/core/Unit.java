@@ -12,23 +12,22 @@ public class Unit {
     setLocation(location);
   }
 
-  public void setSize(char size) {
-    // Check if valid size
-    if (size == 'S' || size == 'M' || size == 'L') {
-      this.size = size;
-    } else {
-      throw new IllegalArgumentException("Unit size must either be S,M or L!");
+    public void setSize(char size) {
+        // Check if valid size
+        if (size == 'S' || size == 'M' || size == 'L') {
+            this.size = size;
+        } else {
+            throw new IllegalArgumentException("Unit size must either be S,M or L!");
+        }
     }
-  }
 
   public char getSize() {
     return this.size;
   }
 
-
-  public boolean getIsRented() {
-    return this.isRented;
-  }
+    public boolean getIsRented() {
+        return this.isRented;
+    }
 
   // Toggles isRented boolean
   public void toggleIsRented() {

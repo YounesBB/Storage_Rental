@@ -14,9 +14,9 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-public class allTenantsController {
+public class AllTenantsController {
 
-  private UnitList unitList;
+    private UnitList unitList;
 
   @FXML
   private Button backButton;

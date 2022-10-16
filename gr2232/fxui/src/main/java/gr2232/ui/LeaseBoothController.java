@@ -50,15 +50,11 @@ public class LeaseBoothController implements Initializable {
     List<Unit> free = units.getFreeUnitsWithCertainSize(boothSize);
     if (free.isEmpty()) {
       unitLocation.setText("There is no more Units of this size to lease out!");
-      this.location = null;
     } else {
       Integer location = free.get(0).getLocation();
       this.location = location;
     }
-
     unitLocation.setText(Integer.toString(location));
-
-
   }
 
 
@@ -71,7 +67,7 @@ public class LeaseBoothController implements Initializable {
 
   @FXML
   void leaseOut(ActionEvent event) throws IOException {
-    if (UnitOwner.getText() == null || unitSize.getValue() == null || unitLocation.getText() == null) {
+    if (UnitOwner.getText() == "" || unitSize.getValue() == null || unitLocation.getText() == "") {
       throw new IllegalArgumentException("Must select size and give customername!");
     } else {
       units.getUnitByLocation(this.location).setCustomerName(UnitOwner.getText());

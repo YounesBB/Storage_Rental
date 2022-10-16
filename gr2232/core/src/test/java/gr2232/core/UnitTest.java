@@ -8,51 +8,51 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import gr2232.core.Unit;
 
-public class UnitTest{
+public class UnitTest {
 
     private Unit newUnit;
 
     @BeforeEach
-    public void setUp(){
+    public void setUp() {
         newUnit = new Unit('S', 0);
     }
 
     @Test
-    public void testSetSize(){
+    public void testSetSize() {
         newUnit.setSize('M');
         assertEquals(newUnit.getSize(), 'M');
         assertThrows(IllegalArgumentException.class, () -> newUnit.setSize('E'));
     }
-    
+
     @Test
-    public void testToggleIsRented(){
+    public void testToggleIsRented() {
         newUnit.toggleIsRented();
         assertTrue(newUnit.getIsRented());
         newUnit.toggleIsRented();
         assertEquals("null", newUnit.getCustomerName());
     }
 
-    @Test 
-    public void testSetIsRented(){
+    @Test
+    public void testSetIsRented() {
         newUnit.setIsRented(true);
         assertTrue(newUnit.getIsRented());
     }
 
-    @Test 
-    public void testSetLocation(){
+    @Test
+    public void testSetLocation() {
         newUnit.setLocation(2);
-        assertEquals(2 , newUnit.getLocation());
+        assertEquals(2, newUnit.getLocation());
     }
 
-    @Test 
-    public void testSetCustomerName(){
+    @Test
+    public void testSetCustomerName() {
         newUnit.toggleIsRented();
         newUnit.setCustomerName("john doe");
         assertEquals("john doe", newUnit.getCustomerName());
     }
 
-    @Test 
-    public void testSetUnitFree(){
+    @Test
+    public void testSetUnitFree() {
         newUnit.toggleIsRented();
         newUnit.setCustomerName("john doe");
         newUnit.setUnitFree();
