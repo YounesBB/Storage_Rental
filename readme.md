@@ -1,4 +1,14 @@
 # Group gr2232 repository 
+
+## Getting started
+
+Clone or download the repository. Navigate into gr2232. Do the following command:
+
+```console
+foo@bar:gr2232/gr2232
+mvn install
+```
+
  
 ### **A system for managing storage units!**
 
