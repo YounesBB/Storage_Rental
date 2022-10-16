@@ -2,7 +2,9 @@
 
 The major implementations of this release are as follows:
 - Core logic
-    - Core logic
+    - Improved core logic. Fixing of bugs and potential "dangerous" code from the first release
+    - Added HandleUser.java
+        - Used to store information about the user, if the user is a manager or employee. An employee can not create new storage units. 
 
 - Modulazition 
     - Modulized into two major moduels; FXUI and Core. 
@@ -31,3 +33,5 @@ Package diagram:
 
 
 Click [here](./workhabits.md) to read about workhabits and teamwork.
+
+Click [here](../../config/jsonSchema/unit.schema.json) to see the JSON schema.
