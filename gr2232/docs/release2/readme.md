@@ -26,7 +26,7 @@ The major implementations of this release are as follows:
     - Using Checkstyle to have a consistent styling
 
 
-Click [here](./workhabits.md) to read about workhabits and teamwork.
+Click [here](./workhabits.md) to read about workhabits and teamwork, and reason for late submission. 
 
 Click [here](../../config/jsonSchema/unit.schema.json) to see the JSON schema, that is a documentation for the JSON-data files. 
 
