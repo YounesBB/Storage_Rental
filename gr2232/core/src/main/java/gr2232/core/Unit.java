@@ -75,7 +75,6 @@ public class Unit {
         if (getIsRented()) {
             toggleIsRented();
         }
-        setCustomerName("null");
     }
 
     //Testing/debugging

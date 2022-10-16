@@ -1,0 +1,21 @@
+@startuml
+!theme amiga
+actor User #red
+participant "~#getNewBoothButton:Button" as A
+participant "RegisterBoothController" as B
+participant "~#inputLarge/Medium/Small/Booth:TextField" as C
+participant "Unitlist" as D
+participant "Unit" as E
+
+
+User -> A: Click
+A -> B: void getNewBooth()
+B -> C: void getInputValues()
+
+B -> D: void createUnit()
+D -> E: new Unit()
+
+D -> D: getUnitListEntries.add(unit)
+
+B -> B: void clearFields()
+@enduml
