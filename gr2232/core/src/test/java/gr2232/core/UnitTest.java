@@ -60,10 +60,10 @@ public class UnitTest {
     }
     @Test 
     public void testRemoveTenantFromUnit(){
-        assertThrows(IllegalArgumentException.class , () -> newUnit.RemoveTenantFromUnit());
+        assertThrows(IllegalArgumentException.class , () -> newUnit.removeTenantFromUnit());
         Unit a1 = new Unit('S', 4);
         a1.setCustomerName("Tom");
-        a1.RemoveTenantFromUnit();
+        a1.removeTenantFromUnit();
         assertTrue(a1.getCustomerName() == "null" && a1.getIsRented() == false);
     }
 }

@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
 import gr2232.core.UnitList;
-import gr2232.core.UnitListFileSupport;
+import gr2232.json.UnitListFileSupport;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
