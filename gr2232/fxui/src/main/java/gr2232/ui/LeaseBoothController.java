@@ -15,74 +15,65 @@ import javafx.scene.control.TextField;
 
 public class LeaseBoothController implements Initializable {
 
-    @FXML
-    private TextField UnitOwner;
+  @FXML
+  private TextField UnitOwner;
 
-    @FXML
-    private TextArea unitLocation;
+  @FXML
+  private TextArea unitLocation;
 
-    @FXML
-    private ComboBox<String> unitSize;
+  @FXML
+  private ComboBox<String> unitSize;
 
-    UnitList units = new UnitList(); 
+  UnitList units = new UnitList();
 
-    private String[] sizes = {"Large", "Medium", "Small"};
+  private String[] sizes = { "Large", "Medium", "Small" };
 
-    Integer location;
+  Integer location;
 
-    
+  @Override
+  public void initialize(URL location, ResourceBundle resources) {
+    unitSize.getItems().addAll(sizes);
+  }
 
+  @FXML
+  void getSizeValue(ActionEvent event) throws IOException {
+    if (unitSize.getValue() == null) {
+      throw new NullPointerException();
+    } else {
+      showFreeBooth(unitSize.getValue());
+    }
+  }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        unitSize.getItems().addAll(sizes); 
+  public void showFreeBooth(String boothSize) {
+    List<Unit> free = units.getFreeUnitsWithCertainSize(boothSize);
+    if (free.isEmpty()) {
+      unitLocation.setText("There is no more Units of this size to lease out!");
+    } else {
+      Integer location = free.get(0).getLocation();
+      this.location = location;
     }
 
-    @FXML
-    void getSizeValue(ActionEvent event) throws IOException {
-        if (unitSize.getValue() == null) {
-            throw new NullPointerException();
-        } else {
-            showFreeBooth(unitSize.getValue());
-        }
+    unitLocation.setText(Integer.toString(location));
+
+  }
+
+  @FXML
+  void goBackToOverviewPage(ActionEvent event) throws IOException {
+    App.setRoot("overviewpage");
+
+  }
+
+  @FXML
+  void leaseOut(ActionEvent event) throws IOException {
+    if (UnitOwner.getText() == null || unitSize.getValue() == null || unitLocation.getText() == null) {
+      throw new IllegalArgumentException("Must select size and give customername!");
+    } else {
+      units.getUnitByLocation(this.location).setCustomerName(UnitOwner.getText());
+      this.UnitOwner.clear();
+      this.unitLocation.clear();
+      // this.unitSize.getSelectionModel().clearSelection();
+      // This causes testfx to raise exception
     }
-
-    public void showFreeBooth(String boothSize) {
-        List<Unit> free = units.getFreeUnitsWithCertainSize(boothSize);
-        if (free.isEmpty()) {
-            unitLocation.setText("There is no more Units of this size to lease out!");
-        } else {
-            Integer location = free.get(0).getLocation();
-            this.location = location;
-        }
-
-        unitLocation.setText(Integer.toString(location));
-
-        
-    }
-
-
-    @FXML
-    void goBackToOverviewPage(ActionEvent event) throws IOException {
-        App.setRoot("overviewpage");
-
-    }
-
-
- @FXML
-    void leaseOut(ActionEvent event) throws IOException{
-        if (UnitOwner.getText() == null || unitSize.getValue() == null || unitLocation.getText() == null ){
-            throw new IllegalArgumentException("Must select size and give customername!");
-        } else {
-            units.getUnitByLocation(this.location).setCustomerName(UnitOwner.getText());
-            this.UnitOwner.clear();
-            this.unitLocation.clear();
-            //this.unitSize.getSelectionModel().clearSelection();             
-            //This causes testfx to raise exception
-        }
-    }
-
-    
-
+  }
 
 }

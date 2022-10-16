@@ -13,27 +13,25 @@ public class Unit {
     }
 
     public void setSize(char size) {
-        //Check if valid size
+        // Check if valid size
         if (size == 'S' || size == 'M' || size == 'L') {
             this.size = size;
-        }
-        else {
+        } else {
             throw new IllegalArgumentException("Unit size must either be S,M or L!");
-        }  
+        }
     }
 
     public char getSize() {
         return this.size;
     }
 
-
-    public boolean getIsRented(){
+    public boolean getIsRented() {
         return this.isRented;
     }
 
-    //Toggles isRented boolean
+    // Toggles isRented boolean
     public void toggleIsRented() {
-        //Encapsulate customername, remove name is state is set to not rented
+        // Encapsulate customername, remove name is state is set to not rented
         if (getIsRented()) {
             setCustomerName("null");
         }
@@ -47,14 +45,12 @@ public class Unit {
         this.isRented = b;
     }
 
-
     public void setCustomerName(String name) {
         if (getIsRented() == false) {
             toggleIsRented();
             this.customerName = name;
-        }
-        else {
-            //Do not toggle, changing customer to the unit
+        } else {
+            // Do not toggle, changing customer to the unit
             this.customerName = name;
         }
     }
@@ -77,22 +73,21 @@ public class Unit {
         }
     }
 
-    //Testing/debugging
+    // Testing/debugging
     public static void main(String args[]) {
-        Unit test = new Unit('M',0);
+        Unit test = new Unit('M', 0);
         System.out.println(test.getSize());
         test.setSize('L');
         System.out.println(test.getSize());
-        
-        //Throws exception as planned PP
-        //test.setSize('R');
+
+        // Throws exception as planned PP
+        // test.setSize('R');
 
         System.out.println(test.getIsRented());
-        //Throws exception as planned
-        //Must set state to rented before setting customer name
-        //test.setCustomerName("Magnus Svendsen");
+        // Throws exception as planned
+        // Must set state to rented before setting customer name
+        // test.setCustomerName("Magnus Svendsen");
 
     }
-
 
 }

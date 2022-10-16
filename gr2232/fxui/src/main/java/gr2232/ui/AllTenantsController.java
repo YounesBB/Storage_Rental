@@ -16,7 +16,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 public class AllTenantsController {
 
-    private UnitList unitList;  
+    private UnitList unitList;
 
     @FXML
     private Button backButton;
@@ -35,8 +35,6 @@ public class AllTenantsController {
 
     @FXML
     private TableView<Unit> tableView;
-    
-
 
     @FXML
     public void initialize() {
@@ -45,7 +43,7 @@ public class AllTenantsController {
         updateTable();
     }
 
-    //Updates the table
+    // Updates the table
     private void updateTable() {
         sizeColumn.setCellValueFactory(new PropertyValueFactory<Unit, Character>("Size"));
         locationColumn.setCellValueFactory(new PropertyValueFactory<Unit, Integer>("Location"));
@@ -64,7 +62,7 @@ public class AllTenantsController {
         return units;
     }
 
-    //Remove functions? Or keep just in case
+    // Remove functions? Or keep just in case
     private List<Character> getSizeList() {
         List<Character> sizeList = new ArrayList<>();
         unitList.getUnitListEntries().stream().forEach((u) -> {
@@ -88,7 +86,7 @@ public class AllTenantsController {
         });
         return nameList;
     }
-    
+
     private List<Boolean> getStatusList() {
         List<Boolean> statusList = new ArrayList<>();
         unitList.getUnitListEntries().stream().forEach((u) -> {

@@ -20,52 +20,54 @@ import com.google.gson.reflect.TypeToken;
 
 public class UnitListFileSupport {
 
-    public UnitListFileSupport() {
+  public UnitListFileSupport() {
 
+  }
+
+  /**
+   * Uses GSON to turn all unitentries(List) into a jsonfile
+   * 
+   * @param filename
+   * @throws IOException
+   */
+  public void writeListToFile(String filename) throws IOException {
+    UnitList ul = new UnitList();
+    String jsonFilename = filename + ".json";
+    try (Writer writer = new BufferedWriter(new OutputStreamWriter(
+        new FileOutputStream(jsonFilename), StandardCharsets.UTF_8));) {
+      Gson gson = new GsonBuilder().create();
+      gson.toJson(ul.getUnitListEntries(), writer);
+    } catch (FileNotFoundException e) {
+      e.printStackTrace();
     }
 
+  }
 
-    /**
-     * Uses GSON to turn all unitentries(List) into a jsonfile
-     * @param filename
-     * @throws IOException
-     */
-    public void writeListToFile(String filename) throws IOException {
-        UnitList ul = new UnitList();
-        String jsonFilename = filename + ".json";
-        try (Writer writer = new BufferedWriter(new OutputStreamWriter(
-            new FileOutputStream(jsonFilename), StandardCharsets.UTF_8));) {
-            Gson gson = new GsonBuilder().create();
-            gson.toJson(ul.getUnitListEntries(), writer);
-        }
-        catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-
+  /**
+   * Using GSON,Jsonreader and Filereader to read JSONfile and set UnitList to
+   * read value
+   * 
+   * @param filename
+   * @retun unitList
+   * @throws FileNotFoundException
+   * @throws UnsupportedEncodingException
+   */
+  public UnitList getListFromFile(String filename) throws FileNotFoundException, UnsupportedEncodingException {
+    Gson gson = new Gson();
+    String jsonFilename = filename + ".json";
+    FileInputStream stream = new FileInputStream(jsonFilename);
+    Type unitType = new TypeToken<List<Unit>>() {
+    }.getType();
+    BufferedReader reader = new BufferedReader(new InputStreamReader(stream, StandardCharsets.UTF_8));
+    List<Unit> list = gson.fromJson(reader, unitType);
+    UnitList ul = new UnitList();
+    if (list.size() == 0) {
+      throw new IllegalStateException("Corrupted file!");
+    } else {
+      ul.getUnitListEntries().clear();
+      ul.getUnitListEntries().addAll(list);
     }
-
-
-    /**
-     * Using GSON,Jsonreader and Filereader to read JSONfile and set UnitList to read value
-     * @param filename
-     * @retun unitList
-     * @throws FileNotFoundException
-     * @throws UnsupportedEncodingException
-     */
-    public UnitList getListFromFile(String filename) throws FileNotFoundException, UnsupportedEncodingException{
-        Gson gson = new Gson();
-        String jsonFilename = filename + ".json";
-        FileInputStream stream = new FileInputStream(jsonFilename);
-        Type unitType = new TypeToken<List<Unit>>() {}.getType();
-        BufferedReader reader = new BufferedReader(new InputStreamReader(stream, StandardCharsets.UTF_8));
-        List<Unit> list = gson.fromJson(reader, unitType);
-        UnitList ul = new UnitList();
-        if (list.size() == 0) {
-            throw new IllegalStateException("Corrupted file!");
-        } else {
-            ul.getUnitListEntries().clear();
-            ul.getUnitListEntries().addAll(list);    
-        };
-        return ul;
-    }
+    ;
+    return ul;
+  }
 }

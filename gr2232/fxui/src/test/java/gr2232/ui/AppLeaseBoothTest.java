@@ -15,11 +15,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class AppLeaseBoothTest extends ApplicationTest{
+public class AppLeaseBoothTest extends ApplicationTest {
     private Parent parent;
     private LeaseBoothController controller;
     private FXMLLoader loader;
-
 
     @Override
     public void start(final Stage stage) throws Exception {
@@ -36,12 +35,12 @@ public class AppLeaseBoothTest extends ApplicationTest{
         UnitList ul = new UnitList();
         ul.clearUnitList();
         Unit u = new Unit('L', 0);
-        ul.addUnit(u);          
+        ul.addUnit(u);
     }
 
     @Test
     public void testRentStatus() {
-        UnitList ul = new UnitList();  
+        UnitList ul = new UnitList();
         clickOn("#UnitOwner").write("Test Testerson");
         WaitForAsyncUtils.waitForFxEvents();
         clickOn("#unitSize").clickOn("Large");

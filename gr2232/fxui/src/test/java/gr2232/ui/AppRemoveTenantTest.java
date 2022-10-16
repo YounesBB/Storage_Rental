@@ -21,7 +21,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class AppRemoveTenantTest extends ApplicationTest{
+public class AppRemoveTenantTest extends ApplicationTest {
     private Parent parent;
     private RemoveTenantController controller;
     private FXMLLoader loader;
@@ -61,7 +61,7 @@ public class AppRemoveTenantTest extends ApplicationTest{
         UnitList ul = new UnitList();
         Integer rentedUnitsBeforeRemoved = ul.getRentedUnits().size();
         assertEquals(rentedUnitsBeforeRemoved, 1);
-        clickOn("#tenantSelector").clickOn(this.name); 
+        clickOn("#tenantSelector").clickOn(this.name);
         WaitForAsyncUtils.waitForFxEvents();
         clickOn("#removeTenantButton");
         WaitForAsyncUtils.waitForFxEvents();

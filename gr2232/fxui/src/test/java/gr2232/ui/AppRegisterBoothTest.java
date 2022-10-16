@@ -37,7 +37,7 @@ public class AppRegisterBoothTest extends ApplicationTest {
         stage.show();
     }
 
-    //Might want to change so that empty input == 0 in controller?
+    // Might want to change so that empty input == 0 in controller?
     @Test
     public void testInputSize() throws InterruptedException {
         UnitList ul = new UnitList();

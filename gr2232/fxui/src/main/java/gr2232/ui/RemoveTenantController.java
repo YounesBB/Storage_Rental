@@ -10,7 +10,6 @@ import java.io.IOException;
 import gr2232.core.Unit;
 import gr2232.core.UnitList;
 
-
 public class RemoveTenantController {
 
     @FXML
@@ -38,7 +37,7 @@ public class RemoveTenantController {
         App.setRoot("overviewpage");
     }
 
-    @FXML 
+    @FXML
     void onRemoveTenant() throws IOException {
         UnitList unitList = new UnitList();
         String tenantLine = tenantSelector.getValue();
@@ -54,7 +53,7 @@ public class RemoveTenantController {
 
             updateTenantList();
             tenantSelector.setItems(tenantList);
-    }
+        }
 
     }
 
@@ -75,7 +74,7 @@ public class RemoveTenantController {
     public void initialize() {
         updateTenantList();
         tenantSelector.setItems(tenantList);
-        //tenantSelector.setValue("test");
+        // tenantSelector.setValue("test");
     }
 
 }

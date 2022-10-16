@@ -19,11 +19,10 @@ import javafx.scene.Scene;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class AppAdminPanelTest extends ApplicationTest{
+public class AppAdminPanelTest extends ApplicationTest {
     private Parent parent;
     private AdminPanelController controller;
     private FXMLLoader loader;
-
 
     @Override
     public void start(final Stage stage) throws Exception {
@@ -56,5 +55,5 @@ public class AppAdminPanelTest extends ApplicationTest{
         assertEquals(listSize, 0);
     }
 
-    //Should add some tests for saving/loading
+    // Should add some tests for saving/loading
 }
