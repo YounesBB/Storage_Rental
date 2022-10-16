@@ -71,12 +71,12 @@
 
 
                 <!-- Run the spotbugs code quality tool -->
-                <!-- <plugin>
+                <plugin>
                     <groupId>com.github.spotbugs</groupId>
                     <artifactId>spotbugs-maven-plugin</artifactId>
                     <version>4.5.0.0</version>
                     <configuration>
-                        <skip>true</skip>
+                        <!-- <skip>true</skip> -->
                         <xmlOutput>false</xmlOutput>
                         <htmlOutput>true</htmlOutput>
                         <excludeFilterFile>config/spotbugs/exclude.xml</excludeFilterFile>
@@ -90,7 +90,7 @@
                         </goals>
                         </execution>
                     </executions>
-                </plugin> -->
+                </plugin> 
                 <!-- Configure jacoco code coverage -->
                 <plugin>
                     <groupId>org.jacoco</groupId>
