@@ -1,17 +1,17 @@
 package gr2232.core;
 
 public class HandleUser {
-    protected static boolean isManager;
+    private static boolean isManager;
 
     public HandleUser() {
 
     }
 
-    public static void setIsManager(boolean v) {
+    protected static void setIsManager(boolean v) {
         isManager = v;
     }
 
-    public static boolean getIsManager() {
+    protected static boolean getIsManager() {
         return isManager;
     }
 }
