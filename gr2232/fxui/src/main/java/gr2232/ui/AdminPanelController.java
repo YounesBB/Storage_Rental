@@ -11,51 +11,51 @@ import javafx.scene.control.TextField;
 
 public class AdminPanelController {
 
-    @FXML
-    private TextField fileUrl;
+  @FXML
+  private TextField fileUrl;
 
-    @FXML
-    private TextArea responseText;
+  @FXML
+  private TextArea responseText;
 
-    @FXML
-    void onClearSystem(ActionEvent event) {
-        UnitList unitList = new UnitList();
-        unitList.clearUnitList();
-        responseText.setText("System cleared!");
+  @FXML
+  void onClearSystem(ActionEvent event) {
+    UnitList unitList = new UnitList();
+    unitList.clearUnitList();
+    responseText.setText("System cleared!");
+  }
+
+  @FXML
+  void onGoBack(ActionEvent event) throws IOException {
+    App.setRoot("overviewpage");
+  }
+
+  @FXML
+  void onLoad(ActionEvent event) {
+    UnitList unitList = new UnitList();
+    final UnitListFileSupport fileHandler = new UnitListFileSupport(unitList.getUnitListEntries());
+
+    String fileName = fileUrl.getText();
+
+    try {
+      unitList.clearUnitList();
+      unitList = fileHandler.getListFromFile(fileName);
+      responseText.setText("Loaded!");
+    } catch (FileNotFoundException e) {
+      e.printStackTrace();
+      responseText.setText("Error loading file");
     }
+  }
 
-    @FXML
-    void onGoBack(ActionEvent event) throws IOException {
-        App.setRoot("overviewpage");
-    }
+  @FXML
+  void onSave(ActionEvent event) throws IOException {
+    UnitList unitList = new UnitList();
+    final UnitListFileSupport fileHandler = new UnitListFileSupport(unitList.getUnitListEntries());
 
-    @FXML
-    void onLoad(ActionEvent event) {
-        UnitList unitList = new UnitList();
-        final UnitListFileSupport fileHandler = new UnitListFileSupport(unitList.getUnitListEntries());
+    String fileName = fileUrl.getText();
+    fileHandler.writeListToFile(fileName);
+    responseText.setText("Saved!");
 
-        String fileName = fileUrl.getText();
-
-        try {
-            unitList.clearUnitList();
-            unitList = fileHandler.getListFromFile(fileName);
-            responseText.setText("Loaded!");
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-            responseText.setText("Error loading file");
-        }
-    }
-
-    @FXML
-    void onSave(ActionEvent event) throws IOException {
-        UnitList unitList = new UnitList();
-        final UnitListFileSupport fileHandler = new UnitListFileSupport(unitList.getUnitListEntries());
-
-        String fileName = fileUrl.getText();
-        fileHandler.writeListToFile(fileName);
-        responseText.setText("Saved!");
-
-    }
+  }
 
 
 }
