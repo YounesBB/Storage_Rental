@@ -1,4 +1,4 @@
-package gr2232;
+package gr2232.ui;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -7,10 +7,8 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import java.io.IOException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ResourceBundle;
+import gr2232.core.Unit;
+import gr2232.core.UnitList;
 
 
 public class RemoveTenantController {

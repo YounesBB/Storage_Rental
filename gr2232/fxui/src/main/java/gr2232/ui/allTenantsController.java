@@ -1,10 +1,10 @@
-package gr2232;
+package gr2232.ui;
 
-import java.io.IOError;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
+import gr2232.core.Unit;
+import gr2232.core.UnitList;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

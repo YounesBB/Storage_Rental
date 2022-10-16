@@ -1,4 +1,4 @@
-package gr2232;
+package gr2232.core;
 
 public class Unit {
 

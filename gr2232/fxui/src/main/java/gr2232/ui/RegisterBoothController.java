@@ -1,8 +1,9 @@
-package gr2232;
+package gr2232.ui;
 
 import java.io.IOException;
 import java.util.List;
-
+import gr2232.core.Unit;
+import gr2232.core.UnitList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 

@@ -1,16 +1,12 @@
-package gr2232;
+package gr2232.core;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.io.Writer;
 import java.lang.reflect.Type;
 import java.util.List;
-import java.util.Scanner;
-import gr2232.UnitList;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
