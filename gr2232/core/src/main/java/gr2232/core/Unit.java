@@ -2,15 +2,15 @@ package gr2232.core;
 
 public class Unit {
 
-    private boolean isRented = false;
-    private String customerName = "null";
-    private Integer location;
-    private char size;
+  private boolean isRented = false;
+  private String customerName = "null";
+  private Integer location;
+  private char size;
 
-    public Unit(char size, Integer location) {
-        setSize(size);
-        setLocation(location);
-    }
+  public Unit(char size, Integer location) {
+    setSize(size);
+    setLocation(location);
+  }
 
     public void setSize(char size) {
         // Check if valid size
@@ -21,73 +21,74 @@ public class Unit {
         }
     }
 
-    public char getSize() {
-        return this.size;
-    }
+  public char getSize() {
+    return this.size;
+  }
 
     public boolean getIsRented() {
         return this.isRented;
     }
 
-    // Toggles isRented boolean
-    public void toggleIsRented() {
-        // Encapsulate customername, remove name is state is set to not rented
-        if (getIsRented()) {
-            setCustomerName("null");
-        }
-        this.isRented = !this.isRented;
+  // Toggles isRented boolean
+  public void toggleIsRented() {
+    // Encapsulate customername, remove name is state is set to not rented
+    if (getIsRented()) {
+      setCustomerName("null");
     }
+    this.isRented = !this.isRented;
+  }
 
-    public void setIsRented(boolean b) {
-        if (getIsRented() && !b) {
-            setCustomerName("null");
-        }
-        this.isRented = b;
+  public void setIsRented(boolean b) {
+    if (getIsRented() && !b) {
+      setCustomerName("null");
     }
+    this.isRented = b;
+  }
 
-    public void setCustomerName(String name) {
-        if (getIsRented() == false) {
-            toggleIsRented();
-            this.customerName = name;
-        } else {
-            // Do not toggle, changing customer to the unit
-            this.customerName = name;
-        }
+
+  public void setCustomerName(String name) {
+    if (getIsRented() == false) {
+      toggleIsRented();
+      this.customerName = name;
+    } else {
+      // Do not toggle, changing customer to the unit
+      this.customerName = name;
     }
+  }
 
-    public String getCustomerName() {
-        return this.customerName;
+  public String getCustomerName() {
+    return this.customerName;
+  }
+
+  public Integer getLocation() {
+    return this.location;
+  }
+
+  public void setLocation(Integer loc) {
+    this.location = loc;
+  }
+
+  public void setUnitFree() {
+    if (getIsRented()) {
+      toggleIsRented();
     }
+  }
 
-    public Integer getLocation() {
-        return this.location;
-    }
+  // Testing/debugging
+  public static void main(String args[]) {
+    Unit test = new Unit('M', 0);
+    System.out.println(test.getSize());
+    test.setSize('L');
+    System.out.println(test.getSize());
 
-    public void setLocation(Integer loc) {
-        this.location = loc;
-    }
+    // Throws exception as planned PP
+    // test.setSize('R');
 
-    public void setUnitFree() {
-        if (getIsRented()) {
-            toggleIsRented();
-        }
-    }
+    System.out.println(test.getIsRented());
+    // Throws exception as planned
+    // Must set state to rented before setting customer name
+    // test.setCustomerName("Magnus Svendsen");
 
-    // Testing/debugging
-    public static void main(String args[]) {
-        Unit test = new Unit('M', 0);
-        System.out.println(test.getSize());
-        test.setSize('L');
-        System.out.println(test.getSize());
-
-        // Throws exception as planned PP
-        // test.setSize('R');
-
-        System.out.println(test.getIsRented());
-        // Throws exception as planned
-        // Must set state to rented before setting customer name
-        // test.setCustomerName("Magnus Svendsen");
-
-    }
+  }
 
 }

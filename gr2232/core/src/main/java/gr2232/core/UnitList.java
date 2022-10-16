@@ -48,8 +48,7 @@ public class UnitList {
   }
 
   /**
-   * Returns a list of units, that are of a certain size and that's not been
-   * rented.
+   * Returns a list of units, that are of a certain size and that's not been rented.
    * 
    * @param size String of Size: Large, Medium, Small
    * @return
@@ -69,7 +68,9 @@ public class UnitList {
       throw new IllegalArgumentException(e);
     }
 
+
   }
+
 
   /**
    * Returns all units in the system
@@ -99,7 +100,7 @@ public class UnitList {
    * Replaces the unit given by location. Iterates over Unitlist array
    * 
    * @param location Unit location
-   * @param Unit     New unit to swap current unit
+   * @param Unit New unit to swap current unit
    */
   public void updateUnitByLocation(Integer location, Unit newUnit) {
     Integer counter = 0;
@@ -112,14 +113,14 @@ public class UnitList {
   }
 
   /**
-   * Creates a Unit, and adds it to the UnitList
-   * Location is added automatically by incrementing locationnumber
+   * Creates a Unit, and adds it to the UnitList Location is added automatically by incrementing
+   * locationnumber
    * 
    * @param size
    */
   public void createUnit(char size) {
     Unit unitToAdd = new Unit(size, UnitList.locationIncrementer);
-    incrementLocation();
+    UnitList.locationIncrementer = UnitList.locationIncrementer + 1;
     System.out.println(locationIncrementer);
     getUnitListEntries().add(unitToAdd);
   }
@@ -141,28 +142,20 @@ public class UnitList {
   }
 
   /*
-   * public static void main(String args[]) {
-   * UnitList testList = new UnitList();
-   * //Empty list, no objects
-   * testList.getUnitListEntries();
-   * testList.createUnit('L');
-   * testList.createUnit('M');
-   * //List with two Unit objects
-   * System.out.println(testList.getUnitListEntries());
+   * public static void main(String args[]) { UnitList testList = new UnitList(); //Empty list, no
+   * objects testList.getUnitListEntries(); testList.createUnit('L'); testList.createUnit('M'); //List
+   * with two Unit objects System.out.println(testList.getUnitListEntries());
    * 
    * //Add customer, sets unit to rented
    * testList.getUnitByLocation(0).setCustomerName("Magnus Svendsen");
    * System.out.println(testList.getUnitByLocation(0).getIsRented());
    * System.out.println(testList.getUnitByLocation(0).getCustomerName());
    * 
-   * //Sets unit to free
-   * testList.getUnitByLocation(0).setUnitFree();
+   * //Sets unit to free testList.getUnitByLocation(0).setUnitFree();
    * System.out.println(testList.getUnitByLocation(0).getCustomerName());
-   * System.out.println(testList.getFreeUnits());
-   * System.out.println(testList.getRentedUnits());
+   * System.out.println(testList.getFreeUnits()); System.out.println(testList.getRentedUnits());
    * 
-   * testList.clearUnitList();
-   * System.out.println(testList.getUnitListEntries());
+   * testList.clearUnitList(); System.out.println(testList.getUnitListEntries());
    * 
    * 
    * }

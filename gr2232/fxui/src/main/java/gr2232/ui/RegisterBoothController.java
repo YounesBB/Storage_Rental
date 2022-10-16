@@ -28,6 +28,8 @@ public class RegisterBoothController {
     return this.units = units;
   }
 
+
+
   @FXML
   private TextField inputLargeBooth, inputMediumBooth, inputSmallBooth;
 
@@ -77,6 +79,7 @@ public class RegisterBoothController {
 
   }
 
+  // TODO: Add logic such that new booths get added
   @FXML
   private void getNewBooth() throws IOException {
     getInputValues();

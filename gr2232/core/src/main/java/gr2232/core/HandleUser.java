@@ -1,5 +1,8 @@
 package gr2232.core;
 
+/**
+ * A class for handeling which user that uses the system.
+ */
 public class HandleUser {
   private static boolean isManager;
 
