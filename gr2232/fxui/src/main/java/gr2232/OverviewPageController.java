@@ -22,10 +22,9 @@ public class OverviewPageController {
 
   @FXML
   void initialize() {
-    if(HandleUser.getIsManager()) {
+    if (HandleUser.getIsManager()) {
       this.addUnitsButton.setDisable(false);
-    }
-    else {
+    } else {
       this.addUnitsButton.setDisable(true);
     }
   }
