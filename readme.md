@@ -43,7 +43,8 @@ foo@bar:~/gr2232/gr2232/core/target/site/jacoco
 
 foo@bar:~/gr2232/gr2232/fxui/target/site/jacoco
 ```
-And open the corresponding index.html files. 
+And open the corresponding index.html files. Note that you have to run maven test before looking at the test-coverage.
+
  
 
 Click [here](gr2232/docs/release2/readme.md) to see documentation for the second release. 
