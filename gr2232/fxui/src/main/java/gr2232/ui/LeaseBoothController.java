@@ -51,7 +51,6 @@ public class LeaseBoothController implements Initializable {
         List<Unit> free = units.getFreeUnitsWithCertainSize(boothSize);
         if (free.isEmpty()) {
             unitLocation.setText("There is no more Units of this size to lease out!");
-            this.location = null; 
         } else {
             Integer location = free.get(0).getLocation();
             this.location = location;

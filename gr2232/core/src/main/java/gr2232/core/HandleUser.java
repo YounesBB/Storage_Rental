@@ -7,11 +7,11 @@ public class HandleUser {
 
     }
 
-    protected static void setIsManager(boolean v) {
+    public static void setIsManager(boolean v) {
         isManager = v;
     }
 
-    protected static boolean getIsManager() {
+    public static boolean getIsManager() {
         return isManager;
     }
 }

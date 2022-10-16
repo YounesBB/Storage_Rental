@@ -13,6 +13,10 @@ public class UnitList {
 
     }
 
+    private void incrementLocation(){
+        UnitList.locationIncrementer ++;
+    }
+
     /**
      * Returns a list of units that's been rented yet
      * @return rentedUnits
@@ -109,7 +113,7 @@ public class UnitList {
      */
     public void createUnit(char size) {
         Unit unitToAdd = new Unit(size,UnitList.locationIncrementer);
-        UnitList.locationIncrementer = UnitList.locationIncrementer + 1;
+        incrementLocation();
         System.out.println(locationIncrementer);
         getUnitListEntries().add(unitToAdd);
     }
