@@ -10,7 +10,6 @@ import java.io.IOException;
 import gr2232.core.Unit;
 import gr2232.core.UnitList;
 
-
 public class RemoveTenantController {
 
   @FXML

@@ -2,6 +2,8 @@ package gr2232.ui;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+
 import gr2232.core.UnitList;
 import gr2232.core.UnitListFileSupport;
 import javafx.event.ActionEvent;
@@ -32,30 +34,31 @@ public class AdminPanelController {
   @FXML
   void onLoad(ActionEvent event) {
     UnitList unitList = new UnitList();
-    final UnitListFileSupport fileHandler = new UnitListFileSupport(unitList.getUnitListEntries());
+    UnitListFileSupport fileHandler = new UnitListFileSupport();
 
     String fileName = fileUrl.getText();
 
     try {
       unitList.clearUnitList();
-      unitList = fileHandler.getListFromFile(fileName);
+      fileHandler.getListFromFile(fileName);
       responseText.setText("Loaded!");
     } catch (FileNotFoundException e) {
       e.printStackTrace();
       responseText.setText("Error loading file");
+    } catch (UnsupportedEncodingException e) {
+      e.printStackTrace();
+      responseText.setText("Unsupported encoding");
     }
   }
 
   @FXML
   void onSave(ActionEvent event) throws IOException {
-    UnitList unitList = new UnitList();
-    final UnitListFileSupport fileHandler = new UnitListFileSupport(unitList.getUnitListEntries());
+    UnitListFileSupport fileHandler = new UnitListFileSupport();
 
     String fileName = fileUrl.getText();
     fileHandler.writeListToFile(fileName);
     responseText.setText("Saved!");
 
   }
-
 
 }

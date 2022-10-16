@@ -6,5 +6,13 @@
     "editor.detectIndentation": false,
     "editor.insertSpaces": true
     },
-    "java.dependency.packagePresentation": "hierarchical" 
+    "java.dependency.packagePresentation": "hierarchical",
+    "json.schemas": [
+        {
+          "fileMatch": [
+            "*.model.json" //must change this so that it fits with our naming of json datafiles.
+          ],
+          "url": "gr2232/config/jsonSchema/unit.schema.json" 
+        }
+      ]
 }
