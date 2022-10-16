@@ -10,14 +10,13 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class HandleUsertest {
+public class HandleUserTest {
 
   private HandleUser user;
 
   @BeforeEach
   public void setUp() {
-    HandleUser user = new HandleUser();
-    user.isManager = false;
+    HandleUser.setIsManager(false);
   }
 
   @Test
