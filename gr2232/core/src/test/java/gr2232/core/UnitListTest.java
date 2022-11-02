@@ -23,7 +23,6 @@ public class UnitListTest {
   @Test
   public void testCreateUnit() {
     newUnitList.createUnit('S');
-    System.out.println(newUnitList.getUnitListEntries().get(0));
     assertEquals(1, newUnitList.getUnitListEntries().size());
     assertThrows(IllegalArgumentException.class, () -> newUnitList.createUnit('E'));
 

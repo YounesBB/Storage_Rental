@@ -55,16 +55,20 @@ public class UnitList {
    */
   public List<Unit> getFreeUnitsWithCertainSize(String size) {
     try {
-      char s = size.charAt(0);
       List<Unit> UnitsOfSizeS = new ArrayList<>();
-      for (var entry : getFreeUnits()) {
-        if (entry.getSize() == s) {
-          UnitsOfSizeS.add(entry);
+      if (size != null) {
+        char s = size.charAt(0);
+        for (var entry : getFreeUnits()) {
+          if (entry.getSize() == s) {
+            UnitsOfSizeS.add(entry);
+          }
         }
       }
+      else {
+        throw new IllegalArgumentException("Size cannot be null!");
+      }
       return UnitsOfSizeS;
-    } catch (Exception e) {
-      e.printStackTrace();
+    } catch (IllegalArgumentException e) {
       throw new IllegalArgumentException(e);
     }
 
