@@ -55,12 +55,17 @@ public class UnitList {
    */
   public List<Unit> getFreeUnitsWithCertainSize(String size) {
     try {
-      char s = size.charAt(0);
       List<Unit> UnitsOfSizeS = new ArrayList<>();
-      for (var entry : getFreeUnits()) {
-        if (entry.getSize() == s) {
-          UnitsOfSizeS.add(entry);
+      if (size.length() > 0) {
+        char s = size.charAt(0);
+        for (var entry : getFreeUnits()) {
+          if (entry.getSize() == s) {
+            UnitsOfSizeS.add(entry);
+          }
         }
+      }
+      else {
+        throw new Exception();
       }
       return UnitsOfSizeS;
     } catch (Exception e) {
