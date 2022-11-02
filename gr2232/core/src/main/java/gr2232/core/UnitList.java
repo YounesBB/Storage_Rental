@@ -56,7 +56,7 @@ public class UnitList {
   public List<Unit> getFreeUnitsWithCertainSize(String size) {
     try {
       List<Unit> UnitsOfSizeS = new ArrayList<>();
-      if (size.length() > 0) {
+      if (size != null) {
         char s = size.charAt(0);
         for (var entry : getFreeUnits()) {
           if (entry.getSize() == s) {
@@ -65,10 +65,10 @@ public class UnitList {
         }
       }
       else {
-        throw new Exception();
+        throw new IllegalArgumentException("Size cannot be null!");
       }
       return UnitsOfSizeS;
-    } catch (Exception e) {
+    } catch (IllegalArgumentException e) {
       e.printStackTrace();
       throw new IllegalArgumentException(e);
     }
