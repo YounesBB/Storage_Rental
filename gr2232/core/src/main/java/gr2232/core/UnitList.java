@@ -69,7 +69,6 @@ public class UnitList {
       }
       return UnitsOfSizeS;
     } catch (IllegalArgumentException e) {
-      e.printStackTrace();
       throw new IllegalArgumentException(e);
     }
 
