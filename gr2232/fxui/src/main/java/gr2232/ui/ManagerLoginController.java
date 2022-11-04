@@ -26,21 +26,19 @@ public class ManagerLoginController {
     @FXML
     private Text response;
 
-    private String correctUsername = "admin";
-    private String correctPassword = "admin123";
-
-
     @FXML
     void handleLogin(ActionEvent event) throws IOException {
         String username = usernameField.getText();
         String password = passwordField.getText();
 
-        if((username.equals(this.correctUsername)) && (password.equals(this.correctPassword))) {
+        HandleUser userHandler = new HandleUser();
+        boolean inputValid = userHandler.validateInputs(username, password);
+        if(inputValid) {
           HandleUser.setIsManager(true);
           App.setRoot("overviewpage");
-        } else {
-          System.out.println("Feil! Taper:----}]");
-          this.response.setText("Feil brukernavn og/eller passord...");
+        }
+        else {
+          response.setText("Username and/or password is incorrect.");
         }
       }
 
