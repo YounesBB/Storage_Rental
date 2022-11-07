@@ -14,7 +14,7 @@ import gr2232.json.UnitListFileSupport;
 
 public class UnitListFileSupportTest {
 
-  private UnitListFileSupport filesupport;
+  private UnitListFileSupport filesupport = new UnitListFileSupport();
 
   @BeforeEach
   public void setUp() {
