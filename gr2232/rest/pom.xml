@@ -14,6 +14,12 @@
     <packaging>jar</packaging> 
 
     <dependencies>
+    
+        <dependency>
+            <groupId>it1901.gr2232</groupId>
+            <artifactId>core</artifactId>
+            <version>0.0.1-SNAPSHOT</version> 
+        </dependency>
 
         <!-- junit testing with jupiter -->
         <dependency>
