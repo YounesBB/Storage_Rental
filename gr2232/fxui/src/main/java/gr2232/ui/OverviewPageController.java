@@ -6,6 +6,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
+/**
+ * Controller for the overview page.
+ * Gives the user an overview of the applications different functions.
+ */
+
 public class OverviewPageController {
 
   @FXML

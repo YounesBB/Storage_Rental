@@ -13,6 +13,11 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
+/**
+ * Controller for the LeaseBoothController page.
+ * Gives users the ability to lease out booths. 
+ */
+
 public class LeaseBoothController implements Initializable {
 
   @FXML

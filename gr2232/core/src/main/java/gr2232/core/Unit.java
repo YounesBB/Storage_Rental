@@ -1,5 +1,9 @@
 package gr2232.core;
 
+/**
+ * Contains data about a unit and functionality to change said data.
+ */
+
 public class Unit {
 
   private boolean isRented = false;

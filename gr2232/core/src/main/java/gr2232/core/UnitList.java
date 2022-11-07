@@ -3,6 +3,11 @@ package gr2232.core;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Contains a list of all units.
+ * Can return these units in lists sorted in different ways.
+ */
+
 public class UnitList {
 
   // List of all units

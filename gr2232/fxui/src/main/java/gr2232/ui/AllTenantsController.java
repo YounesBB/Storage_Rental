@@ -14,6 +14,10 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+/**
+ * Controller for the allTenants page.
+ */
+
 public class AllTenantsController {
 
     private UnitList unitList;
