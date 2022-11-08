@@ -3,10 +3,13 @@ package gr2232.rest;
 import gr2232.core.UnitList; 
 import gr2232.core.Unit;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping; 
 
@@ -19,7 +22,7 @@ public class UnitListController {
   private final UnitListService unitListService;
 
   @Autowired
-  public UnitListController() {
+  public UnitListController() throws FileNotFoundException, UnsupportedEncodingException {
     this.unitListService = new UnitListService();
   }
 
@@ -34,6 +37,19 @@ public class UnitListController {
   protected List<Unit> getUnitList() throws FileNotFoundException, UnsupportedEncodingException {
     UnitList ul = unitListService.getUnitList();
     return ul.getUnitListEntries();
+  }
+
+   /**
+   * Adds a unit to the servers Unitlist.
+   *
+   * @param unit unit to add
+   * @return true after adding unit
+   * @throws IOException
+   */
+  @PostMapping
+  protected boolean addUnit(@RequestBody Unit unit) throws IOException {
+    unitListService.addUnit(unit); 
+    return true;
   }
 
 	

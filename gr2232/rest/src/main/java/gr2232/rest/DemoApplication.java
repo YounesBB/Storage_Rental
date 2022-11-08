@@ -7,10 +7,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class DemoApplication {
 
   //start running the server by cd into rest and then mvn spring-boot:run
-  //open new terminal and past curl f.example http://localhost:8080/greeting\?name=John 
+  //open new terminal and past curl http://localhost:8080/unitlist. This is a GET command 
 
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
-	}
+	} 
 
 }
