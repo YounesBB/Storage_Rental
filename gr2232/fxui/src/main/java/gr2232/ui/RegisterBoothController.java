@@ -86,7 +86,7 @@ public class RegisterBoothController {
     inputSmallBooth.clear();
 
   }
-
+  
   @FXML
   private void getNewBooth() throws IOException {
     getInputValues();
