@@ -43,7 +43,7 @@ public class UnitListController {
     UnitList ul = unitListService.getUnitList();
     return ul.getUnitListEntries();
   }
-
+   /** 
    /**
    * Adds a unit to the servers Unitlist.
    *
@@ -51,6 +51,7 @@ public class UnitListController {
    * @return true after adding unit
    * @throws IOException
    */
+  /** 
   @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
   protected boolean addUnit(@RequestBody String u) throws IOException {
     try {
@@ -66,5 +67,18 @@ public class UnitListController {
     //unitListService.addUnit(unit); 
     return true;
   }
-	
+	*/
+
+  /**
+   * Adds a unit to the servers Unitlist
+   *
+   * @param unit unit to add
+   * @return true after adding unit
+   * @throws IOException
+   */
+  @PostMapping
+  protected boolean addVisit(@RequestBody Unit unit) throws IOException {
+    unitListService.addUnit(unit);
+    return true;
+  }
 }

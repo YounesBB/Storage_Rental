@@ -15,10 +15,10 @@ public class Unit {
   @JsonProperty("location") Integer location,
   @JsonProperty("isRented") Boolean isRented,
   @JsonProperty("customerName") String customername) {
-/*     setSize(size);
+     setSize(size);
     setLocation(location);
     setCustomerName(customername);
-    setIsRented(isRented); */
+    setIsRented(isRented); 
   }
 
   public Unit(char size, Integer location) {
