@@ -30,16 +30,7 @@ public class UnitListServiceTest {
     }
   }
 
-  /**
-   * Tests the addVisit() method in service. Expected result is true.
-   */
-  @Test
-  void addVisit() {
-    Unit v2 = new Unit();
-    assertTrue(unitListService.addVisit(v2));
-    // Cleanup
-    unitListService.removeVisit();
-  }
+  
 
   
 }
