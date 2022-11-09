@@ -1,7 +1,17 @@
 package gr2232.ui;
 
 import java.io.IOException;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.net.http.HttpRequest.BodyPublishers;
+import java.net.http.HttpResponse.BodyHandlers;
 import java.util.List;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
+
 import gr2232.core.Unit;
 import gr2232.core.UnitList;
 import javafx.fxml.FXML;
@@ -27,8 +37,6 @@ public class RegisterBoothController {
   public UnitList setUnits(UnitList units) {
     return this.units = units;
   }
-
-
 
   @FXML
   private TextField inputLargeBooth, inputMediumBooth, inputSmallBooth;
@@ -79,13 +87,48 @@ public class RegisterBoothController {
 
   }
 
-  // TODO: Add logic such that new booths get added
   @FXML
   private void getNewBooth() throws IOException {
     getInputValues();
     makeBooths();
     clearFields();
-    System.out.println(units.getUnitListEntries()); // testcode
+    getNewBoothRest();
+  }
+
+  private void getNewBoothRest() throws IOException {
+    UnitList ul = new UnitList();
+    Unit u = new Unit('L', 2);
+    Gson gson = new Gson();
+    ObjectMapper mapper = new ObjectMapper();
+
+    String json = mapper.writeValueAsString(u);
+    System.out.println(json);
+    System.out.println("test");
+    try {
+      HttpClient client = HttpClient.newHttpClient();
+      HttpRequest request = HttpRequest.newBuilder()
+          .uri(URI.create("http://localhost:8080/unitlist"))
+          .header("Accept", "application/json")
+          .header("Content-Type", "application/json")
+          .POST(BodyPublishers.ofString(json))
+          .build();
+
+      final HttpResponse<String> response = HttpClient
+          .newBuilder()
+          .build()
+          .send(request, HttpResponse.BodyHandlers.ofString());
+      System.out.println(response);
+    } catch (InterruptedException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
+
+    /*
+     * client.sendAsync(request, BodyHandlers.ofString())
+     * .thenApply(HttpResponse::body)
+     * .thenAccept(System.out::println)
+     * .join();
+     */
 
   }
 

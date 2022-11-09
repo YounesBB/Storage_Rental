@@ -6,11 +6,16 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import org.springframework.web.bind.annotation.RequestMapping; 
 
 @RestController
@@ -46,11 +51,21 @@ public class UnitListController {
    * @return true after adding unit
    * @throws IOException
    */
-  @PostMapping
-  protected boolean addUnit(@RequestBody Unit unit) throws IOException {
-    unitListService.addUnit(unit); 
+  @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+  protected boolean addUnit(@RequestBody String unitstream) throws IOException {
+    try {
+      ObjectMapper mapper = new ObjectMapper();
+      Unit u = mapper.readValue(unitstream, Unit.class);
+      System.out.println("Unit:");
+      System.out.println(u);
+      unitListService.addUnit(u); 
+      unitListService.getUnitList();
+    } catch (Exception e) {
+      // TODO: handle exception
+      System.out.println(e);
+    }
+    //unitListService.addUnit(unit); 
     return true;
   }
-
 	
 }
