@@ -52,14 +52,13 @@ public class UnitListController {
    * @throws IOException
    */
   @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-  protected boolean addUnit(@RequestBody String unitstream) throws IOException {
+  protected boolean addUnit(@RequestBody String u) throws IOException {
     try {
       ObjectMapper mapper = new ObjectMapper();
-      Unit u = mapper.readValue(unitstream, Unit.class);
-      System.out.println("Unit:");
-      System.out.println(u);
-      unitListService.addUnit(u); 
-      unitListService.getUnitList();
+      //Unit u = mapper.readValue(unitstream, Unit.class);
+      //System.out.println("Unit:");
+      //unitListService.addUnit(u); 
+      System.out.println(unitListService.getUnitList().getUnitListEntries());
     } catch (Exception e) {
       // TODO: handle exception
       System.out.println(e);
