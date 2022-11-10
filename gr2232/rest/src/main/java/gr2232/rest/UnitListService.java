@@ -27,7 +27,7 @@ public class UnitListService {
   }
 
   public boolean addUnit(Unit unit) throws IOException {
-    unitlist.addUnit(unit); 
+    unitlist.addUnit(unit); //se om denne unit blir lagt til UnitListFileSupport sin UnitList 
     persistence.writeListToFile(name); 
     return true; 
   }

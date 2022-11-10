@@ -19,9 +19,8 @@ public class LoginController {
 
   @FXML
   private void switchToOverviewAsManager() throws IOException {
-    HandleUser.setIsManager(true);
     HandleUser.setUsesRest(getCheckboxValue());
-    App.setRoot("overviewpage");
+    App.setRoot("managerlogin");
   }
 
   private boolean getCheckboxValue() {
