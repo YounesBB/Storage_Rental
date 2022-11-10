@@ -5,6 +5,7 @@ package gr2232.core;
  */
 public class HandleUser {
   private static boolean isManager;
+  private static boolean usesRest;
 
   public HandleUser() {
 
@@ -16,5 +17,13 @@ public class HandleUser {
 
   public static boolean getIsManager() {
     return isManager;
+  }
+
+  public static void setUsesRest(boolean v) {
+    usesRest = v;
+  }
+
+  public static boolean getUsesRest() {
+    return usesRest;
   }
 }

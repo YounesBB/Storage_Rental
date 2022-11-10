@@ -6,12 +6,11 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.net.http.HttpRequest.BodyPublishers;
-import java.net.http.HttpResponse.BodyHandlers;
 import java.util.List;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.gson.Gson;
 
+import gr2232.core.HandleUser;
 import gr2232.core.Unit;
 import gr2232.core.UnitList;
 import javafx.fxml.FXML;
@@ -92,18 +91,16 @@ public class RegisterBoothController {
     getInputValues();
     makeBooths();
     clearFields();
-    getNewBoothRest();
+    if(HandleUser.getUsesRest()){
+      getNewBoothRest();
+    }
   }
 
   private void getNewBoothRest() throws IOException {
-    UnitList ul = new UnitList();
-    Unit u = new Unit('L', 2);
-    Gson gson = new Gson();
+    Unit u = new Unit('L', 10);
+    u.setCustomerName("Johnny Bravo");
     ObjectMapper mapper = new ObjectMapper();
-
     String json = mapper.writeValueAsString(u);
-    System.out.println(json);
-    System.out.println("test");
     try {
       HttpClient client = HttpClient.newHttpClient();
       HttpRequest request = HttpRequest.newBuilder()
@@ -119,17 +116,8 @@ public class RegisterBoothController {
           .send(request, HttpResponse.BodyHandlers.ofString());
       System.out.println(response);
     } catch (InterruptedException e) {
-      // TODO Auto-generated catch block
       e.printStackTrace();
     }
-
-    /*
-     * client.sendAsync(request, BodyHandlers.ofString())
-     * .thenApply(HttpResponse::body)
-     * .thenAccept(System.out::println)
-     * .join();
-     */
-
   }
 
   @FXML
