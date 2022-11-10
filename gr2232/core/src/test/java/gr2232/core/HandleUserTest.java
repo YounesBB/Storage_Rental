@@ -33,4 +33,16 @@ public class HandleUserTest {
     assertTrue(HandleUser.getIsManager());
   }
 
+  @Test
+  public void testValidateWrongInput() {
+    HandleUser test = new HandleUser();
+    assertFalse(test.validateInputs("Test", "Test123"));
+  }
+
+  @Test
+  public void testValidateCorrectInput() {
+    HandleUser test = new HandleUser();
+    assertTrue(test.validateInputs("admin", "admin123"));
+  }
+
 }

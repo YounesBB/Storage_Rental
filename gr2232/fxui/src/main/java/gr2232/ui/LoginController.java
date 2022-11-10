@@ -14,7 +14,6 @@ public class LoginController {
 
   @FXML
   private void switchToOverviewAsManager() throws IOException {
-    HandleUser.setIsManager(true);
-    App.setRoot("overviewpage");
+    App.setRoot("managerlogin");
   }
 }
