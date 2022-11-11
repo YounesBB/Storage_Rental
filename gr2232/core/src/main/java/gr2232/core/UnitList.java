@@ -145,6 +145,16 @@ public class UnitList {
     getUnitListEntries().clear();
   }
 
+  public boolean removeUnitByLocation(Integer location) {
+    for (var entry : getUnitListEntries()) {
+      if (entry.getLocation().equals(location)) {
+        getUnitListEntries().remove(entry);
+        return true;
+      } 
+    }
+    return false;
+  }
+
   /*
    * public static void main(String args[]) { UnitList testList = new UnitList(); //Empty list, no
    * objects testList.getUnitListEntries(); testList.createUnit('L'); testList.createUnit('M'); //List

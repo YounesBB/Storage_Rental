@@ -32,6 +32,37 @@ public class UnitListService {
     return true; 
   }
 
+  public boolean removeUnit(Integer location) throws IOException {
+    Boolean answer = unitlist.removeUnitByLocation(location);
+    if (answer) {
+      persistence.writeListToFile(name);
+      return true; 
+    }
+    return false; 
+  }
+
+  public boolean removeTenant(String tenant) throws IOException {
+    for (var entry : unitlist.getRentedUnits()) {
+      if (entry.getCustomerName().equals(tenant)) {
+        entry.setUnitFree();
+        persistence.writeListToFile(name);
+        return true;
+      }
+    }
+    return false; 
+  }
+
+  public boolean addTenant(Integer location, String tenant) throws IOException {
+    Unit entry = unitlist.getUnitByLocation(location); 
+    if (entry == null) {
+      return false;
+    }
+    entry.setCustomerName(tenant);
+    persistence.writeListToFile(name); 
+    return true;
+  }
+
+
   public static void main(String[] args) throws IOException {
     UnitListService u1 = new UnitListService();
     Unit unit1 = new Unit('M',3); 
