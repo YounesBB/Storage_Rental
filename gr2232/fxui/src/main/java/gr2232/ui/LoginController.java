@@ -13,17 +13,23 @@ public class LoginController {
   @FXML
   private void switchToOverviewAsEmployee() throws IOException {
     HandleUser.setIsManager(false);
-    HandleUser.setUsesRest(getCheckboxValue());
     App.setRoot("overviewpage");
   }
 
   @FXML
   private void switchToOverviewAsManager() throws IOException {
-    HandleUser.setUsesRest(getCheckboxValue());
+    HandleUser.setIsManager(true);
     App.setRoot("managerlogin");
   }
 
+  @FXML
+  private void changeRestState() throws IOException {
+    HandleUser.setIsManager(getCheckboxValue());;
+    System.out.println(HandleUser.getUsesRest());
+  }
+
   private boolean getCheckboxValue() {
+    System.out.println(restCheckbox.isSelected());
     return restCheckbox.isSelected();
   }
 }

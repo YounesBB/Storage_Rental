@@ -31,8 +31,8 @@ public class ManagerLoginController {
         String username = usernameField.getText();
         String password = passwordField.getText();
 
-        HandleUser userHandler = new HandleUser();
-        boolean inputValid = userHandler.validateInputs(username, password);
+        HandleUser user = new HandleUser();
+        boolean inputValid = user.validateInputs(username, password);
         if(inputValid) {
           HandleUser.setIsManager(true);
           App.setRoot("overviewpage");

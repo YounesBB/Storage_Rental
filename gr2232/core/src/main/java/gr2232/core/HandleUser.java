@@ -4,14 +4,13 @@ package gr2232.core;
  * A class for handeling which user that uses the system.
  */
 public class HandleUser implements HandleUserInterface {
-  private static boolean isManager;
+  protected static boolean isManager;
   private String username = "admin";
   private String password = "admin123";
 
-  private static boolean usesRest;
+  protected static boolean usesRest;
 
   public HandleUser() {
-    setIsManager(false);
   }
   
   @Override

@@ -18,6 +18,7 @@ import javafx.scene.control.TextField;
 
 public class RegisterBoothController {
 
+  private List<Unit> list;
   private UnitList units;
   private int largeBooth;
   private int mediumBooth;
@@ -79,44 +80,66 @@ public class RegisterBoothController {
     }
   }
 
+  private void makeBoothsRest() {
+    UnitList ul = new UnitList();
+    ul.initializeTempUnitList();
+    for (int i = 0; i < largeBooth; i++) {
+      ul.createTempUnit('L');
+    }
+
+    for (int i = 0; i < mediumBooth; i++) {
+      ul.createTempUnit('M');
+
+    }
+    for (int i = 0; i < smallBooth; i++) {
+      ul.createTempUnit('S');
+
+    }
+    list = ul.getTempUnits();
+    ul.resetTempUnitList();
+  }
+
   private void clearFields() {
     inputLargeBooth.clear();
     inputMediumBooth.clear();
     inputSmallBooth.clear();
 
   }
-  
+
   @FXML
   private void getNewBooth() throws IOException {
     getInputValues();
     makeBooths();
+    boolean rest = HandleUser.getUsesRest();
+    getNewBoothRest();
     clearFields();
-    if(HandleUser.getUsesRest()){
-      getNewBoothRest();
-    }
+
   }
 
   private void getNewBoothRest() throws IOException {
-    Unit u = new Unit('L', 10);
-    u.setCustomerName("Johnny Bravo");
-    ObjectMapper mapper = new ObjectMapper();
-    String json = mapper.writeValueAsString(u);
-    try {
-      HttpClient client = HttpClient.newHttpClient();
-      HttpRequest request = HttpRequest.newBuilder()
-          .uri(URI.create("http://localhost:8080/unitlist"))
-          .header("Accept", "application/json")
-          .header("Content-Type", "application/json")
-          .POST(BodyPublishers.ofString(json))
-          .build();
+    getInputValues();
+    makeBoothsRest();
 
-      final HttpResponse<String> response = HttpClient
-          .newBuilder()
-          .build()
-          .send(request, HttpResponse.BodyHandlers.ofString());
-      System.out.println(response);
-    } catch (InterruptedException e) {
-      e.printStackTrace();
+    for (int i = 0; i < list.size(); i++) {
+      ObjectMapper mapper = new ObjectMapper();
+      String json = mapper.writeValueAsString(list.get(i));
+      try {
+        HttpClient client = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder()
+            .uri(URI.create("http://localhost:8080/unitlist"))
+            .header("Accept", "application/json")
+            .header("Content-Type", "application/json")
+            .POST(BodyPublishers.ofString(json))
+            .build();
+
+        final HttpResponse<String> response = HttpClient
+            .newBuilder()
+            .build()
+            .send(request, HttpResponse.BodyHandlers.ofString());
+        System.out.println(response);
+      } catch (InterruptedException e) {
+        e.printStackTrace();
+      }
     }
   }
 
