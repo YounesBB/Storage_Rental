@@ -11,6 +11,11 @@ public class LoginController {
   private CheckBox restCheckbox;
 
   @FXML
+  public void initialize() {
+    HandleUser.setUsesRest(false);
+  }
+
+  @FXML
   private void switchToOverviewAsEmployee() throws IOException {
     HandleUser.setIsManager(false);
     App.setRoot("overviewpage");
@@ -24,7 +29,7 @@ public class LoginController {
 
   @FXML
   private void changeRestState() throws IOException {
-    HandleUser.setIsManager(getCheckboxValue());;
+    HandleUser.setUsesRest(getCheckboxValue());;
     System.out.println(HandleUser.getUsesRest());
   }
 

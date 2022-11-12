@@ -98,8 +98,6 @@ public class RegisterBoothController {
     }
     List<Unit> tempList = new ArrayList<Unit>();
     tempList = units.getTempUnits();
-    System.out.println("Temp units: ");
-    System.out.println(tempList);
     return tempList;
   }
 
@@ -112,10 +110,12 @@ public class RegisterBoothController {
 
   @FXML
   private void getNewBooth() throws IOException {
-    //getInputValues();
-    //makeBooths();
-    //boolean rest = HandleUser.getUsesRest();
-    getNewBoothRest();
+    if(HandleUser.getUsesRest()) {
+      getNewBoothRest();
+    } else {
+      getInputValues();
+      makeBooths();
+    }
     clearFields();
 
   }
@@ -124,8 +124,7 @@ public class RegisterBoothController {
     getInputValues();
     List<Unit> list = new ArrayList<Unit>();
     list = makeBoothsRest();
-    System.out.println("Temp unitlist after makeBooths:");
-    System.out.println(list);
+
     for (int i = 0; i < list.size(); i++) {
       ObjectMapper mapper = new ObjectMapper();
       String json = mapper.writeValueAsString(list.get(i));
@@ -142,7 +141,6 @@ public class RegisterBoothController {
             .newBuilder()
             .build()
             .send(request, HttpResponse.BodyHandlers.ofString());
-        System.out.println(response.statusCode());
 
         if(response.statusCode() == 200) {
           units.addUnit(list.get(i));

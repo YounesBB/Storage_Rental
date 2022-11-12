@@ -5,10 +5,11 @@ package gr2232.core;
  */
 public class HandleUser implements HandleUserInterface {
   protected static boolean isManager;
+  protected static boolean usesRest;
+
   private String username = "admin";
   private String password = "admin123";
 
-  protected static boolean usesRest;
 
   public HandleUser() {
   }
