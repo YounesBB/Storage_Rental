@@ -2,6 +2,7 @@ package gr2232.core;
 
 /**
  * A class for handeling which user that uses the system.
+ * Determines whether the user is manager, and if the user uses REST. 
  */
 public class HandleUser implements HandleUserInterface {
   protected static boolean isManager;
