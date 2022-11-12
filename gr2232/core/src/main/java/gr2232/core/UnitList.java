@@ -7,14 +7,54 @@ public class UnitList {
 
   // List of all units
   private static List<Unit> unitList = new ArrayList<>();
-  static Integer locationIncrementer = 0;
+  private List<Unit> temp_unitlist = new ArrayList<>();
+
+  public static Integer locationIncrementer = 0;
+  private Integer temp_locationIncrementer = 0;
 
   public UnitList() {
 
   }
 
-  private void incrementLocation() {
+  /**
+   * Sets the temporary locationincrementer 
+   */
+  public void initializeTempUnitList() {
+    this.temp_locationIncrementer = locationIncrementer;
+  }
+
+  /**
+   * Creates a temporary Unit ,adds it to the temporary unitlist.
+   * @param size
+   */
+  public void createTempUnit(char size) {
+    Unit u = new Unit(size, temp_locationIncrementer);
+    temp_locationIncrementer++;
+    temp_unitlist.add(u);
+  }
+
+  /**
+   * Retunrns the list of temporary units
+   * @return
+   */
+  public List<Unit> getTempUnits() {
+    return this.temp_unitlist;
+  }
+
+  /**
+   * Resets the temporary list of units. 
+   */
+  public void resetTempUnitList() {
+    temp_unitlist.clear();
+    temp_locationIncrementer = 0;
+  }
+
+  public static void incrementLocation() {
     UnitList.locationIncrementer++;
+  }
+  
+  public static Integer getIncrementLocation() {
+    return locationIncrementer;
   }
 
   /**
