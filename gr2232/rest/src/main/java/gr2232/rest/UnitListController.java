@@ -112,8 +112,7 @@ public class UnitListController {
    * Adds a tenant to the servers Unitlist
    *
    * @param  location to rent out
-   * @param  tenant to rent the unit at location
-   * @return true after adding tenant
+   * @param  tenant to rent the unit at location   * @return true after adding tenant
    * @throws IOException
    */
   @PutMapping(path = "/{location}/{tenant}")

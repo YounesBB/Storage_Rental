@@ -22,17 +22,17 @@ public class UnitListService {
 
   }
 
-  public UnitList getUnitList() throws FileNotFoundException, UnsupportedEncodingException {
+  protected UnitList getUnitList() throws FileNotFoundException, UnsupportedEncodingException {
     return persistence.getListFromFile(name); 
   }
 
-  public boolean addUnit(Unit unit) throws IOException {
+  protected boolean addUnit(Unit unit) throws IOException {
     unitlist.addUnit(unit); 
     persistence.writeListToFile(name); 
     return true; 
   }
 
-  public boolean removeUnit(Integer location) throws IOException {
+  protected boolean removeUnit(Integer location) throws IOException {
     Boolean answer = unitlist.removeUnitByLocation(location);
     if (answer) {
       persistence.writeListToFile(name);
@@ -41,7 +41,7 @@ public class UnitListService {
     return false; 
   }
 
-  public boolean removeTenant(String tenant) throws IOException {
+  protected boolean removeTenant(String tenant) throws IOException {
     for (var entry : unitlist.getRentedUnits()) {
       if (entry.getCustomerName().equals(tenant)) {
         entry.setUnitFree();
@@ -52,7 +52,7 @@ public class UnitListService {
     return false; 
   }
 
-  public boolean addTenant(Integer location, String tenant) throws IOException {
+  protected boolean addTenant(Integer location, String tenant) throws IOException {
     Unit entry = unitlist.getUnitByLocation(location); 
     if (entry == null) {
       return false;
@@ -62,11 +62,14 @@ public class UnitListService {
     return true;
   }
 
-
-  public static void main(String[] args) throws IOException {
-    UnitListService u1 = new UnitListService();
-    Unit unit1 = new Unit('M',3); 
-
-    u1.addUnit(unit1); 
+  /**
+   * Gets elements in unitListTest.model.json 
+   *
+   * @return a test UnitList json file (used for testing)
+   */
+  public static UnitList getUnitListTestJson() throws IOException {
+    UnitListFileSupport support1 = new UnitListFileSupport(); 
+    return support1.getListFromFile("unitListTest");
   }
+
 }
