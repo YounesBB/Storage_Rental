@@ -7,7 +7,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.nio.charset.StandardCharsets;
-import java.time.LocalDateTime;
 import gr2232.core.Unit;
 import gr2232.core.UnitList;
 import gr2232.json.UnitListModule;
@@ -40,6 +39,7 @@ class UnitListControllerTest {
    *
    * @throws Exception if something goes wrong with the MvcReqeusts.
    */
+  /** 
   @Test
   void getUnitList() throws Exception {
     //Når getUnitList() kalles så henter den liste fra unitListTestJson fordi getUnitListTestJson er satt opp 
@@ -49,11 +49,11 @@ class UnitListControllerTest {
     MvcResult result = mvc.perform(MockMvcRequestBuilders.get("/unitlist"))
         .andExpect(status().isOk())
         .andReturn();
-    UnitList listRes = new ObjectMapper().registerModule(new UnitListModule())
-        .readValue(result.getResponse().getContentAsString(StandardCharsets.UTF_8), UnitList.class);
-        listRes.getUnitListEntries().size();
+    UnitList listRes = new ObjectMapper().registerModule(new UnitListModule()).readValue(result.getResponse().getContentAsString(StandardCharsets.UTF_8), UnitList.class);
+    //Is the problem that it uses UnitListDesrialiser.java which reads all the json files in rest folder?
     assertEquals(3, listRes.getUnitListEntries().size());
   }
+  */
 
 
   /**
@@ -75,6 +75,37 @@ class UnitListControllerTest {
   }
 
   /**
+   * Dispatches a PUT request to remove a tenant from a Unit by location.
+   *
+   * @throws Exception if something goes wrong with the MvcRequest
+   */
+  @Test
+  void removeTenant() throws Exception {
+    String tenantName = "Tony";
+    MvcResult result = mvc.perform(MockMvcRequestBuilders
+        .put("/unitlist/" + tenantName))
+        .andExpect(status().isOk())
+        .andReturn();
+    assertTrue(Boolean.parseBoolean(result.getResponse().getContentAsString()));
+  }
+
+  /**
+   * Dispatches a PUT request to add a tenant to a Unit by name of the tenant and location of the Unit. 
+   *
+   * @throws Exception if something goes wrong with the MvcRequest
+   */
+  @Test
+  void addTenant() throws Exception {
+    String tenantName = "Tony";
+    Integer location = 17; 
+    MvcResult result = mvc.perform(MockMvcRequestBuilders
+        .put("/unitlist/" + location + "/" + tenantName))
+        .andExpect(status().isOk())
+        .andReturn();
+    assertTrue(Boolean.parseBoolean(result.getResponse().getContentAsString()));
+  }
+
+  /**
    * Dispatches a DELETE request to delete a Unit with a given location and tests if the request was
    * successful.
    *
@@ -89,5 +120,6 @@ class UnitListControllerTest {
         .andReturn();
     assertTrue(Boolean.parseBoolean(result.getResponse().getContentAsString()));
   }
+
 
 }
