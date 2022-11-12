@@ -7,7 +7,7 @@ public class UnitList {
 
   // List of all units
   private static List<Unit> unitList = new ArrayList<>();
-  private static List<Unit> temp_unitlist = new ArrayList<>();
+  private List<Unit> temp_unitlist = new ArrayList<>();
 
   public static Integer locationIncrementer = 0;
   private Integer temp_locationIncrementer = 0;
@@ -27,7 +27,7 @@ public class UnitList {
   }
 
   public List<Unit> getTempUnits() {
-    return temp_unitlist;
+    return this.temp_unitlist;
   }
 
   public void resetTempUnitList() {

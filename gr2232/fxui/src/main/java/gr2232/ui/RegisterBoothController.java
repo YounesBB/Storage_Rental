@@ -6,7 +6,10 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.net.http.HttpRequest.BodyPublishers;
+import java.util.ArrayList;
 import java.util.List;
+
+import javax.swing.event.UndoableEditListener;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -18,7 +21,6 @@ import javafx.scene.control.TextField;
 
 public class RegisterBoothController {
 
-  private List<Unit> list;
   private UnitList units;
   private int largeBooth;
   private int mediumBooth;
@@ -80,23 +82,25 @@ public class RegisterBoothController {
     }
   }
 
-  private void makeBoothsRest() {
-    UnitList ul = new UnitList();
-    ul.initializeTempUnitList();
+  private List<Unit> makeBoothsRest() {
+    units.initializeTempUnitList();
     for (int i = 0; i < largeBooth; i++) {
-      ul.createTempUnit('L');
+      units.createTempUnit('L');
     }
 
     for (int i = 0; i < mediumBooth; i++) {
-      ul.createTempUnit('M');
+      units.createTempUnit('M');
 
     }
     for (int i = 0; i < smallBooth; i++) {
-      ul.createTempUnit('S');
+      units.createTempUnit('S');
 
     }
-    list = ul.getTempUnits();
-    ul.resetTempUnitList();
+    List<Unit> tempList = new ArrayList<Unit>();
+    tempList = units.getTempUnits();
+    System.out.println("Temp units: ");
+    System.out.println(tempList);
+    return tempList;
   }
 
   private void clearFields() {
@@ -108,9 +112,9 @@ public class RegisterBoothController {
 
   @FXML
   private void getNewBooth() throws IOException {
-    getInputValues();
-    makeBooths();
-    boolean rest = HandleUser.getUsesRest();
+    //getInputValues();
+    //makeBooths();
+    //boolean rest = HandleUser.getUsesRest();
     getNewBoothRest();
     clearFields();
 
@@ -118,8 +122,10 @@ public class RegisterBoothController {
 
   private void getNewBoothRest() throws IOException {
     getInputValues();
-    makeBoothsRest();
-
+    List<Unit> list = new ArrayList<Unit>();
+    list = makeBoothsRest();
+    System.out.println("Temp unitlist after makeBooths:");
+    System.out.println(list);
     for (int i = 0; i < list.size(); i++) {
       ObjectMapper mapper = new ObjectMapper();
       String json = mapper.writeValueAsString(list.get(i));
@@ -136,11 +142,20 @@ public class RegisterBoothController {
             .newBuilder()
             .build()
             .send(request, HttpResponse.BodyHandlers.ofString());
-        System.out.println(response);
+        System.out.println(response.statusCode());
+
+        if(response.statusCode() == 200) {
+          units.addUnit(list.get(i));
+          System.out.println("Added unit: " + list.get(i).getLocation() + list.get(i).getSize());
+        }
+        else if(response.statusCode() == 500) {
+          System.out.println("Internal Server error 500");
+        }
       } catch (InterruptedException e) {
         e.printStackTrace();
       }
     }
+    units.resetTempUnitList();
   }
 
   @FXML
