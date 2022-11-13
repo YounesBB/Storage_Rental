@@ -8,13 +8,15 @@ import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+
 
 import org.springframework.web.bind.annotation.RequestMapping; 
 
@@ -77,8 +79,45 @@ public class UnitListController {
    * @throws IOException
    */
   @PostMapping
-  protected boolean addVisit(@RequestBody Unit unit) throws IOException {
+  protected boolean addUnit(@RequestBody Unit unit) throws IOException {
     unitListService.addUnit(unit);
     return true;
+  }
+
+   /**
+   * Removes a unit to the servers Unitlist
+   *
+   * @param unit unit to remove
+   * @return true after removing unit
+   * @throws IOException
+   */
+  @DeleteMapping(path = "/{location}")
+  protected boolean removeUnit(@PathVariable("location") Integer location) throws IOException {
+    return unitListService.removeUnit(location); 
+  }
+
+  /**
+   * Removes a tenant from the servers Unitlist
+   *
+   * @param  tenant to remove
+   * @return true after removing tenant
+   * @throws IOException
+   */
+  @PutMapping(path = "/{tenant}")
+  protected boolean removeUnit(@PathVariable("tenant") String tenant) throws IOException {
+    return unitListService.removeTenant(tenant); 
+  }
+
+  /**
+   * Adds a tenant to the servers Unitlist
+   *
+   * @param  location to rent out
+   * @param  tenant to rent the unit at location
+   * @return true after adding tenant
+   * @throws IOException
+   */
+  @PutMapping(path = "/{location}/{tenant}")
+  protected boolean addTenant(@PathVariable("location") Integer location, @PathVariable("tenant") String tenant) throws IOException {
+    return unitListService.addTenant(location, tenant); 
   }
 }
