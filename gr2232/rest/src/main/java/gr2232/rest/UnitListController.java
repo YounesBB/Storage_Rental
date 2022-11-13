@@ -45,6 +45,18 @@ public class UnitListController {
     UnitList ul = unitListService.getUnitList();
     return ul.getUnitListEntries();
   }
+
+   /**
+   * Gets the servers' Unitlist.
+   *
+   * @return the visit log
+   * @throws IOException
+   */
+  @GetMapping(path = "/test")
+  protected List<Unit> getTestUnitList() throws IOException {
+    UnitList ul = UnitListService.getUnitListTestJson();
+    return ul.getUnitListEntries();
+  }
    /** 
    /**
    * Adds a unit to the servers Unitlist.
@@ -83,6 +95,7 @@ public class UnitListController {
     unitListService.addUnit(unit);
     return true;
   }
+  
 
    /**
    * Removes a unit to the servers Unitlist

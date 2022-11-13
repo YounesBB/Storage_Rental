@@ -108,7 +108,7 @@ public class UnitListServiceTest {
    */
   @Test
   void getUnitListTestJson() throws IOException {
-    assertEquals(3, UnitListService.getUnitListTestJson().getUnitListEntries().size());
+    assertEquals(1, UnitListService.getUnitListTestJson().getUnitListEntries().size());
   }
  
   

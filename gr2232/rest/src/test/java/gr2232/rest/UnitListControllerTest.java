@@ -4,9 +4,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.BDDMockito.given;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
 import java.nio.charset.StandardCharsets;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import gr2232.core.Unit;
 import gr2232.core.UnitList;
 import gr2232.json.UnitListModule;
@@ -16,17 +15,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers; 
 
 @ExtendWith(SpringExtension.class)
 @WebMvcTest(UnitListController.class)
+@ContextConfiguration
+@WebAppConfiguration
 class UnitListControllerTest {
 
   @Autowired
   private MockMvc mvc;
+
 
   @MockBean
   private UnitListService unitListService;
@@ -39,21 +44,23 @@ class UnitListControllerTest {
    *
    * @throws Exception if something goes wrong with the MvcReqeusts.
    */
-  /** 
+  
   @Test
   void getUnitList() throws Exception {
-    //Når getUnitList() kalles så henter den liste fra unitListTestJson fordi getUnitListTestJson er satt opp 
-    //slik at den skifter hvilken fil som skal leses. 
-    //Mål: få den til å hente units fra UnitListService med GET metoden. 
     given(unitListService.getUnitList()).willReturn(UnitListService.getUnitListTestJson());
-    MvcResult result = mvc.perform(MockMvcRequestBuilders.get("/unitlist"))
+    MvcResult result = mvc.perform(MockMvcRequestBuilders.get("/unitlist/test"))
         .andExpect(status().isOk())
+        .andExpect(MockMvcResultMatchers.jsonPath("$.[0].isRented").value("true"))
+        .andExpect(MockMvcResultMatchers.jsonPath("$.[0].customerName").value("Peter"))
+        .andExpect(MockMvcResultMatchers.jsonPath("$.[0].location").value("0"))
+        .andExpect(MockMvcResultMatchers.jsonPath("$.[0].size").value("L"))
         .andReturn();
-    UnitList listRes = new ObjectMapper().registerModule(new UnitListModule()).readValue(result.getResponse().getContentAsString(StandardCharsets.UTF_8), UnitList.class);
-    //Is the problem that it uses UnitListDesrialiser.java which reads all the json files in rest folder?
-    assertEquals(3, listRes.getUnitListEntries().size());
+    /** 
+    UnitList u1 = new ObjectMapper().registerModule(new UnitListModule()).readValue(result.getResponse().getContentAsString(StandardCharsets.UTF_8), UnitList.class);
+    assertEquals(1, u1.getUnitListEntries().size()); 
+    */
   }
-  */
+
 
 
   /**
@@ -103,6 +110,7 @@ class UnitListControllerTest {
         .andExpect(status().isOk())
         .andReturn();
     assertTrue(Boolean.parseBoolean(result.getResponse().getContentAsString()));
+    //Hvis listen er tom så vil testen faile som IllegalstateExeption 
   }
 
   /**
