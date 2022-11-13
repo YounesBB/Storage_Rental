@@ -57,7 +57,7 @@ public class UnitList {
     return locationIncrementer;
   }
 
-  public static void setIncrementLocation(int num) {
+  public void setIncrementLocation(int num) {
     UnitList.locationIncrementer = num;
   }
 

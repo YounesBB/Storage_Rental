@@ -39,12 +39,8 @@ public class OverviewPageController {
   void initialize() throws IOException {
     boolean manager = HandleUser.getIsManager();
     boolean rest = HandleUser.getUsesRest();
-    if (manager) {
-      this.addUnitsButton.setDisable(false);
-    } else {
-      this.addUnitsButton.setDisable(true);
-    }
-    
+
+    this.addUnitsButton.setDisable(!manager);
     this.settingsButton.setDisable(rest);
     /*
      * Fetches unitlist from server, and sets it locally.  
@@ -67,7 +63,7 @@ public class OverviewPageController {
           List<Unit> list = Arrays.asList(new GsonBuilder().create().fromJson(response.body(), Unit[].class));
           ul.clearUnitList();
           ul.getUnitListEntries().addAll(list);
-          UnitList.setIncrementLocation(ul.getUnitListEntries().size());
+          ul.setIncrementLocation(ul.getUnitListEntries().size());
         }
 
       } catch (InterruptedException e) {
