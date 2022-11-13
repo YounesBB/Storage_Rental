@@ -33,6 +33,9 @@ public class OverviewPageController {
   private Button unitsOverviewButton;
 
   @FXML
+  private Button settingsButton;
+
+  @FXML
   void initialize() throws IOException {
     boolean manager = HandleUser.getIsManager();
     boolean rest = HandleUser.getUsesRest();
@@ -41,6 +44,8 @@ public class OverviewPageController {
     } else {
       this.addUnitsButton.setDisable(true);
     }
+    
+    this.settingsButton.setDisable(rest);
     /*
      * Fetches unitlist from server, and sets it locally.  
      * Does this if there are none units in the program
@@ -62,6 +67,7 @@ public class OverviewPageController {
           List<Unit> list = Arrays.asList(new GsonBuilder().create().fromJson(response.body(), Unit[].class));
           ul.clearUnitList();
           ul.getUnitListEntries().addAll(list);
+          UnitList.setIncrementLocation(ul.getUnitListEntries().size());
         }
 
       } catch (InterruptedException e) {
