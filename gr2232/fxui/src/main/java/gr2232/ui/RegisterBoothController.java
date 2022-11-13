@@ -6,12 +6,14 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.net.http.HttpRequest.BodyPublishers;
-import java.net.http.HttpResponse.BodyHandlers;
+import java.util.ArrayList;
 import java.util.List;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.gson.Gson;
+import javax.swing.event.UndoableEditListener;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import gr2232.core.HandleUser;
 import gr2232.core.Unit;
 import gr2232.core.UnitList;
 import javafx.fxml.FXML;
@@ -80,56 +82,78 @@ public class RegisterBoothController {
     }
   }
 
+  private List<Unit> makeBoothsRest() {
+    units.initializeTempUnitList();
+    for (int i = 0; i < largeBooth; i++) {
+      units.createTempUnit('L');
+    }
+
+    for (int i = 0; i < mediumBooth; i++) {
+      units.createTempUnit('M');
+
+    }
+    for (int i = 0; i < smallBooth; i++) {
+      units.createTempUnit('S');
+
+    }
+    List<Unit> tempList = new ArrayList<Unit>();
+    tempList = units.getTempUnits();
+    return tempList;
+  }
+
   private void clearFields() {
     inputLargeBooth.clear();
     inputMediumBooth.clear();
     inputSmallBooth.clear();
 
   }
-  
+
   @FXML
   private void getNewBooth() throws IOException {
-    getInputValues();
-    makeBooths();
+    if(HandleUser.getUsesRest()) {
+      getNewBoothRest();
+    } else {
+      getInputValues();
+      makeBooths();
+    }
     clearFields();
-    getNewBoothRest();
+
   }
 
   private void getNewBoothRest() throws IOException {
-    UnitList ul = new UnitList();
-    Unit u = new Unit('L', 2);
-    Gson gson = new Gson();
-    ObjectMapper mapper = new ObjectMapper();
+    getInputValues();
+    List<Unit> list = new ArrayList<Unit>();
+    list = makeBoothsRest();
 
-    String json = mapper.writeValueAsString(u);
-    System.out.println(json);
-    System.out.println("test");
-    try {
-      HttpClient client = HttpClient.newHttpClient();
-      HttpRequest request = HttpRequest.newBuilder()
-          .uri(URI.create("http://localhost:8080/unitlist"))
-          .header("Accept", "application/json")
-          .header("Content-Type", "application/json")
-          .POST(BodyPublishers.ofString(json))
-          .build();
+    for (int i = 0; i < list.size(); i++) {
+      ObjectMapper mapper = new ObjectMapper();
+      String json = mapper.writeValueAsString(list.get(i));
+      try {
+        HttpClient client = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder()
+            .uri(URI.create("http://localhost:8080/unitlist"))
+            .header("Accept", "application/json")
+            .header("Content-Type", "application/json")
+            .POST(BodyPublishers.ofString(json))
+            .build();
 
-      final HttpResponse<String> response = HttpClient
-          .newBuilder()
-          .build()
-          .send(request, HttpResponse.BodyHandlers.ofString());
-      System.out.println(response);
-    } catch (InterruptedException e) {
-      // TODO Auto-generated catch block
-      e.printStackTrace();
+        final HttpResponse<String> response = HttpClient
+            .newBuilder()
+            .build()
+            .send(request, HttpResponse.BodyHandlers.ofString());
+
+        if(response.statusCode() == 200) {
+          units.addUnit(list.get(i));
+          System.out.println("Added unit: " + list.get(i).getLocation() + list.get(i).getSize());
+        }
+        else if(response.statusCode() == 500) {
+          System.out.println("Internal Server error 500");
+        }
+      } catch (InterruptedException e) {
+        e.printStackTrace();
+      }
     }
-
-    /*
-     * client.sendAsync(request, BodyHandlers.ofString())
-     * .thenApply(HttpResponse::body)
-     * .thenAccept(System.out::println)
-     * .join();
-     */
-
+    units.resetTempUnitList();
   }
 
   @FXML

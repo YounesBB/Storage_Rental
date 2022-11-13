@@ -1,6 +1,9 @@
 package gr2232.ui;
 
 import java.io.IOException;
+
+import javax.net.ssl.HandshakeCompletedEvent;
+
 import gr2232.core.HandleUser;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -22,11 +25,14 @@ public class OverviewPageController {
 
   @FXML
   void initialize() {
-    if (HandleUser.getIsManager()) {
+    boolean manager = HandleUser.getIsManager();
+    boolean rest = HandleUser.getUsesRest();
+    if (manager) {
       this.addUnitsButton.setDisable(false);
     } else {
       this.addUnitsButton.setDisable(true);
     }
+    System.out.println(rest);
   }
 
   @FXML
