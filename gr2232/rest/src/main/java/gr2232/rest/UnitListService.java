@@ -41,9 +41,9 @@ public class UnitListService {
     return false; 
   }
 
-  protected boolean removeTenant(String tenant) throws IOException {
+  protected boolean removeTenant(Integer location) throws IOException {
     for (var entry : unitlist.getRentedUnits()) {
-      if (entry.getCustomerName().equals(tenant)) {
+      if (entry.getLocation().equals(location)) {
         entry.setUnitFree();
         persistence.writeListToFile();
         return true;

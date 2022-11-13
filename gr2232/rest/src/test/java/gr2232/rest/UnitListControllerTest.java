@@ -88,9 +88,9 @@ class UnitListControllerTest {
    */
   @Test
   void removeTenant() throws Exception {
-    String tenantName = "Tony";
+    Integer location = 17;
     MvcResult result = mvc.perform(MockMvcRequestBuilders
-        .put("/unitlist/" + tenantName))
+        .put("/unitlist/removetenant/" + location))
         .andExpect(status().isOk())
         .andReturn();
     assertTrue(Boolean.parseBoolean(result.getResponse().getContentAsString()));
@@ -106,7 +106,7 @@ class UnitListControllerTest {
     String tenantName = "Tony";
     Integer location = 17; 
     MvcResult result = mvc.perform(MockMvcRequestBuilders
-        .put("/unitlist/" + location + "/" + tenantName))
+        .put("/unitlist/addtenant/" + location + "/" + tenantName))
         .andExpect(status().isOk())
         .andReturn();
     assertTrue(Boolean.parseBoolean(result.getResponse().getContentAsString()));

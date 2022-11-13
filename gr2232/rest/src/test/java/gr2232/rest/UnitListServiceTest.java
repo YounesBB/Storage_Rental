@@ -72,8 +72,8 @@ public class UnitListServiceTest {
   void removeTenant() throws IOException {
     Unit u1 = new Unit('L', 10, true, "Tom");
     unitListService.addUnit(u1);
-    assertTrue(unitListService.removeTenant("Tom"));
-    assertFalse(unitListService.removeTenant("Tom"));
+    assertTrue(unitListService.removeTenant(10));
+    assertFalse(unitListService.removeTenant(10));
 
     unitListService.removeUnit(10);
   }
