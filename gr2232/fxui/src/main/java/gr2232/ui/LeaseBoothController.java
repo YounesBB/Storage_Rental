@@ -84,7 +84,7 @@ public class LeaseBoothController implements Initializable {
         String name = UnitOwner.getText();
         String put = location + name;
         String json = mapper.writeValueAsString(put);
-        String url = MessageFormat.format("http://localhost:8080/{0}/{1}", location, name);
+        String url = MessageFormat.format("http://localhost:8080/unitlist/{0}/{1}", location, name);
         try {
           HttpClient client = HttpClient.newHttpClient();
           HttpRequest request = HttpRequest.newBuilder()
