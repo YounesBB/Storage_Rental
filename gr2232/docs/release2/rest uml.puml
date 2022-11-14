@@ -3,7 +3,6 @@
 
 UnitListController "1"<-->"1" UnitListService
 UnitListController ..> UnitListService
-DemoApplication --- SpringApplication
 
 class UnitListController{
   +CONTROLLER_PATH : String {static}
@@ -33,10 +32,6 @@ class UnitListService{
 class DemoApplication{
   +main(String[])
   #objectMapperModule() : Module
-}
-
-class SpringApplication{
-
 }
 
 @enduml

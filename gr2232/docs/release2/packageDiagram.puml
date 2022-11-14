@@ -5,12 +5,16 @@ Component fxui {
 
 } 
 fxui ..> [javafx]
-fxui ..> [fxml]
+fxui ..> resources
 
 Component core {
   package "gr2232.core"
   package "gr2232.json"
 
+}
+
+Component resources{
+  package "fxml"
 }
 
 gr2232.json ..> [jackson]
