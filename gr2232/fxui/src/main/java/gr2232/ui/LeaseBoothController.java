@@ -84,7 +84,7 @@ public class LeaseBoothController implements Initializable {
         String name = UnitOwner.getText();
         String put = location + name;
         String json = mapper.writeValueAsString(put);
-        String url = MessageFormat.format("http://localhost:8080/unitlist/{0}/{1}", location, name);
+        String url = MessageFormat.format("http://localhost:8080/unitlist/addtenant/{0}/{1}", location, name);
         try {
           HttpClient client = HttpClient.newHttpClient();
           HttpRequest request = HttpRequest.newBuilder()
@@ -98,9 +98,11 @@ public class LeaseBoothController implements Initializable {
               .newBuilder()
               .build()
               .send(request, HttpResponse.BodyHandlers.ofString());
-          System.out.println(response);
           if(response.statusCode() == 200) {
-
+            units.getUnitByLocation(location).setCustomerName(name);;
+            System.out.println("Added customer: " + name + ", to unit location: " + location);
+            this.UnitOwner.clear();
+            this.unitLocation.clear();
           }
           else if(response.statusCode() == 500) {
             System.out.println("Internal Server error 500");
