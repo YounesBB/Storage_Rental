@@ -57,6 +57,10 @@ public class UnitList {
     return locationIncrementer;
   }
 
+  public void setIncrementLocation(int num) {
+    UnitList.locationIncrementer = num;
+  }
+
   /**
    * Returns a list of units that's been rented yet
    * 
