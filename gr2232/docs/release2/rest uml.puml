@@ -1,0 +1,42 @@
+@startuml
+!theme amiga
+
+UnitListController "1"<-->"1" UnitListService
+UnitListController ..> UnitListService
+DemoApplication --- SpringApplication
+
+class UnitListController{
+  +CONTROLLER_PATH : String {static}
+  -unitListService : UnitListService 
+
+  +UnitListController()
+  #getUnitList(): List<Unit> 
+  #addUnit(Unit): boolean
+  #removeUnit(Integer): boolean
+  #removeUnit(String): boolean
+  #addTenant(Integer, String): boolean
+}
+
+class UnitListService{
+  -name: String {static}
+  -persistence: UnitListFileSupport
+  -unitlist: UnitList
+
+  +UnitListService()
+  +getUnitList(): UnitList
+  +addUnit(Unit): boolean
+  +removeUnit(Integer): boolean
+  +removeTenant(String): boolean
+  +addTenant(Integer, String): boolean
+}
+
+class DemoApplication{
+  +main(String[])
+  #objectMapperModule() : Module
+}
+
+class SpringApplication{
+
+}
+
+@enduml
