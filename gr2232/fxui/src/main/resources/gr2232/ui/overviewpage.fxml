@@ -33,6 +33,6 @@
          </font>
       </Button>
       <Button layoutX="14.0" layoutY="28.0" mnemonicParsing="false" onAction="#goToLogIn" text="Log out" />
-      <Button layoutX="524.0" layoutY="28.0" mnemonicParsing="false" onAction="#goToSettings" text="Settings" />
+      <Button layoutX="524.0" layoutY="28.0" mnemonicParsing="false" onAction="#goToSettings" text="Settings" fx:id="settingsButton" />
    </children>
 </AnchorPane>
