@@ -1,0 +1,69 @@
+@startuml
+!theme amiga
+UnitList "UnitLists: 1" o-- "Units: *" Unit
+HandleUser ..|> HandleUserInterface
+
+class Unit{
+ -isRented : boolean
+ -customerName : string
+ -location : Integer
+ -size : char
+
+ +Unit(char, Integer, Boolean, String)
+ +setSize(char): void
+ +getSize(): char
+ +getIsRented(): boolean
+ +toggleIsRented() : void
+ +removeTenantFromUnit() : void
+ +setIsRented(boolean) : void
+ +setCustomerName(String) : void
+ +getCustomerName() : String
+ +getLocation() : Integer
+ +setLocation(Integer) : void
+ +setUnitFree() : void
+}
+
+class UnitList{
+ - unitList {static} : List<Unit>
+ locationIncrementer {static} : Integer
+ -temp_unitlist: List<Unit>
+ +locationIncrementer: Integer {static}
+ -temp_locationIncrementer: Integer
+
+ +unitList()
+ +initializeTempUnitList() : void
+ +createTempUnit(char) : void
+ +getTempUnits() : List<Unit>
+ +resetTempUnitList() : void
+ +incrementLocation() : void
+ +getIncrementLocation() : Integer
+ +getRentedUnits() : List<Unit>
+ +getFreeUnits() : List<Unit>
+ +getFreeUnitsWithCertainSize() : List<Unit>
+ +getUnitListEntries() : List<Unit>
+ +getUnitByLocation(Integer) : Unit
+ +updateUnitByLocation(Integer, Unit) : void
+ +createUnit(char) : void
+ +addUnit(char) : void
+ +clearUnitList()
+ +removeUnitByLocation(Integer) : boolean
+}
+
+class HandleUser{
+ #isManager : boolean {static}
+ #usesRest: boolean {static} 
+ -username : String
+ -password : String
+ 
+ +HandleUser()
+ +validateInputs(String, String) : boolean
+ +setIsManager() : void {static}
+ +getIsManager() : boolean {static}
+ +setUsesRest(boolean) : void {static}
+ +getUsesRest() : boolean {static}
+}
+
+interface HandleUserInterface{
+ +validateInputs(String, String) : boolean
+}
+@enduml
