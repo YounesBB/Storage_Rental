@@ -21,19 +21,22 @@ import com.google.gson.reflect.TypeToken;
 
 public class UnitListFileSupport {
 
-  public UnitListFileSupport() {
+  private final String filename;
+
+  public UnitListFileSupport(String filename) {
+    this.filename = filename;
+
 
   }
 
   /**
    * Uses GSON to turn all unitentries(List) into a jsonfile
    * 
-   * @param filename
    * @throws IOException
    */
-  public void writeListToFile(String filename) throws IOException {
+  public void writeListToFile() throws IOException {
     UnitList ul = new UnitList();
-    String jsonFilename = filename + ".model.json";
+    String jsonFilename = this.filename + ".model.json";
     try (Writer writer = new BufferedWriter(new OutputStreamWriter(
         new FileOutputStream(jsonFilename), StandardCharsets.UTF_8));) {
       Gson gson = new GsonBuilder().create();
@@ -48,14 +51,13 @@ public class UnitListFileSupport {
    * Using GSON,Jsonreader and Filereader to read JSONfile and set UnitList to
    * read value
    * 
-   * @param filename
    * @retun unitList
    * @throws FileNotFoundException
    * @throws UnsupportedEncodingException
    */
-  public UnitList getListFromFile(String filename) throws FileNotFoundException, UnsupportedEncodingException {
+  public UnitList getListFromFile() throws FileNotFoundException, UnsupportedEncodingException {
     Gson gson = new Gson();
-    String jsonFilename = filename + ".model.json";
+    String jsonFilename = this.filename + ".model.json";
     FileInputStream stream = new FileInputStream(jsonFilename);
     Type unitType = new TypeToken<List<Unit>>() {
     }.getType();

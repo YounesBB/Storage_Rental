@@ -17,56 +17,59 @@ public class UnitListService {
   private final UnitList unitlist;
 
   public UnitListService() throws FileNotFoundException, UnsupportedEncodingException {
-    this.persistence = new UnitListFileSupport();
-    this.unitlist = persistence.getListFromFile(name); 
+    this.persistence = new UnitListFileSupport(UnitListService.name);
+    this.unitlist = persistence.getListFromFile(); 
 
   }
 
-  public UnitList getUnitList() throws FileNotFoundException, UnsupportedEncodingException {
-    return persistence.getListFromFile(name); 
+  protected UnitList getUnitList() throws FileNotFoundException, UnsupportedEncodingException {
+    return persistence.getListFromFile(); 
   }
 
-  public boolean addUnit(Unit unit) throws IOException {
-    unitlist.addUnit(unit); //se om denne unit blir lagt til UnitListFileSupport sin UnitList 
-    persistence.writeListToFile(name); 
+  protected boolean addUnit(Unit unit) throws IOException {
+    unitlist.addUnit(unit); 
+    persistence.writeListToFile(); 
     return true; 
   }
 
-  public boolean removeUnit(Integer location) throws IOException {
+  protected boolean removeUnit(Integer location) throws IOException {
     Boolean answer = unitlist.removeUnitByLocation(location);
     if (answer) {
-      persistence.writeListToFile(name);
+      persistence.writeListToFile();
       return true; 
     }
     return false; 
   }
 
-  public boolean removeTenant(String tenant) throws IOException {
+  protected boolean removeTenant(Integer location) throws IOException {
     for (var entry : unitlist.getRentedUnits()) {
-      if (entry.getCustomerName().equals(tenant)) {
+      if (entry.getLocation().equals(location)) {
         entry.setUnitFree();
-        persistence.writeListToFile(name);
+        persistence.writeListToFile();
         return true;
       }
     }
     return false; 
   }
 
-  public boolean addTenant(Integer location, String tenant) throws IOException {
+  protected boolean addTenant(Integer location, String tenant) throws IOException {
     Unit entry = unitlist.getUnitByLocation(location); 
     if (entry == null) {
       return false;
     }
     entry.setCustomerName(tenant);
-    persistence.writeListToFile(name); 
+    persistence.writeListToFile(); 
     return true;
   }
 
-
-  public static void main(String[] args) throws IOException {
-    UnitListService u1 = new UnitListService();
-    Unit unit1 = new Unit('M',3); 
-
-    u1.addUnit(unit1); 
+  /**
+   * Gets elements in unitListTest.model.json 
+   *
+   * @return a test UnitList json file (used for testing)
+   */
+  public static UnitList getUnitListTestJson() throws IOException {
+    UnitListFileSupport support1 = new UnitListFileSupport("unitListTest"); 
+    return support1.getListFromFile();
   }
+
 }
