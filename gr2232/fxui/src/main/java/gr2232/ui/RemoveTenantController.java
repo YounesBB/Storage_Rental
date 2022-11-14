@@ -54,7 +54,7 @@ public class RemoveTenantController {
       String[] tenantData = tenantLine.split(",");
       Integer location = Integer.parseInt(tenantData[1]);
       String json = mapper.writeValueAsString(location);
-      String url = MessageFormat.format("http://localhost:8080/unitlist/{0}", location);
+      String url = MessageFormat.format("http://localhost:8080/unitlist/removetenant/{0}", location);
       try {
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
@@ -69,7 +69,10 @@ public class RemoveTenantController {
             .build().send(request, HttpResponse.BodyHandlers.ofString());
         System.out.println(response);
         if (response.statusCode() == 200) {
-
+          unitList.getUnitByLocation(location).removeTenantFromUnit();
+          System.out.println("Tenant removed from unit: " + location);
+          updateTenantList();
+          tenantSelector.setItems(tenantList);
         } else if (response.statusCode() == 500) {
           System.out.println("Internal Server error 500");
         }
