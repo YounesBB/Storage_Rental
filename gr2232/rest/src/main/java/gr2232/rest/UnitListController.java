@@ -45,6 +45,19 @@ public class UnitListController {
     UnitList ul = unitListService.getUnitList();
     return ul.getUnitListEntries();
   }
+
+   /**
+   * Gets the Units from unitListTest.model.json 
+   * Used for testing proposes 
+   *
+   * @return the unitlist
+   * @throws IOException
+   */
+  @GetMapping(path = "/test")
+  protected List<Unit> getTestUnitList() throws IOException {
+    UnitList ul = UnitListService.getUnitListTestJson();
+    return ul.getUnitListEntries();
+  }
    /** 
    /**
    * Adds a unit to the servers Unitlist.
@@ -83,6 +96,7 @@ public class UnitListController {
     unitListService.addUnit(unit);
     return true;
   }
+  
 
    /**
    * Removes a unit to the servers Unitlist
@@ -97,27 +111,27 @@ public class UnitListController {
   }
 
   /**
-   * Removes a tenant from the servers Unitlist
+   * Removes a tenant from the servers Unitlist by location
    *
-   * @param  tenant to remove
+   * @param  location of the unit to remove tenant from
    * @return true after removing tenant
    * @throws IOException
    */
-  @PutMapping(path = "/{tenant}")
-  protected boolean removeUnit(@PathVariable("tenant") String tenant) throws IOException {
-    return unitListService.removeTenant(tenant); 
+  @PutMapping(path = "removetenant/{location}")
+  protected boolean removeTenant(@PathVariable("location") Integer location) throws IOException {
+    return unitListService.removeTenant(location); 
   }
 
   /**
    * Adds a tenant to the servers Unitlist
    *
    * @param  location to rent out
-   * @param  tenant to rent the unit at location
+   * @param  tenant to rent the unit at location  
    * @return true after adding tenant
    * @throws IOException
    */
-  @PutMapping(path = "/{location}/{tenant}")
-  protected boolean addTenant(@PathVariable("location") Integer location, @PathVariable("tenant") String tenant) throws IOException {
+  @PutMapping(path = "addtenant/{location}/{tenant}")
+  protected boolean addTenant(@PathVariable("tenant") String tenant, @PathVariable("location") Integer location) throws IOException {
     return unitListService.addTenant(location, tenant); 
   }
 }
