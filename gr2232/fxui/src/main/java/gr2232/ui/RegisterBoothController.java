@@ -144,6 +144,7 @@ public class RegisterBoothController {
 
         if(response.statusCode() == 200) {
           units.addUnit(list.get(i));
+          UnitList.incrementLocation();
           System.out.println("Added unit: " + list.get(i).getLocation() + list.get(i).getSize());
         }
         else if(response.statusCode() == 500) {

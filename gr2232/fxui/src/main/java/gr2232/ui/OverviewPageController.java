@@ -63,7 +63,7 @@ public class OverviewPageController {
           List<Unit> list = Arrays.asList(new GsonBuilder().create().fromJson(response.body(), Unit[].class));
           ul.clearUnitList();
           ul.getUnitListEntries().addAll(list);
-          ul.setIncrementLocation(ul.getUnitListEntries().size());
+          UnitList ul2 = new UnitList(ul.getUnitListEntries().size());
         }
 
       } catch (InterruptedException e) {

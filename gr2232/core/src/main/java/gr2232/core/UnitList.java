@@ -16,6 +16,10 @@ public class UnitList {
 
   }
 
+  public UnitList(int incremention) {
+    UnitList.locationIncrementer = incremention;
+  }
+
   /**
    * Sets the temporary locationincrementer 
    */
@@ -55,10 +59,6 @@ public class UnitList {
   
   public static Integer getIncrementLocation() {
     return locationIncrementer;
-  }
-
-  public void setIncrementLocation(int num) {
-    UnitList.locationIncrementer = num;
   }
 
   /**
