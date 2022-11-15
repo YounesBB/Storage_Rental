@@ -19,6 +19,11 @@ import gr2232.core.UnitList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
+/**
+ * Controller for the registerbooth page.
+ * Gives the user the ability to add new booths.
+ */
+
 public class RegisterBoothController {
 
   private UnitList units;
@@ -46,6 +51,9 @@ public class RegisterBoothController {
   // Input a TextField, returns the integer if possible.
   private Integer getIntFromTextField(TextField numberOfBooths) {
     String valueString = numberOfBooths.getText();
+    if(valueString.equals("")) {
+      return 0;
+    }
     try {
       int number = Integer.parseInt(valueString);
       if (number < 0) {

@@ -18,6 +18,11 @@ import gr2232.core.HandleUser;
 import gr2232.core.Unit;
 import gr2232.core.UnitList;
 
+/**
+ * Controller for the removetenant page.
+ * Gives the user the ability to remove tenants and clear up units.
+ */
+
 public class RemoveTenantController {
 
   @FXML
@@ -68,7 +73,7 @@ public class RemoveTenantController {
             HttpClient.newBuilder()
             .build().send(request, HttpResponse.BodyHandlers.ofString());
         System.out.println(response);
-        if (response.statusCode() == 200) {
+        if ((response.statusCode() == 200) && (Boolean.parseBoolean(response.body()))) {
           unitList.getUnitByLocation(location).removeTenantFromUnit();
           System.out.println("Tenant removed from unit: " + location);
           updateTenantList();

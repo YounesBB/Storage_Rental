@@ -21,6 +21,11 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
+/**
+ * Controller for the LeaseBoothController page.
+ * Gives users the ability to lease out booths. 
+ */
+
 public class LeaseBoothController implements Initializable {
 
   @FXML
@@ -98,7 +103,7 @@ public class LeaseBoothController implements Initializable {
               .newBuilder()
               .build()
               .send(request, HttpResponse.BodyHandlers.ofString());
-          if(response.statusCode() == 200) {
+          if((response.statusCode() == 200) && (Boolean.parseBoolean(response.body()))) {
             units.getUnitByLocation(location).setCustomerName(name);;
             System.out.println("Added customer: " + name + ", to unit location: " + location);
             this.UnitOwner.clear();

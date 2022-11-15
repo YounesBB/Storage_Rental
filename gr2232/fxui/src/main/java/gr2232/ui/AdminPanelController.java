@@ -11,6 +11,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
+/**
+* Controller for AdminPanel.
+* Supports loading, clearing and saving the UnitList.
+*/
+
 public class AdminPanelController {
 
   @FXML
