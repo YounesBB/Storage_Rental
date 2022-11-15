@@ -3,8 +3,11 @@ package gr2232.ui;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assumptions.assumeTrue;
+import static org.testfx.api.FxAssert.verifyThat;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.testfx.api.FxAssert;
 import org.testfx.framework.junit5.ApplicationTest;
 import org.testfx.util.WaitForAsyncUtils;
 import gr2232.core.Unit;
@@ -13,6 +16,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 
@@ -34,9 +38,13 @@ public class AppManagerLoginTest extends ApplicationTest {
 
   @Test
   public void testIncorrectUsernameAndPassword(){
-/*     clickOn("#usernameField").write("test");
+    clickOn("#usernameField").write("test");
     clickOn("#passwordField").write("test");
-    clickOn("#loginbutton"); */
-    
+    clickOn("#loginbutton");
+    WaitForAsyncUtils.waitForFxEvents();
+    Text text = (Text) parent.lookup("#response");
+    assumeTrue(text.getText() == "Username and/or password is incorrect.");
+
+
   }
 }
