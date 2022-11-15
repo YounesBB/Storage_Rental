@@ -41,10 +41,7 @@ public class UnitListFileSupport {
         new FileOutputStream(jsonFilename), StandardCharsets.UTF_8));) {
       Gson gson = new GsonBuilder().create();
       gson.toJson(ul.getUnitListEntries(), writer);
-    } catch (FileNotFoundException e) {
-      e.printStackTrace();
     }
-
   }
 
   /**
