@@ -68,7 +68,7 @@ public class RemoveTenantController {
             HttpClient.newBuilder()
             .build().send(request, HttpResponse.BodyHandlers.ofString());
         System.out.println(response);
-        if (response.statusCode() == 200) {
+        if ((response.statusCode() == 200) && (Boolean.parseBoolean(response.body()))) {
           unitList.getUnitByLocation(location).removeTenantFromUnit();
           System.out.println("Tenant removed from unit: " + location);
           updateTenantList();
