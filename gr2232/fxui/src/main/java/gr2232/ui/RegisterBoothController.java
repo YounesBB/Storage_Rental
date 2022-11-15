@@ -51,6 +51,9 @@ public class RegisterBoothController {
   // Input a TextField, returns the integer if possible.
   private Integer getIntFromTextField(TextField numberOfBooths) {
     String valueString = numberOfBooths.getText();
+    if(valueString.equals("")) {
+      return 0;
+    }
     try {
       int number = Integer.parseInt(valueString);
       if (number < 0) {
