@@ -10,17 +10,16 @@ participant "server" as E
 
 
 User -> A: Click "Submit"
-A -> B: void makeBoothsRest()
-B -> C: void getInputValues()
+A -> B: void getNewBooth()
+B --> B: void getInputValues()
+B -> C: void createTempUnit() 
 
-B -> D: POST input
+B -> D: POST[serialize(input)]
 D -> E: save to the database
 E --> D: save is successful
 
-D --> C: respons
-
-C --> B: added the Units
-
+D --> B: response:200 body: true
+B --> C: add the Unit to unitList
 B --> B: void clearFields()
 end
 @enduml
