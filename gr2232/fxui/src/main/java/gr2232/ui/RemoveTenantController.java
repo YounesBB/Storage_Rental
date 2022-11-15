@@ -18,6 +18,11 @@ import gr2232.core.HandleUser;
 import gr2232.core.Unit;
 import gr2232.core.UnitList;
 
+/**
+ * Controller for the removetenant page.
+ * Gives the user the ability to remove tenants and clear up units.
+ */
+
 public class RemoveTenantController {
 
   @FXML
