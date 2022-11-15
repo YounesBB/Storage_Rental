@@ -1,0 +1,26 @@
+@startuml
+group Admin registers new units/booths
+!theme amiga
+actor User #red
+participant "~#getNewBoothButton:Button" as A
+participant "fxui" as B
+participant "core" as C
+participant "rest" as D
+participant "server" as E
+
+
+User -> A: Click "Submit"
+A -> B: void makeBoothsRest()
+B -> C: void getInputValues()
+
+B -> D: POST input
+D -> E: save to the database
+E --> D: save is successful
+
+D --> C: respons
+
+C --> B: added the Units
+
+B --> B: void clearFields()
+end
+@enduml
