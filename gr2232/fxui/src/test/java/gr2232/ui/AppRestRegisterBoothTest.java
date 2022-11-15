@@ -2,6 +2,7 @@ package gr2232.ui;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ResourceBundle;
 
@@ -12,12 +13,13 @@ import org.testfx.api.FxAssert;
 import org.testfx.framework.junit5.ApplicationTest;
 import org.testfx.util.WaitForAsyncUtils;
 import gr2232.core.UnitList;
+import gr2232.core.HandleUser;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class AppRegisterBoothTest extends ApplicationTest {
+public class AppRestRegisterBoothTest extends ApplicationTest {
 
   private Parent parent;
   private RegisterBoothController controller;
@@ -28,6 +30,7 @@ public class AppRegisterBoothTest extends ApplicationTest {
     UnitList ul = new UnitList();
     ul.clearUnitList();
     final FXMLLoader loader = new FXMLLoader(getClass().getResource("registerbooth.fxml"));
+    HandleUser.setUsesRest(true);
     this.loader = loader;
     this.parent = loader.load();
     this.controller = loader.getController();
@@ -35,14 +38,15 @@ public class AppRegisterBoothTest extends ApplicationTest {
     stage.show();
   }
 
-  // Might want to change so that empty input == 0 in controller?
   @Test
   public void testInputSize() throws InterruptedException {
     UnitList ul = new UnitList();
+    assertTrue(HandleUser.getUsesRest());
     clickOn("#inputSmallBooth").write("4");
     clickOn("#inputMediumBooth").write("0");
     clickOn("#inputLargeBooth").write("0");
     clickOn("#getNewBoothButton");
+    WaitForAsyncUtils.waitForFxEvents();
     assertEquals(4, ul.getUnitListEntries().size());
   }
 }
