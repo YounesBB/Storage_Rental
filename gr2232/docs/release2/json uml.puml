@@ -1,0 +1,37 @@
+@startuml
+!theme amiga
+
+class UnitDeserializer{
+  +deserialize(JsonParser, DeserializationContext) : Unit
+}
+
+class UnitListDeserializer{
+  +deserialize(JsonParser, DeserializationContext) : UnitList
+}
+
+class UnitListFileSupport{
+  +writeListToFile(String)
+  +getListFromFile(String)
+}
+
+class UnitListModule{
+  -serialVersionUID : long {static}
+  -NAME: String {static}
+
+  +UnitListModule()
+}
+
+class UnitListSerializer{
+  +serialize(UnitList, JsonGenerator, SerializerProvider) : void
+}
+
+class UnitSerializer{
+  +serialize(Unit, JsonGenerator, SerializerProvider) : void
+}
+
+UnitListModule ..> UnitListSerializer
+UnitListModule ..> UnitListDeserializer
+UnitListModule ..> UnitSerializer
+UnitListModule ..> UnitDeserializer
+
+@enduml

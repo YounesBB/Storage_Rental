@@ -1,9 +1,11 @@
 package gr2232.core;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * Contains data about a unit and functionality to change said data.
  */
-
 public class Unit {
 
   private boolean isRented = false;
@@ -11,12 +13,23 @@ public class Unit {
   private Integer location;
   private char size;
 
+  @JsonCreator
+  public Unit(@JsonProperty("size") char size, 
+  @JsonProperty("location") Integer location,
+  @JsonProperty("isRented") Boolean isRented,
+  @JsonProperty("customerName") String customername) {
+     setSize(size);
+    setLocation(location);
+    setCustomerName(customername);
+    setIsRented(isRented); 
+  }
+
   public Unit(char size, Integer location) {
     setSize(size);
     setLocation(location);
   }
 
-    public void setSize(char size) {
+  public void setSize(char size) {
         // Check if valid size
         if (size == 'S' || size == 'M' || size == 'L') {
             this.size = size;

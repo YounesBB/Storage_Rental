@@ -38,14 +38,15 @@ public class AdminPanelController {
 
   @FXML
   void onLoad(ActionEvent event) {
-    UnitList unitList = new UnitList();
-    UnitListFileSupport fileHandler = new UnitListFileSupport();
-
     String fileName = fileUrl.getText();
+
+    UnitList unitList = new UnitList();
+    UnitListFileSupport fileHandler = new UnitListFileSupport(fileName);
+
 
     try {
       unitList.clearUnitList();
-      fileHandler.getListFromFile(fileName);
+      fileHandler.getListFromFile();
       responseText.setText("Loaded!");
     } catch (FileNotFoundException e) {
       e.printStackTrace();
@@ -58,10 +59,10 @@ public class AdminPanelController {
 
   @FXML
   void onSave(ActionEvent event) throws IOException {
-    UnitListFileSupport fileHandler = new UnitListFileSupport();
-
     String fileName = fileUrl.getText();
-    fileHandler.writeListToFile(fileName);
+    UnitListFileSupport fileHandler = new UnitListFileSupport(fileName);
+
+    fileHandler.writeListToFile();
     responseText.setText("Saved!");
 
   }

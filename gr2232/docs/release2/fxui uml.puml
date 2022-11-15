@@ -1,0 +1,55 @@
+@startuml
+!theme amiga
+
+component fxml{
+  class adminpanel
+  class allTenants
+  class leasebooth
+  class login
+  class managerlogin
+  class overviewpage
+  class registerbooth
+  class removetenant
+}
+
+class AdminPanelController
+
+class AllTenantsController
+
+class LeaseBoothController
+
+class LoginController
+
+class ManagerLoginController
+
+class OverviewPageController
+
+class RegisterBoothController
+
+class RemoveTenantController
+
+class App
+
+class Application
+
+
+App --|> Application
+
+AdminPanelController ..> adminpanel
+
+AllTenantsController ..> allTenants
+
+LeaseBoothController ..> leasebooth
+
+LoginController ..> login
+
+ManagerLoginController ..> managerlogin
+
+OverviewPageController ..> overviewpage
+
+RegisterBoothController ..> registerbooth
+
+RemoveTenantController ..> removetenant
+
+
+@enduml

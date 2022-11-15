@@ -7,6 +7,14 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import java.io.IOException;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.net.http.HttpRequest.BodyPublishers;
+import java.text.MessageFormat;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import gr2232.core.HandleUser;
 import gr2232.core.Unit;
 import gr2232.core.UnitList;
 
@@ -46,19 +54,54 @@ public class RemoveTenantController {
   void onRemoveTenant() throws IOException {
     UnitList unitList = new UnitList();
     String tenantLine = tenantSelector.getValue();
-    if (tenantLine == null) {
-      throw new IllegalArgumentException("Must select a tenant to remove!");
-    } else {
+    if (HandleUser.getUsesRest()) {
+      ObjectMapper mapper = new ObjectMapper();
       String[] tenantData = tenantLine.split(",");
       Integer location = Integer.parseInt(tenantData[1]);
+      String json = mapper.writeValueAsString(location);
+      String url = MessageFormat.format("http://localhost:8080/unitlist/removetenant/{0}", location);
+      try {
+        HttpClient client = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder()
+            .uri(URI.create(url))
+            .header("Accept", "application/json")
+            .header("Content-Type", "application/json")
+            .PUT(BodyPublishers.ofString(json))
+            .build();
 
-      Unit unitToRemoveTenant = unitList.getUnitByLocation(location);
-      unitToRemoveTenant.setIsRented(false);
-      unitList.updateUnitByLocation(location, unitToRemoveTenant);
+        final HttpResponse<String> response =
+            HttpClient.newBuilder()
+            .build().send(request, HttpResponse.BodyHandlers.ofString());
+        System.out.println(response);
+        if ((response.statusCode() == 200) && (Boolean.parseBoolean(response.body()))) {
+          unitList.getUnitByLocation(location).removeTenantFromUnit();
+          System.out.println("Tenant removed from unit: " + location);
+          updateTenantList();
+          tenantSelector.setItems(tenantList);
+        } else if (response.statusCode() == 500) {
+          System.out.println("Internal Server error 500");
+        }
+      } catch (InterruptedException e) {
+        e.printStackTrace();
+      }
 
-      updateTenantList();
-      tenantSelector.setItems(tenantList);
+    } else {
+
+      if (tenantLine == null) {
+        throw new IllegalArgumentException("Must select a tenant to remove!");
+      } else {
+        String[] tenantData = tenantLine.split(",");
+        Integer location = Integer.parseInt(tenantData[1]);
+
+        Unit unitToRemoveTenant = unitList.getUnitByLocation(location);
+        unitToRemoveTenant.setIsRented(false);
+        unitList.updateUnitByLocation(location, unitToRemoveTenant);
+
+        updateTenantList();
+        tenantSelector.setItems(tenantList);
+      }
     }
+
 
   }
 
