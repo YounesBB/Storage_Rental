@@ -98,7 +98,7 @@ public class LeaseBoothController implements Initializable {
               .newBuilder()
               .build()
               .send(request, HttpResponse.BodyHandlers.ofString());
-          if(response.statusCode() == 200) {
+          if((response.statusCode() == 200) && (Boolean.parseBoolean(response.body()))) {
             units.getUnitByLocation(location).setCustomerName(name);;
             System.out.println("Added customer: " + name + ", to unit location: " + location);
             this.UnitOwner.clear();
