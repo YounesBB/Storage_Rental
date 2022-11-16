@@ -44,7 +44,6 @@ public class UnitListFileSupport {
     } catch (FileNotFoundException e) {
       e.printStackTrace();
     }
-
   }
 
   /**

@@ -19,6 +19,11 @@ import gr2232.core.UnitList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
+/**
+ * Controller for the registerbooth page.
+ * Gives the user the ability to add new booths.
+ */
+
 public class RegisterBoothController {
 
   private UnitList units;
