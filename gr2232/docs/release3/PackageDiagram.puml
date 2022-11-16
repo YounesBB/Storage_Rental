@@ -18,6 +18,7 @@ Component resources{
 }
 
 gr2232.json ..> [jackson]
+gr2232.json ..> [gson]
 
 Component rest {
   package "gr2232.rest" 
