@@ -1,4 +1,5 @@
 @startuml
+group Admin registers new units/booths
 !theme amiga
 actor User #red
 participant "~#getNewBoothButton:Button" as A
@@ -15,7 +16,8 @@ B -> C: void getInputValues()
 B -> D: void createUnit()
 D -> E: new Unit()
 
-D -> D: getUnitListEntries.add(unit)
+D --> D: getUnitListEntries.add(unit)
 
-B -> B: void clearFields()
+B --> B: void clearFields()
+end
 @enduml

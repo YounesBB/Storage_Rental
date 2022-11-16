@@ -1,0 +1,25 @@
+@startuml
+group Employee or admin registers a tenant to a unit/booth
+!theme amiga
+actor User #red
+participant "~#submitButton:Button" as A
+participant "fxui" as B
+participant "core" as C
+participant "rest" as D
+participant "server" as E
+
+
+User -> A: Click "Register Tenant"
+A -> B: void leaseOut()
+B --> B: void getInputValues() and validate
+ 
+
+B -> D: PUT[Values sent:Location and name]
+D -> E: save to the database
+E --> D: save is successful
+
+D --> B: response: 200 body: true
+B --> C: registers a tenant to unit
+B --> B: void clearFields()
+end
+@enduml

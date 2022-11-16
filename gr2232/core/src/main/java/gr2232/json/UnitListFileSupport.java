@@ -19,6 +19,11 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
+ /**
+   * This class takes care of persistence in our system
+   * 
+   * @throws IOException
+   */
 public class UnitListFileSupport {
 
   private final String filename;
@@ -41,7 +46,7 @@ public class UnitListFileSupport {
         new FileOutputStream(jsonFilename), StandardCharsets.UTF_8));) {
       Gson gson = new GsonBuilder().create();
       gson.toJson(ul.getUnitListEntries(), writer);
-    } catch (FileNotFoundException e) {
+    } catch (Exception e) {
       e.printStackTrace();
     }
 
@@ -64,13 +69,11 @@ public class UnitListFileSupport {
     BufferedReader reader = new BufferedReader(new InputStreamReader(stream, StandardCharsets.UTF_8));
     List<Unit> list = gson.fromJson(reader, unitType);
     UnitList ul = new UnitList();
-    if (list.size() == 0) {
-      throw new IllegalStateException("Corrupted file!");
-    } else {
-      ul.getUnitListEntries().clear();
-      ul.getUnitListEntries().addAll(list);
-    }
-    ;
+    
+    
+    ul.getUnitListEntries().clear();
+    ul.getUnitListEntries().addAll(list);
+  
     return ul;
   }
 }

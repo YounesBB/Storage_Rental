@@ -1,0 +1,34 @@
+@startuml
+!theme amiga
+Component fxui {
+  package "gr2232.ui" 
+
+} 
+fxui ..> [javafx]
+fxui ..> resources
+
+Component core {
+  package "gr2232.core"
+  package "gr2232.json"
+
+}
+
+Component resources{
+  package "fxml"
+}
+
+gr2232.json ..> [jackson]
+gr2232.json ..> [gson]
+
+Component rest {
+  package "gr2232.rest" 
+} 
+
+rest ..> [springboot]
+gr2232.rest ..> gr2232.core
+gr2232.rest ..> gr2232.json
+
+
+gr2232.ui ..> gr2232.core
+gr2232.ui ..> gr2232.json
+@enduml
