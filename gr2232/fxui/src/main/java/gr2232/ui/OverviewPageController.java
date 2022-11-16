@@ -14,6 +14,7 @@ import com.google.gson.GsonBuilder;
 import gr2232.core.HandleUser;
 import gr2232.core.Unit;
 import gr2232.core.UnitList;
+import gr2232.json.UnitListFileSupport;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -99,6 +100,10 @@ public class OverviewPageController {
 
   @FXML
   void goToLogIn(ActionEvent event) throws IOException {
+    UnitListFileSupport ulfs = new UnitListFileSupport("backup");
+    UnitList emptyList = new UnitList();
+    emptyList.clearUnitList();
+    ulfs.writeListToFile();
     App.setRoot("login");
   }
 
