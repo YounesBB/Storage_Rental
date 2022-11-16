@@ -1,6 +1,8 @@
 package gr2232.ui;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.testfx.framework.junit5.ApplicationTest;
@@ -49,7 +51,7 @@ public class AppLeaseBoothTest extends ApplicationTest {
     clickOn("#submitButton");
     WaitForAsyncUtils.waitForFxEvents();
     Unit rentedUnit = ul.getRentedUnits().get(0);
-    assertEquals(rentedUnit.getIsRented(), true);
+    assertEquals(true, rentedUnit.getIsRented());
   }
 
   @Test
@@ -63,7 +65,7 @@ public class AppLeaseBoothTest extends ApplicationTest {
     clickOn("#submitButton");
     WaitForAsyncUtils.waitForFxEvents();
     Unit rentedUnit = ul.getRentedUnits().get(0);
-    assertEquals(rentedUnit.getCustomerName(), "Test Testerson");
+    assertEquals("Test Testerson",rentedUnit.getCustomerName());
   }
 
   @Test
@@ -77,6 +79,6 @@ public class AppLeaseBoothTest extends ApplicationTest {
     clickOn("#submitButton");
     WaitForAsyncUtils.waitForFxEvents();
     Unit rentedUnit = ul.getRentedUnits().get(0);
-    assertEquals(rentedUnit.getLocation(), 0);
+    assertEquals(0,rentedUnit.getLocation());
   }
 }

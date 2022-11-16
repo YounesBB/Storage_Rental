@@ -9,6 +9,9 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.text.MessageFormat;
+import java.util.Arrays;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import org.assertj.core.api.Assertions;
@@ -18,6 +21,9 @@ import org.junit.jupiter.api.Test;
 import org.testfx.api.FxAssert;
 import org.testfx.framework.junit5.ApplicationTest;
 import org.testfx.util.WaitForAsyncUtils;
+
+import com.google.gson.GsonBuilder;
+
 import gr2232.core.UnitList;
 import gr2232.core.HandleUser;
 import gr2232.core.Unit;
@@ -31,6 +37,7 @@ public class AppRestRegisterBoothTest extends ApplicationTest {
   private Parent parent;
   private RegisterBoothController controller;
   private FXMLLoader loader;
+  private int location;
 
   @Override
   public void start(final Stage stage) throws Exception {
@@ -45,12 +52,39 @@ public class AppRestRegisterBoothTest extends ApplicationTest {
     stage.show();
   }
 
+  @BeforeEach
+    public void initialize() throws IOException {
+        UnitList ul = new UnitList();
+        ul.clearUnitList();
+        // Get list from server
+        try {
+            HttpClient client = HttpClient.newHttpClient();
+            HttpRequest request = HttpRequest.newBuilder().uri(URI.create("http://localhost:8080/unitlist"))
+                    .header("Accept", "application/json").header("Content-Type", "application/json").GET().build();
+
+            final HttpResponse<String> response = HttpClient.newBuilder().build().send(request,
+                    HttpResponse.BodyHandlers.ofString());
+
+            System.out.println(response.body());
+            if (response.statusCode() == 200) {
+                List<Unit> list = Arrays.asList(new GsonBuilder().create().fromJson(response.body(), Unit[].class));
+                ul.clearUnitList();
+                ul.getUnitListEntries().addAll(list);
+                UnitList ul2 = new UnitList(ul.getUnitListEntries().size());
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+      }
+
+
   @AfterEach
   public void after() throws IOException {
       try {
           HttpClient client = HttpClient.newHttpClient();
+          String url = MessageFormat.format("http://localhost:8080/unitlist/{0}", location);
           HttpRequest request = HttpRequest.newBuilder()
-          .uri(URI.create("http://localhost:8080/unitlist/999"))
+          .uri(URI.create(url))
           .header("Accept", "application/json")
           .header("Content-Type", "application/json")
           .DELETE()
@@ -72,14 +106,15 @@ public class AppRestRegisterBoothTest extends ApplicationTest {
   @Test
   public void testInputSize() throws InterruptedException {
     UnitList ul = new UnitList();
+    int entriesBeforeAdding = ul.getUnitListEntries().size();
     assertTrue(HandleUser.getUsesRest());
     clickOn("#inputSmallBooth").write("1");
     clickOn("#inputMediumBooth").write("0");
     clickOn("#inputLargeBooth").write("0");
     clickOn("#getNewBoothButton");
     WaitForAsyncUtils.waitForFxEvents();
-    assertEquals(1, ul.getUnitListEntries().size());
-    Unit u = ul.getUnitListEntries().get(0);
-    System.out.println(u.getLocation());
+    assertEquals(entriesBeforeAdding, ul.getUnitListEntries().size()-1);
+    Unit unitToRemove = ul.getUnitByLocation(ul.getUnitListEntries().size()-1);
+    this.location = unitToRemove.getLocation();
   }
 }

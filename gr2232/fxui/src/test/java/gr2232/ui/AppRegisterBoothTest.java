@@ -2,6 +2,7 @@ package gr2232.ui;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.ResourceBundle;
 
@@ -42,10 +43,34 @@ public class AppRegisterBoothTest extends ApplicationTest {
   @Test
   public void testInputSize() throws InterruptedException {
     UnitList ul = new UnitList();
-    clickOn("#inputSmallBooth").write("4");
+    clickOn("#inputSmallBooth").write("1");
+    clickOn("#inputMediumBooth").write("1");
+    clickOn("#inputLargeBooth").write("1");
+    clickOn("#getNewBoothButton");
+    assertEquals(3, ul.getUnitListEntries().size());
+  }
+
+  @Test
+  public void testNegativeInput() {
+    clickOn("#inputSmallBooth").write("-4");
     clickOn("#inputMediumBooth").write("0");
     clickOn("#inputLargeBooth").write("0");
-    clickOn("#getNewBoothButton");
-    assertEquals(4, ul.getUnitListEntries().size());
+
+    Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
+      throw new IllegalArgumentException("The input can not be negative!");
+    });
+    assertEquals("The input can not be negative!", exception.getMessage());
+  }
+
+  @Test
+  public void testNonNumberInput() {
+    clickOn("#inputSmallBooth").write("æøå");
+    clickOn("#inputMediumBooth").write("0");
+    clickOn("#inputLargeBooth").write("0");
+
+    Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
+      throw new IllegalArgumentException("The number can not be a decimal or empty!");
+    });
+    assertEquals("The number can not be a decimal or empty!", exception.getMessage());
   }
 }

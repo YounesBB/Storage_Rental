@@ -16,8 +16,8 @@
       </Button>
       <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#onGoBack" text="Back" />
       <TextField fx:id="fileUrl" layoutX="204.0" layoutY="113.0" />
-      <Button layoutX="204.0" layoutY="144.0" mnemonicParsing="false" onAction="#onLoad" text="Load" />
-      <Button layoutX="313.0" layoutY="144.0" mnemonicParsing="false" onAction="#onSave" text="Save" />
+      <Button layoutX="204.0" layoutY="144.0" mnemonicParsing="false" onAction="#onLoad" fx:id="loadButton" text="Load" />
+      <Button layoutX="313.0" layoutY="144.0" mnemonicParsing="false" onAction="#onSave" fx:id="saveButton" text="Save" />
       <Text layoutX="189.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adminpanel">
          <font>
             <Font size="37.0" />

@@ -71,7 +71,7 @@ public class AppRestLeaseBoothTest extends ApplicationTest {
 
         // Create empty Test Unit
         ObjectMapper mapper = new ObjectMapper();
-        Unit u = new Unit('L', 999, false, "null");
+        Unit u = new Unit('M', 999, false, "null");
         String json = mapper.writeValueAsString(u);
         try {
             HttpClient client = HttpClient.newHttpClient();
@@ -126,13 +126,13 @@ public class AppRestLeaseBoothTest extends ApplicationTest {
     @Test
     public void testRentStatus() {
         UnitList ul = new UnitList();
-        clickOn("#UnitOwner").write("Test Testerson");
+        clickOn("#UnitOwner").write("Ole");
         WaitForAsyncUtils.waitForFxEvents();
-        clickOn("#unitSize").clickOn("Large");
+        clickOn("#unitSize").clickOn("Medium");
         WaitForAsyncUtils.waitForFxEvents();
         clickOn("#submitButton");
         WaitForAsyncUtils.waitForFxEvents();
         Unit rentedUnit = ul.getUnitByLocation(999);
-        assertEquals(rentedUnit.getIsRented(), true);
+        assertEquals(true,rentedUnit.getIsRented());
     }
 }

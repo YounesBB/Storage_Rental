@@ -24,11 +24,13 @@ public class AppOverviewPageTest extends ApplicationTest {
     private Parent parent;
     private OverviewPageController controller;
     private FXMLLoader loader;
+    private UnitList ul = new UnitList();
 
     @Override
     public void start(final Stage stage) throws Exception {
         final FXMLLoader loader = new FXMLLoader(getClass().getResource("overviewpage.fxml"));
         HandleUser.setUsesRest(true);
+        ul.clearUnitList();
         HandleUser.setIsManager(false);
         this.loader = loader;
         this.parent = loader.load();
@@ -38,7 +40,12 @@ public class AppOverviewPageTest extends ApplicationTest {
     }
 
     @BeforeEach
-    public void initialize() {
+    public void init() {
+    }
+
+    @Test
+    public void UnitsLoadingFromRest() {
+        assertNotEquals(0, ul.getUnitListEntries().size());
     }
 
     @Test
@@ -52,5 +59,11 @@ public class AppOverviewPageTest extends ApplicationTest {
         Button button = (Button) parent.lookup("#settingsButton");
         System.out.println(button.isDisabled());
         assertEquals(true, button.isDisabled());
+    }
+
+    @Test
+    public void UnitListShouldNotBeEmpty() {
+        UnitList ul = new UnitList();
+        assertNotEquals(0, ul.getUnitListEntries().size());
     }
 }
