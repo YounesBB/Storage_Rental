@@ -14,9 +14,9 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-public class AllTenantsController {
+public class AllUnitsController {
 
-    private UnitList unitList;
+  private UnitList unitList;
 
   @FXML
   private Button backButton;
@@ -64,7 +64,7 @@ public class AllTenantsController {
     return units;
   }
 
-  // Remove functions? Or keep just in case
+ 
   private List<Character> getSizeList() {
     List<Character> sizeList = new ArrayList<>();
     unitList.getUnitListEntries().stream().forEach((u) -> {

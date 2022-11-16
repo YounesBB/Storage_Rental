@@ -89,7 +89,7 @@ public class OverviewPageController {
 
   @FXML
   void goToUnitsOverviewPage(ActionEvent event) throws IOException {
-    App.setRoot("allTenants");
+    App.setRoot("allUnits");
   }
 
   @FXML
