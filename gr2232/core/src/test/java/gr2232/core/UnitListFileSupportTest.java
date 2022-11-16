@@ -20,6 +20,7 @@ public class UnitListFileSupportTest {
   @BeforeEach
   public void setUp() {
     UnitList units = new UnitList();
+    units.clearUnitList();
     units.createUnit('L');
   }
   

@@ -5,6 +5,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.testfx.framework.junit5.ApplicationTest;
 import org.testfx.util.WaitForAsyncUtils;
+
+import gr2232.core.HandleUser;
 import gr2232.core.Unit;
 import gr2232.core.UnitList;
 import javafx.fxml.FXMLLoader;
@@ -20,6 +22,7 @@ public class AppLeaseBoothTest extends ApplicationTest {
 
   @Override
   public void start(final Stage stage) throws Exception {
+    HandleUser.setUsesRest(false);
     final FXMLLoader loader = new FXMLLoader(getClass().getResource("leasebooth.fxml"));
     this.loader = loader;
     this.parent = loader.load();

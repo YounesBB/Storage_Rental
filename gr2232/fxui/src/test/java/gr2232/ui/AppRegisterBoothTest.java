@@ -11,6 +11,8 @@ import org.junit.jupiter.api.Test;
 import org.testfx.api.FxAssert;
 import org.testfx.framework.junit5.ApplicationTest;
 import org.testfx.util.WaitForAsyncUtils;
+
+import gr2232.core.HandleUser;
 import gr2232.core.UnitList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -26,6 +28,7 @@ public class AppRegisterBoothTest extends ApplicationTest {
   @Override
   public void start(final Stage stage) throws Exception {
     UnitList ul = new UnitList();
+    HandleUser.setUsesRest(false);
     ul.clearUnitList();
     final FXMLLoader loader = new FXMLLoader(getClass().getResource("registerbooth.fxml"));
     this.loader = loader;
