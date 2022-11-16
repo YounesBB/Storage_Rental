@@ -14,25 +14,12 @@ import gr2232.json.UnitListFileSupport;
 
 public class UnitListFileSupportTest {
 
-  private UnitListFileSupport filesupport = new UnitListFileSupport();
 
   @BeforeEach
   public void setUp() {
     UnitList units = new UnitList();
     units.createUnit('L');
     
-  }
-
-  @Test
-  public void testWriteListToFile() throws IOException {
-    filesupport.writeListToFile("Large"); 
-
-
-  }
-
-  @Test
-  public void testGetListFromFile() {
-
   }
   
 }

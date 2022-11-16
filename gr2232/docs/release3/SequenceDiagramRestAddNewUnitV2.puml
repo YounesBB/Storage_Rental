@@ -1,0 +1,25 @@
+@startuml
+group Admin registers new units/booths
+!theme amiga
+actor User #red
+participant "~#getNewBoothButton:Button" as A
+participant "fxui" as B
+participant "core" as C
+participant "rest" as D
+participant "server/core" as E
+
+
+User -> A: Click "Submit"
+A -> B: void getNewBooth()
+B --> B: void getInputValues()
+B -> C: void createTempUnit()
+
+B -> D: POST[serialize(input)]
+D -> E: persistence to file
+E --> D: persistence is a success
+
+D --> B: response: 200  body: true
+B --> C: added the Unit to UnitList
+B --> B: void clearFields()
+end
+@enduml

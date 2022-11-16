@@ -1,0 +1,21 @@
+@startuml
+group initialize()
+!theme amiga
+actor User #red
+
+participant "fxui/OverviewPageController" as B
+participant "core" as C
+participant "rest" as D
+participant "server" as E
+
+
+User -> B: User has logged in
+B -> D: GET[/unitlist]
+D -> E: read from the database
+E --> D: return RestUnitList.model.json
+
+D --> C: deserialize(RestUnitList.model.json)
+D --> B: Response: 200 \nbody: UnitList
+B --> C: add the Units to UnitList
+end
+@enduml

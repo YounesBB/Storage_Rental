@@ -11,9 +11,9 @@ import java.io.IOException;
 public class UnitListSerializer extends JsonSerializer<UnitList> {
 
   /**
-   * This method accepts a visit log and writes json to file.
+   * This method accepts a Unitlist and writes json to file.
    *
-   * @param log                to be written to file
+   * @param list                to be written to file
    * @param jgen               generates json
    * @param serializerProvider provides serializing functionality
    * @throws IOException if writing file goes wrong

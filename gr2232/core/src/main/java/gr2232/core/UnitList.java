@@ -16,6 +16,10 @@ public class UnitList {
 
   }
 
+  public UnitList(int incremention) {
+    UnitList.locationIncrementer = incremention;
+  }
+
   /**
    * Sets the temporary locationincrementer 
    */
@@ -183,6 +187,16 @@ public class UnitList {
    */
   public void clearUnitList() {
     getUnitListEntries().clear();
+  }
+
+  public boolean removeUnitByLocation(Integer location) {
+    for (var entry : getUnitListEntries()) {
+      if (entry.getLocation().equals(location)) {
+        getUnitListEntries().remove(entry);
+        return true;
+      } 
+    }
+    return false;
   }
 
   /*

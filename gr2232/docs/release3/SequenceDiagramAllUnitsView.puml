@@ -1,0 +1,25 @@
+@startuml
+group User views all units
+!theme amiga
+actor User #red
+participant "~#unitsOverviewButton:Button" as A
+participant "AllUnitsController" as B
+participant "UnitList" as C
+
+
+User -> A: Click "Units Overview"
+A -> B: goToUnitsOverviewPage()
+
+
+B --> B: updateTable()
+B -> C: getUnitListEntries()
+
+
+
+
+B --> B: tableView.setItems(Units)
+
+B --> User: The user can see all the units
+
+end
+@enduml
