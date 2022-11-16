@@ -43,10 +43,6 @@ public class UnitListFileSupportTest {
     filesupport.writeListToFile(); 
     UnitList unitList = filesupport.getListFromFile();
     assertEquals(unitList.getUnitListEntries().get(0).getSize(), 'L');
-    UnitList units = new UnitList();
-    units.clearUnitList();
-    filesupport.writeListToFile();
-    assertThrows(IllegalStateException.class, () -> filesupport.getListFromFile());
   }
   
 }

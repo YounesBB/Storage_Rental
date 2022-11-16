@@ -1,7 +1,13 @@
 package gr2232.rest;
 
-import gr2232.core.UnitList; 
+import gr2232.core.UnitList;
 import gr2232.core.Unit;
+
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -33,13 +39,22 @@ public class UnitListController {
     this.unitListService = new UnitListService();
   }
 
+
+  
    /**
-   * Gets the servers' Unitlist.
+   * Gets the servers Unitlist.
    *
    * @return the visit log
    * @throws UnsupportedEncodingException
    * @throws FileNotFoundException
    */
+  @Operation(summary = "Gets the servers Unitlist.")
+  @ApiResponses(value = {
+    @ApiResponse(responseCode= "200", description = "Found the unitlist",
+    content = {@Content(mediaType = "application/json", 
+      schema = @Schema(implementation = UnitList.class))}),
+    @ApiResponse(responseCode = "500", description = "restUnitList.model.json is empty. Please add a Unit first.",
+      content = @Content)})
   @GetMapping
   protected List<Unit> getUnitList() throws FileNotFoundException, UnsupportedEncodingException {
     UnitList ul = unitListService.getUnitList();
@@ -53,6 +68,7 @@ public class UnitListController {
    * @return the unitlist
    * @throws IOException
    */
+  @Operation(summary = "Gets the units from unitListTest.model.json")
   @GetMapping(path = "/test")
   protected List<Unit> getTestUnitList() throws IOException {
     UnitList ul = UnitListService.getUnitListTestJson();
@@ -91,6 +107,13 @@ public class UnitListController {
    * @return true after adding unit
    * @throws IOException
    */
+  @Operation(summary = "Adds a unit to the servers Unitlist")
+  @ApiResponses(value = {
+    @ApiResponse(responseCode= "200", description = "Successfully added the unit.",
+    content = {@Content(mediaType = "application/json", 
+      schema = @Schema(implementation = UnitList.class))}),
+    @ApiResponse(responseCode = "500", description = "Some of the values are wrong. Make sure size is only L, M or S",
+      content = @Content)})
   @PostMapping
   protected boolean addUnit(@RequestBody Unit unit) throws IOException {
     unitListService.addUnit(unit);
@@ -99,12 +122,18 @@ public class UnitListController {
   
 
    /**
-   * Removes a unit to the servers Unitlist
+   * Removes a unit from the servers Unitlist by hte location of the unit
    *
    * @param unit unit to remove
    * @return true after removing unit
    * @throws IOException
    */
+  @Operation(summary = "Removes a unit from the servers Unitlist by the location of the unit")
+  @ApiResponses(value = {
+    @ApiResponse(responseCode= "200", description = "If true: unit was removed. if false: unit at location does not exist",
+    content = {@Content(mediaType = "application/json", 
+      schema = @Schema(implementation = UnitList.class))})
+   })
   @DeleteMapping(path = "/{location}")
   protected boolean removeUnit(@PathVariable("location") Integer location) throws IOException {
     return unitListService.removeUnit(location); 
@@ -117,19 +146,31 @@ public class UnitListController {
    * @return true after removing tenant
    * @throws IOException
    */
+  @Operation(summary = "Removes a tenant from the servers Unitlist by location")
+  @ApiResponses(value = {
+    @ApiResponse(responseCode= "200", description = "If true: tenant was removed. if false: tenant at location does not exist",
+    content = {@Content(mediaType = "application/json", 
+      schema = @Schema(implementation = UnitList.class))})
+   })
   @PutMapping(path = "removetenant/{location}")
   protected boolean removeTenant(@PathVariable("location") Integer location) throws IOException {
     return unitListService.removeTenant(location); 
   }
 
   /**
-   * Adds a tenant to the servers Unitlist
+   * Adds a tenant to the servers Unitlist by location of unit and name of tenant.
    *
    * @param  location to rent out
    * @param  tenant to rent the unit at location  
    * @return true after adding tenant
    * @throws IOException
    */
+  @Operation(summary = "Adds a tenant to the servers Unitlist by location of unit and name of tenant")
+  @ApiResponses(value = {
+    @ApiResponse(responseCode= "200", description = "If true: tenant was added. if false: unit at location does not exist",
+    content = {@Content(mediaType = "application/json", 
+      schema = @Schema(implementation = UnitList.class))})
+   })
   @PutMapping(path = "addtenant/{location}/{tenant}")
   protected boolean addTenant(@PathVariable("tenant") String tenant, @PathVariable("location") Integer location) throws IOException {
     return unitListService.addTenant(location, tenant); 

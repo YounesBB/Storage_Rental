@@ -15,12 +15,12 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 /**
- * Controller for the allTenants page.
+ * Controller for the allUnits page.
  */
 
-public class AllTenantsController {
+public class AllUnitsController {
 
-    private UnitList unitList;
+  private UnitList unitList;
 
   @FXML
   private Button backButton;

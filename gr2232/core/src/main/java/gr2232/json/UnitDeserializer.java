@@ -11,11 +11,11 @@ import gr2232.core.Unit;
 public class UnitDeserializer extends JsonDeserializer<Unit> {
 
   /**
-   * This method accepts json and returns a visit.
+   * This method accepts json and returns a unit.
    *
    * @param jp   is a json-tree
    * @param ctxt is the deserialization context
-   * @return a visit
+   * @return a unit
    * @throws IOException if reading value goes wrong.
    */
   @Override

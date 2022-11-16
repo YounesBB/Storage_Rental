@@ -9,7 +9,7 @@ import gr2232.core.Unit;
 public class UnitSerializer extends JsonSerializer<Unit> {
 
   /**
-   * This method accepts a visit and writes json to file.
+   * This method accepts a unit and writes json to file.
    *
    * @param unit               to be written to file
    * @param jgen               generates json
