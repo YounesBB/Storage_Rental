@@ -91,23 +91,23 @@ Classdiagram Rest
 Sequence diagram AllUnits
 
 
-![SquenceDiagramRestAllUnitsView](SequenceDiagramAllUnitsView.PNG)
+![SquenceDiagramRestAllUnitsView](SequenceDiagramAllUnitsView.png)
 
 
 Sequence diagram rest AddNewUnit
 
 
-![SquenceDiagramRestAddNewUnit](SequenceDiagramRestAddNewUnit.PNG)
+![SquenceDiagramRestAddNewUnit](SequenceDiagramRestAddNewUnit.png)
 
 
 Sequence diagram rest Initialize
 
 
-![SquenceDiagramRestInitialize](SquenceDiagramRestAllUnitsView.PNG)
+![SquenceDiagramRestInitialize](SequenceDiagramRestInitialize.png)
 
 
 Sequence diagram rest Register Tenant
 
 
-![SquenceDiagramRestRegisterTenant](SquenceDiagramRestRegisterTenant.PNG)
+![SquenceDiagramRestRegisterTenant](SequenceDiagramRestRegisterTenant.PNG)
 
