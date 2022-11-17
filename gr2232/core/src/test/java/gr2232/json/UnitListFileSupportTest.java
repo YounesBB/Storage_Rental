@@ -1,15 +1,15 @@
-package gr2232.core;
+package gr2232.json;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.io.IOException;
-import java.util.List;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import com.google.gson.JsonObject;
+
+import gr2232.core.UnitList;
 import gr2232.json.UnitListFileSupport;
+
 
 
 
@@ -35,14 +35,14 @@ public class UnitListFileSupportTest {
   public void testWriteListToFile() throws IOException {
     filesupport.writeListToFile(); 
     UnitList unitList = filesupport.getListFromFile();
-    assertEquals(unitList.getUnitListEntries().get(0).getSize(), 'L');
+    assertEquals('L', unitList.getUnitListEntries().get(0).getSize());
   }
 
   @Test
   public void testGetListFromFile() throws IOException {
     filesupport.writeListToFile(); 
     UnitList unitList = filesupport.getListFromFile();
-    assertEquals(unitList.getUnitListEntries().get(0).getSize(), 'L');
+    assertEquals('L', unitList.getUnitListEntries().get(0).getSize());
   }
   
 }

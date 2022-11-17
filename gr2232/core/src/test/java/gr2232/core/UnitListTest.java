@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
-
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -17,6 +17,10 @@ public class UnitListTest {
   @BeforeEach
   public void setUp() {
     newUnitList = new UnitList();
+  }
+
+  @AfterEach
+  public void setUp1() {
     newUnitList.getUnitListEntries().clear();
   }
 

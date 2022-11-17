@@ -13,6 +13,12 @@ public class Unit {
   private Integer location;
   private char size;
 
+  @Override
+  public String toString() {
+    return "Unit [isRented=" + isRented + ", customerName=" + customerName + ", location=" + location + ", size=" + size
+        + "]";
+  }
+
   @JsonCreator
   public Unit(@JsonProperty("size") char size, 
   @JsonProperty("location") Integer location,

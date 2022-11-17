@@ -18,7 +18,13 @@ public class UnitList {
   private Integer temp_locationIncrementer = 0;
 
   public UnitList() {
+   
 
+  }
+
+  @Override
+  public String toString() {
+    return "UnitList [unitlist=" + unitList + "]";
   }
 
   public UnitList(int incremention) {
