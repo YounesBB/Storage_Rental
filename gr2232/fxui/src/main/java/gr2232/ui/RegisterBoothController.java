@@ -116,6 +116,7 @@ public class RegisterBoothController {
 
   }
 
+  /* makes new booths */
   @FXML
   private void getNewBooth() throws IOException {
     if(HandleUser.getUsesRest()) {

@@ -26,6 +26,7 @@ public class ManagerLoginController {
     @FXML
     private Text response;
 
+    /* checks if login credidentials are correct */
     @FXML
     void handleLogin(ActionEvent event) throws IOException {
         String username = usernameField.getText();
