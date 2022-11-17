@@ -86,7 +86,7 @@ public class LeaseBoothController implements Initializable {
       if(HandleUser.getUsesRest()) {
 
         ObjectMapper mapper = new ObjectMapper();
-        String name = UnitOwner.getText();
+        String name = UnitOwner.getText().replace(" ", "_");
         String put = location + name;
         String json = mapper.writeValueAsString(put);
         String url = MessageFormat.format("http://localhost:8080/unitlist/addtenant/{0}/{1}", location, name);
