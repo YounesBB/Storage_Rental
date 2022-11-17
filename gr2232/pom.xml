@@ -75,6 +75,9 @@
                         <argLine>
                         @{argLine} --add-opens gr2232.ui/gr2232.ui=ALL-UNNAMED --add-exports javafx.graphics/com.sun.javafx.application=ALL-UNNAMED
                         </argLine>
+                        <argLine>
+                        @{argLine} --add-opens gr2232.core/gr2232.core=ALL-UNNAMED
+                        </argLine>
                         <skipTests>false</skipTests>
                     </configuration>
                 </plugin>
