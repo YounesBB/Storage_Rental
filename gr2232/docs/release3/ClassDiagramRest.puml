@@ -29,7 +29,7 @@ class UnitListService{
   +addTenant(Integer, String): boolean
 }
 
-class DemoApplication{
+class RestApplication{
   +main(String[])
   #objectMapperModule() : Module
 }
