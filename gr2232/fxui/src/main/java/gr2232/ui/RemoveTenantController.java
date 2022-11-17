@@ -101,7 +101,10 @@ public class RemoveTenantController {
       String name = unit.getCustomerName();
       Integer location = unit.getLocation();
       Character size = unit.getSize();
-      String tenantInformation = name + "," + location + "," + size; 
+      if(HandleUser.getUsesRest()){
+        name = name.replace("_", " ");
+      }
+      String tenantInformation = name + "," + location + "," + size;
       this.tenantList.add(tenantInformation);
     }
 
