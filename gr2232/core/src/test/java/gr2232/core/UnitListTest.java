@@ -25,6 +25,63 @@ public class UnitListTest {
   }
 
   @Test
+  public void testRemoveUnitByLocation(){
+    newUnitList.createUnit('S');
+    newUnitList.createUnit('M');
+    assertTrue(newUnitList.removeUnitByLocation(1));
+    assertFalse(newUnitList.removeUnitByLocation(1));
+    assertFalse(newUnitList.removeUnitByLocation(1));
+  }
+
+  @Test
+  public void testCreateTempUnit(){
+    newUnitList.createTempUnit('L');
+    newUnitList.getTempUnits().get(0);
+    assertEquals('L', newUnitList.getTempUnits().get(0).getSize());
+  }
+
+  @Test
+  public void testUnitList(){
+    
+  }
+
+  @Test
+  public void testToString() {
+    newUnitList.setLocationIncrementer(0);
+    newUnitList.createUnit('L');
+    System.out.println(UnitList.getIncrementLocation());
+    assertEquals("UnitList [unitlist=[Unit [isRented=false, customerName=null, location=0, size=L]]]", newUnitList.toString());
+  }
+
+  @Test
+  public void testResetTempUnitList(){
+    newUnitList.createTempUnit('L');
+    newUnitList.resetTempUnitList();
+    assertEquals(0, newUnitList.getTempUnits().size());
+  }
+
+  @Test
+  public void testInitializeTempUnitList() {
+    newUnitList.setLocationIncrementer(0);
+    newUnitList.incrementLocation();
+    newUnitList.initializeTempUnitList();
+    assertEquals(1, newUnitList.getTempLocationIncrementer());
+  }
+
+  @Test
+  public void testGetTempUnits(){
+    newUnitList.createTempUnit('L');
+    assertEquals(1, newUnitList.getTempUnits().size());
+  }
+
+  @Test
+  public void testGetIncrementLocation(){
+    newUnitList.setLocationIncrementer(0);
+    assertEquals(0,newUnitList.getIncrementLocation());
+  }
+
+
+  @Test
   public void testCreateUnit() {
     newUnitList.createUnit('S');
     assertEquals(1, newUnitList.getUnitListEntries().size());

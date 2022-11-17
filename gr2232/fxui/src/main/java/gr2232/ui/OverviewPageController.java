@@ -74,6 +74,7 @@ public class OverviewPageController {
           ul.clearUnitList();
           ul.getUnitListEntries().addAll(list);
           UnitList ul2 = new UnitList(ul.getUnitListEntries().size());
+          List<Unit> u = ul2.getUnitListEntries();
         }
 
       } catch (InterruptedException e) {
@@ -111,8 +112,9 @@ public class OverviewPageController {
   void goToLogIn(ActionEvent event) throws IOException {
     UnitListFileSupport ulfs = new UnitListFileSupport("backup");
     UnitList emptyList = new UnitList();
-    emptyList.clearUnitList();
     ulfs.writeListToFile();
+    emptyList.clearUnitList();
+    emptyList.setLocationIncrementer(0);
     App.setRoot("login");
   }
 
