@@ -39,6 +39,9 @@ public class OverviewPageController {
   private Button unitsOverviewButton;
 
   @FXML
+  private Button deleteUnitButton;
+
+  @FXML
   private Button settingsButton;
 
   @FXML
@@ -47,6 +50,7 @@ public class OverviewPageController {
     boolean rest = HandleUser.getUsesRest();
 
     this.addUnitsButton.setDisable(!manager);
+    this.deleteUnitButton.setDisable(!manager);
     this.settingsButton.setDisable(rest);
     /*
      * Fetches unitlist from server, and sets it locally.  
@@ -96,6 +100,11 @@ public class OverviewPageController {
   @FXML
   void goToUnitsOverviewPage(ActionEvent event) throws IOException {
     App.setRoot("allUnits");
+  }
+
+  @FXML
+  void goToDeleteUnitPage(ActionEvent event) throws IOException {
+    App.setRoot("deleteUnit");
   }
 
   @FXML

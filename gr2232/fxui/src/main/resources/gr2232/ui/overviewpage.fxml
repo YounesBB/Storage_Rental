@@ -5,7 +5,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gr2232.ui.OverviewPageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gr2232.ui.OverviewPageController">
    <children>
       <Text layoutX="247.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Actions">
          <font>
@@ -22,7 +22,7 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Button fx:id="removeTenantButton" layoutX="210.0" layoutY="293.0" mnemonicParsing="false" onAction="#goToRemoveTenantPage" prefHeight="64.0" prefWidth="188.0" text="Remove tenant">
+      <Button fx:id="removeTenantButton" layoutX="22.0" layoutY="283.0" mnemonicParsing="false" onAction="#goToRemoveTenantPage" prefHeight="64.0" prefWidth="188.0" text="Remove tenant">
          <font>
             <Font size="18.0" />
          </font>
@@ -33,6 +33,11 @@
          </font>
       </Button>
       <Button layoutX="14.0" layoutY="28.0" mnemonicParsing="false" onAction="#goToLogIn" text="Log out" />
-      <Button layoutX="524.0" layoutY="28.0" mnemonicParsing="false" onAction="#goToSettings" text="Settings" fx:id="settingsButton" />
+      <Button fx:id="settingsButton" layoutX="524.0" layoutY="28.0" mnemonicParsing="false" onAction="#goToSettings" text="Settings" />
+      <Button fx:id="deleteUnitButton" layoutX="398.0" layoutY="283.0" mnemonicParsing="false" onAction="#goToDeleteUnitPage" prefHeight="64.0" prefWidth="188.0" text="Delete unit">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
