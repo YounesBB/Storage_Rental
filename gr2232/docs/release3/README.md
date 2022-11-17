@@ -2,6 +2,7 @@
 
 The major implementations of this release are as follows: 
 
+### Rest
 - REST-API
     - Created a REST-API using Spring-boot. 
     - Accepts the following paths:
@@ -25,6 +26,7 @@ The major implementations of this release are as follows:
     - Stores Units in a serverside JSON-file. 
 
     - Uses this API if user specifies that they want to use REST in the application login-screen. 
+### Features
 
 - Features
     - Updated HandleUser.java
@@ -47,6 +49,7 @@ The major implementations of this release are as follows:
     - Now supports removal of individual units.
         - Location of removed unit cannot be reused.
             - Something that we would fix in another submission. 
+### Improvements
 
 - Improvements
     - Added improved tests on exisiting and new files.
