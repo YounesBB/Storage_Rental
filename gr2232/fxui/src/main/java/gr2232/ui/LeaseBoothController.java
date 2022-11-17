@@ -59,7 +59,7 @@ public class LeaseBoothController implements Initializable {
     }
   }
 
-  /* shows units of a chosen style*/
+  /* shows units of a chosen size*/
   public void showFreeBooth(String boothSize) {
     List<Unit> free = units.getFreeUnitsWithCertainSize(boothSize);
     if (free.isEmpty()) {
