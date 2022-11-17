@@ -18,7 +18,6 @@ public class UnitList {
   private Integer temp_locationIncrementer = 0;
 
   public UnitList() {
-   
 
   }
 
@@ -36,6 +35,10 @@ public class UnitList {
    */
   public void initializeTempUnitList() {
     this.temp_locationIncrementer = locationIncrementer;
+  }
+
+  public Integer getTempLocationIncrementer(){
+    return temp_locationIncrementer;
   }
 
   /**
@@ -70,6 +73,10 @@ public class UnitList {
   
   public static Integer getIncrementLocation() {
     return locationIncrementer;
+  }
+
+  public void setLocationIncrementer(Integer u) {
+    locationIncrementer = u;
   }
 
   /**
