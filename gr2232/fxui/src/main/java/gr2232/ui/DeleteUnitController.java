@@ -6,6 +6,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 
+
+/**
+ * Controller for the deleteUnit page.
+ * Gives the user the ability to delete a unit. 
+ */
 public class DeleteUnitController {
 
     @FXML
@@ -17,7 +22,7 @@ public class DeleteUnitController {
 
     @FXML
     void onDeleteUnit(ActionEvent event) {
-
+      //TO-DO
     }
 
     @FXML

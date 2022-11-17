@@ -4,8 +4,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -25,20 +23,6 @@ import gr2232.core.UnitList;
 
 public class RemoveTenantController {
 
-  @FXML
-  private TableColumn<?, ?> locationColumn;
-
-  @FXML
-  private TableColumn<?, ?> nameColumn;
-
-  @FXML
-  private TableColumn<?, ?> removeColumn;
-
-  @FXML
-  private TableColumn<?, ?> sizeColumn;
-
-  @FXML
-  private TableView<?> tenantTable;
 
   @FXML
   private ChoiceBox<String> tenantSelector;
