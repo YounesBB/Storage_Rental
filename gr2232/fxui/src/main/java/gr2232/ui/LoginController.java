@@ -20,12 +20,14 @@ public class LoginController {
     HandleUser.setUsesRest(false);
   }
 
+  /*logs in as employee */
   @FXML
   private void switchToOverviewAsEmployee() throws IOException {
     HandleUser.setIsManager(false);
     App.setRoot("overviewpage");
   }
 
+  /*logs in as manager */
   @FXML
   private void switchToOverviewAsManager() throws IOException {
     HandleUser.setIsManager(true);
