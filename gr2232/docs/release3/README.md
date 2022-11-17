@@ -57,3 +57,11 @@ The major implementations of this release are as follows:
         - Testcoverage at 75% in fxui
         - Testcoverage at 96% in rest
     
+    - Resets Unitlist upon logout.
+        - If not using REST:
+            - Stores files in backup.model.json if you forgot to save. 
+    
+
+## Diagrams
+
+![ClassDiagramJson](ClassDiagramJson.PNG)

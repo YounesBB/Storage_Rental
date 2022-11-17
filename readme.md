@@ -6,8 +6,20 @@
 Clone or download the repository. Navigate into gr2232. Execute the following command in your terminal:
 
 ```console
-foo@bar:~/gr2232/gr2232
+foo@bar:~/gr2232/gr2232/
 mvn install
+```
+If it fails, run again. Note that some tests will fail (ClosedChannelException), due to requiring REST-server running. 
+
+```console
+foo@bar:~/gr2232/gr2232/rest
+mvn spring-boot:run
+```
+Create a new terminal instance. Everything should now work. Doublecheck using:
+
+```console
+foo@bar:~/gr2232/gr2232/
+mvn verify
 ```
 
 The project is now ready to use. 
@@ -48,7 +60,7 @@ And open the corresponding index.html files. Note that you have to run maven tes
 
  
 
-Click [here](gr2232/docs/release2/readme.md) to see documentation for the second release. 
+Click [here](gr2232/docs/release3/REAMDE.md) to see documentation for the third release. 
 
 
 
