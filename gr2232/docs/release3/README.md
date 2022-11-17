@@ -65,15 +65,25 @@ The major implementations of this release are as follows:
 ## Diagrams
 
 ClassDiagram Core
+
+
 ![ClassDiagramCore](ClassDiagramCore.PNG)
 
+
 Classdiagram FXUI
+
+
 ![ClassDiagramFxui](ClassDiagramFxui.PNG)
 
 
 Classdiagram JSON
+
+
 ![ClassDiagramJson](ClassDiagramJson.PNG)
 
+
 Classdiagram Rest
+
+
 ![ClassDiagramRson](ClassDiagramRest.PNG)
 
