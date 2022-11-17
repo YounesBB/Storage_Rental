@@ -56,7 +56,7 @@ public class RemoveTenantController {
         final HttpResponse<String> response =
             HttpClient.newBuilder()
             .build().send(request, HttpResponse.BodyHandlers.ofString());
-        System.out.println(response);
+        System.out.println(response.body());
         if ((response.statusCode() == 200) && (Boolean.parseBoolean(response.body()))) {
           unitList.getUnitByLocation(location).removeTenantFromUnit();
           System.out.println("Tenant removed from unit: " + location);
@@ -96,6 +96,9 @@ public class RemoveTenantController {
       String name = unit.getCustomerName();
       Integer location = unit.getLocation();
       Character size = unit.getSize();
+      if(HandleUser.getUsesRest()){
+        name = name.replace("_", " ");
+      }
       String tenantInformation = name + "," + location + "," + size;
       this.tenantList.add(tenantInformation);
     }
