@@ -52,7 +52,6 @@ public class AllUnitsController {
     updateTable();
   }
 
-  // Updates the table
   private void updateTable() {
     sizeColumn.setCellValueFactory(new PropertyValueFactory<Unit, Character>("Size"));
     locationColumn.setCellValueFactory(new PropertyValueFactory<Unit, Integer>("Location"));

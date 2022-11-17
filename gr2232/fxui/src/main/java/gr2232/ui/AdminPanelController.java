@@ -24,6 +24,7 @@ public class AdminPanelController {
   @FXML
   private TextArea responseText;
 
+  /* clears all units */
   @FXML
   void onClearSystem(ActionEvent event) {
     UnitList unitList = new UnitList();
@@ -36,6 +37,7 @@ public class AdminPanelController {
     App.setRoot("overviewpage");
   }
 
+  /* loads list from the file written in the box */
   @FXML
   void onLoad(ActionEvent event) {
     String fileName = fileUrl.getText();
@@ -57,6 +59,7 @@ public class AdminPanelController {
     }
   }
 
+  /* saves list to the file written in the box*/
   @FXML
   void onSave(ActionEvent event) throws IOException {
     String fileName = fileUrl.getText();

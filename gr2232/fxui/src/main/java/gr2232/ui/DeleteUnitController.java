@@ -31,7 +31,6 @@ public class DeleteUnitController {
 
     private ObservableList<String> deleteUnitList = FXCollections.observableArrayList();
 
-
     @FXML
     void onDeleteUnit(ActionEvent event) throws IOException {
       UnitList unitList = new UnitList();
