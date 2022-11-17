@@ -59,7 +59,6 @@ public class UnitListModuleTest {
     String json = testSerializers();
     try {
       UnitList deserializeUnitList = mapper.readValue(json, UnitList.class);
-      //assertEquals(2, deserializeUnitList.getUnitListEntries().size());
       assertTrue((deserializeUnitList.getUnitByLocation(1)) == Input1 );
       assertTrue((deserializeUnitList.getUnitByLocation(2)) == Input2 );
     } catch (JsonProcessingException e) {
