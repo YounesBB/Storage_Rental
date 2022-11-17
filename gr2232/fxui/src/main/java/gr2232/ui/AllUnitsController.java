@@ -4,7 +4,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import gr2232.core.HandleUser;
+import javax.naming.NameClassPair;
+
 import gr2232.core.Unit;
 import gr2232.core.UnitList;
 import javafx.collections.FXCollections;
@@ -64,9 +65,10 @@ public class AllUnitsController {
   private ObservableList<Unit> getUnits() {
     ObservableList<Unit> units = FXCollections.observableArrayList();
     unitList.getUnitListEntries().stream().forEach((u) -> {
-      if (HandleUser.getUsesRest()) {
-        u.setCustomerName(u.getCustomerName().replace("_", " "));
-      }
+      Boolean status = u.getIsRented();
+      String name = u.getCustomerName().replace("_", " ");
+      u.setCustomerName(name);
+      u.setIsRented(status);
       units.add(u);
     });
 
