@@ -87,3 +87,27 @@ Classdiagram Rest
 
 ![ClassDiagramRson](ClassDiagramRest.PNG)
 
+
+Sequence diagram AllUnits
+
+
+![SquenceDiagramRestAllUnitsView](SequenceDiagramAllUnitsView.PNG)
+
+
+Sequence diagram rest AddNewUnit
+
+
+![SquenceDiagramRestAddNewUnit](SequenceDiagramRestAddNewUnit.PNG)
+
+
+Sequence diagram rest Initialize
+
+
+![SquenceDiagramRestInitialize](SquenceDiagramRestAllUnitsView.PNG)
+
+
+Sequence diagram rest Register Tenant
+
+
+![SquenceDiagramRestRegisterTenant](SquenceDiagramRestRegisterTenant.PNG)
+
