@@ -103,11 +103,11 @@ Sequence diagram rest AddNewUnit
 Sequence diagram rest Initialize
 
 
-![SquenceDiagramRestInitialize](SequenceDiagramRestInitialize.png)
+![SequenceDiagramRestInitialize](SequenceDiagramRestInitialize.png)
 
 
 Sequence diagram rest Register Tenant
 
 
-![SquenceDiagramRestRegisterTenant](SequenceDiagramRestRegisterTenant.PNG)
+![SequenceDiagramRestRegisterTenant](SequenceDiagramRestRegisterTenant.png)
 
