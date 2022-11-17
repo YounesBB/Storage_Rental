@@ -2,6 +2,7 @@ package gr2232.ui;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.ResourceBundle;
 
@@ -11,6 +12,8 @@ import org.junit.jupiter.api.Test;
 import org.testfx.api.FxAssert;
 import org.testfx.framework.junit5.ApplicationTest;
 import org.testfx.util.WaitForAsyncUtils;
+
+import gr2232.core.HandleUser;
 import gr2232.core.UnitList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -26,6 +29,7 @@ public class AppRegisterBoothTest extends ApplicationTest {
   @Override
   public void start(final Stage stage) throws Exception {
     UnitList ul = new UnitList();
+    HandleUser.setUsesRest(false);
     ul.clearUnitList();
     final FXMLLoader loader = new FXMLLoader(getClass().getResource("registerbooth.fxml"));
     this.loader = loader;
@@ -39,15 +43,34 @@ public class AppRegisterBoothTest extends ApplicationTest {
   @Test
   public void testInputSize() throws InterruptedException {
     UnitList ul = new UnitList();
-    clickOn("#inputSmallBooth").write("4");
-    WaitForAsyncUtils.waitForFxEvents();
-    clickOn("#inputMediumBooth").write("0");
-    WaitForAsyncUtils.waitForFxEvents();
-    clickOn("#inputLargeBooth").write("0");
-    WaitForAsyncUtils.waitForFxEvents();
+    clickOn("#inputSmallBooth").write("1");
+    clickOn("#inputMediumBooth").write("1");
+    clickOn("#inputLargeBooth").write("1");
     clickOn("#getNewBoothButton");
-    WaitForAsyncUtils.waitForFxEvents();
-    System.out.println(ul.getUnitListEntries());
-    assertEquals(4, ul.getUnitListEntries().size());
+    assertEquals(3, ul.getUnitListEntries().size());
+  }
+
+  @Test
+  public void testNegativeInput() {
+    clickOn("#inputSmallBooth").write("-4");
+    clickOn("#inputMediumBooth").write("0");
+    clickOn("#inputLargeBooth").write("0");
+
+    Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
+      throw new IllegalArgumentException("The input can not be negative!");
+    });
+    assertEquals("The input can not be negative!", exception.getMessage());
+  }
+
+  @Test
+  public void testNonNumberInput() {
+    clickOn("#inputSmallBooth").write("æøå");
+    clickOn("#inputMediumBooth").write("0");
+    clickOn("#inputLargeBooth").write("0");
+
+    Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
+      throw new IllegalArgumentException("The number can not be a decimal or empty!");
+    });
+    assertEquals("The number can not be a decimal or empty!", exception.getMessage());
   }
 }

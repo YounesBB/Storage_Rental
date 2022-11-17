@@ -2,10 +2,13 @@ package gr2232.ui;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.testfx.framework.junit5.ApplicationTest;
 import org.testfx.util.WaitForAsyncUtils;
+
+import gr2232.core.HandleUser;
 import gr2232.core.Unit;
 import gr2232.core.UnitList;
 import javafx.fxml.FXMLLoader;
@@ -21,6 +24,7 @@ public class AppLeaseBoothTest extends ApplicationTest {
 
   @Override
   public void start(final Stage stage) throws Exception {
+    HandleUser.setUsesRest(false);
     final FXMLLoader loader = new FXMLLoader(getClass().getResource("leasebooth.fxml"));
     this.loader = loader;
     this.parent = loader.load();
@@ -47,7 +51,7 @@ public class AppLeaseBoothTest extends ApplicationTest {
     clickOn("#submitButton");
     WaitForAsyncUtils.waitForFxEvents();
     Unit rentedUnit = ul.getRentedUnits().get(0);
-    assertEquals(rentedUnit.getIsRented(), true);
+    assertEquals(true, rentedUnit.getIsRented());
   }
 
   @Test
@@ -61,7 +65,7 @@ public class AppLeaseBoothTest extends ApplicationTest {
     clickOn("#submitButton");
     WaitForAsyncUtils.waitForFxEvents();
     Unit rentedUnit = ul.getRentedUnits().get(0);
-    assertEquals(rentedUnit.getCustomerName(), "Test Testerson");
+    assertEquals("Test Testerson",rentedUnit.getCustomerName());
   }
 
   @Test
@@ -75,6 +79,6 @@ public class AppLeaseBoothTest extends ApplicationTest {
     clickOn("#submitButton");
     WaitForAsyncUtils.waitForFxEvents();
     Unit rentedUnit = ul.getRentedUnits().get(0);
-    assertEquals(rentedUnit.getLocation(), 0);
+    assertEquals(0,rentedUnit.getLocation());
   }
 }

@@ -7,6 +7,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.testfx.framework.junit5.ApplicationTest;
 import org.testfx.util.WaitForAsyncUtils;
+
+import gr2232.core.HandleUser;
 import gr2232.core.Unit;
 import gr2232.core.UnitList;
 import org.testfx.api.FxAssert;
@@ -28,6 +30,7 @@ public class AppRemoveTenantTest extends ApplicationTest {
   @Override
   public void start(final Stage stage) throws Exception {
     UnitList ul = new UnitList();
+    HandleUser.setUsesRest(false);
     ul.clearUnitList();
     Unit u = new Unit('M', 0);
     u.setCustomerName("Testimus Maximus");

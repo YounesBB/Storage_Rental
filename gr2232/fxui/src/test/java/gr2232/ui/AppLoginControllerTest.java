@@ -10,6 +10,8 @@ import org.junit.jupiter.api.Test;
 import org.testfx.api.FxAssert;
 import org.testfx.framework.junit5.ApplicationTest;
 import org.testfx.util.WaitForAsyncUtils;
+
+import gr2232.core.HandleUser;
 import gr2232.core.Unit;
 import gr2232.core.UnitList;
 import javafx.fxml.FXMLLoader;
@@ -20,15 +22,15 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 
-public class AppManagerLoginTest extends ApplicationTest {
+public class AppLoginControllerTest extends ApplicationTest {
   private Parent parent;
-  private ManagerLoginController controller;
+  private LoginController controller;
   private FXMLLoader loader;
 
 
   @Override
   public void start(final Stage stage) throws Exception {
-    final FXMLLoader loader = new FXMLLoader(getClass().getResource("managerlogin.fxml"));
+    final FXMLLoader loader = new FXMLLoader(getClass().getResource("login.fxml"));
     this.loader = loader;
     this.parent = loader.load();
     this.controller = loader.getController();
@@ -37,14 +39,10 @@ public class AppManagerLoginTest extends ApplicationTest {
   }
 
   @Test
-  public void testIncorrectUsernameAndPassword(){
-    clickOn("#usernameField").write("test");
-    clickOn("#passwordField").write("test");
-    clickOn("#loginbutton");
+  public void TestCheckUsesRest(){
     WaitForAsyncUtils.waitForFxEvents();
-    Text text = (Text) parent.lookup("#response");
-    assumeTrue(text.getText() == "Username and/or password is incorrect.");
-
-
+    assertEquals(false, HandleUser.getUsesRest());
+    clickOn("#restCheckbox");
+    assertEquals(true, HandleUser.getUsesRest());
   }
 }

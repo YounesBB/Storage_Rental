@@ -68,8 +68,8 @@ public class AllUnitsController {
     return units;
   }
 
- 
-  private List<Character> getSizeList() {
+  // Remove functions? Or keep just in case
+  /* private List<Character> getSizeList() {
     List<Character> sizeList = new ArrayList<>();
     unitList.getUnitListEntries().stream().forEach((u) -> {
       sizeList.add(u.getSize());
@@ -99,7 +99,7 @@ public class AllUnitsController {
       statusList.add(u.getIsRented());
     });
     return statusList;
-  }
+  } */
 
   @FXML
   void backToOverviewpage(ActionEvent event) throws IOException {
