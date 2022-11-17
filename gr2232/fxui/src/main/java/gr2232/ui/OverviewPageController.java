@@ -112,8 +112,9 @@ public class OverviewPageController {
   void goToLogIn(ActionEvent event) throws IOException {
     UnitListFileSupport ulfs = new UnitListFileSupport("backup");
     UnitList emptyList = new UnitList();
-    emptyList.clearUnitList();
     ulfs.writeListToFile();
+    emptyList.clearUnitList();
+    emptyList.setLocationIncrementer(0);
     App.setRoot("login");
   }
 
