@@ -40,6 +40,11 @@ public class RemoveTenantController {
     String tenantLine = tenantSelector.getValue();
     if (HandleUser.getUsesRest()) {
       ObjectMapper mapper = new ObjectMapper();
+      /**
+      tenantLine.replace("Name: ", "");
+      tenantLine.replace("Location: ", "");
+      tenantLine.replace("Size: ", "");
+      */
       String[] tenantData = tenantLine.split(",");
       Integer location = Integer.parseInt(tenantData[1]);
       String json = mapper.writeValueAsString(location);
