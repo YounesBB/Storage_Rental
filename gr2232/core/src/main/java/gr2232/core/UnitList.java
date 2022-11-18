@@ -14,7 +14,7 @@ public class UnitList {
   private static List<Unit> unitList = new ArrayList<>();
   private List<Unit> temp_unitlist = new ArrayList<>();
 
-  public static Integer locationIncrementer = 0;
+  private static Integer locationIncrementer = 0;
   private Integer temp_locationIncrementer = 0;
 
   public UnitList() {
@@ -27,7 +27,7 @@ public class UnitList {
   }
 
   public UnitList(int incremention) {
-    UnitList.locationIncrementer = incremention;
+    setLocationIncrementer(incremention);
   }
 
   /**
@@ -75,8 +75,12 @@ public class UnitList {
     return locationIncrementer;
   }
 
+  public static void setLocationIncrementer1(Integer u) {
+    UnitList.locationIncrementer = u;
+  }
+
   public void setLocationIncrementer(Integer u) {
-    locationIncrementer = u;
+    setLocationIncrementer1(u);
   }
 
   /**

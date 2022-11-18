@@ -5,8 +5,8 @@ package gr2232.core;
  * Determines whether the user is manager, and if the user uses REST. 
  */
 public class HandleUser implements HandleUserInterface {
-  protected static boolean isManager;
-  protected static boolean usesRest;
+  private static boolean isManager;
+  private static boolean usesRest;
 
   private String username = "admin";
   private String password = "admin123";
