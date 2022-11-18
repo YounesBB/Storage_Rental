@@ -78,6 +78,7 @@
                         <argLine>
                         @{argLine} --add-opens gr2232.core/gr2232.core=ALL-UNNAMED
                         </argLine>
+
                         <skipTests>false</skipTests>
                         <reuseForks>false</reuseForks>
                         <forkCount>1</forkCount>
