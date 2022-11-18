@@ -131,9 +131,7 @@ public class RegisterBoothController {
 
   private void getNewBoothRest() throws IOException {
     getInputValues();
-    List<Unit> list = new ArrayList<Unit>();
-    list = makeBoothsRest();
-
+    List<Unit> list = makeBoothsRest();
     for (int i = 0; i < list.size(); i++) {
       ObjectMapper mapper = new ObjectMapper();
       String json = mapper.writeValueAsString(list.get(i));

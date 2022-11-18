@@ -59,10 +59,7 @@ public class OverviewPageController {
      */
     UnitList ul = new UnitList();
     if (rest && ul.getUnitListEntries().size() == 0) {
-      ObjectMapper mapper = new ObjectMapper();
-      String json = mapper.writeValueAsString("");
       try {
-        HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder().uri(URI.create("http://localhost:8080/unitlist"))
             .header("Accept", "application/json").header("Content-Type", "application/json").GET().build();
 
@@ -73,8 +70,6 @@ public class OverviewPageController {
           List<Unit> list = Arrays.asList(new GsonBuilder().create().fromJson(response.body(), Unit[].class));
           ul.clearUnitList();
           ul.getUnitListEntries().addAll(list);
-          UnitList ul2 = new UnitList(ul.getUnitListEntries().size());
-          List<Unit> u = ul2.getUnitListEntries();
         }
 
       } catch (InterruptedException e) {

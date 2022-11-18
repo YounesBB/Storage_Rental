@@ -1,1 +1,1 @@
-[{"isRented":false,"customerName":"null","location":999,"size":"M"},{"isRented":false,"customerName":"null","location":999,"size":"M"},{"isRented":true,"customerName":"Testerson","location":999,"size":"L"},{"isRented":false,"customerName":"null","location":999,"size":"M"},{"isRented":false,"customerName":"null","location":999,"size":"M"},{"isRented":true,"customerName":"Testerson","location":999,"size":"L"}]
+[{"isRented":true,"customerName":"Peter","location":0,"size":"L"}]
