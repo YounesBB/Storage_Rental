@@ -8,5 +8,5 @@ module gr2232.rest {
     requires spring.boot.autoconfigure;
     requires spring.context;
     
-    opens gr2232.rest to spring.boot.autoconfigure,spring.boot, spring.beans, spring.web, spring.test;
+    //opens gr2232.rest to spring.boot.autoconfigure,spring.boot, spring.beans, spring.web, spring.test;
 }

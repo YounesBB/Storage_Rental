@@ -22,6 +22,7 @@ public class UnitListTest {
   @AfterEach
   public void setUp1() {
     newUnitList.getUnitListEntries().clear();
+    newUnitList.setLocationIncrementer(0);
   }
 
   @Test
