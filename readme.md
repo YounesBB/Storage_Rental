@@ -108,7 +108,7 @@ Go [here](gr2232/docs/release2/workhabits.md) to read about workhabits our use o
 
 Go [here](brukerhistorier.md) to read about userstories used for developing the application. 
 
-Go [here](typeOfPersitence.md) to read about our reflection about type of persistence. 
+Go [here](gr2232/docs/release3/typeOfPersitence.md) to read about our reflection about type of persistence. 
 
 Click [here](gr2232/docs/release3/REAMDE.md) to see documentation for the third release. 
 
