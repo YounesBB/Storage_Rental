@@ -57,6 +57,20 @@ To run the project on your computer, navigate to the FXUI directory, and execute
 foo@bar:~/gr2232/gr2232/fxui
 mvn javafx:run
 ```
+To use the rest-api and server simply press the "Use Rest?" at log in. 
+
+<img src="gr2232/docs/release3/Log-in.PNG" alt="Log-in-screen" width="400"/>
+
+To log in as a manager you have to type the username: <em><strong>admin</strong></em> and the password: <em><strong>admin123</strong></em>
+
+<img src="gr2232/docs/release3/Manager-login.PNG" alt="Manager-login" width="400"/>
+
+<strong>NOTE:</strong> If you use local storage (default). Rememeber that after adding units you can save them locally by clicking at the settings button and then naming the file and pressing save. The same thing if you want to load an file you previously had saved. 
+
+<img src="gr2232/docs/release3/OverviewPage.PNG" alt="OverviewPage" width="400"/>
+<img src="gr2232/docs/release3/Settings.PNG" alt="Settings" width="400"/>
+
+"<em>Clear system?</em>" clears all the units you have added from the application. 
 
 ## Run tests and checks:
 This project uses Spotbugs to find possible errors,bugs and vulnerabilities. Keep in mind Spotbugs will issue a Build Fail if any spotbugs are found. Project also uses Checkstyle to keep the same styling and indendation on the files. The projects also uses a test coverage plugin called jacoco. To run these plugins, execute the following command:
@@ -81,6 +95,20 @@ And open the corresponding index.html files. Note that you have to run maven tes
 # Further reading
 
 TODO: Link to other readme files and short text what one can find there
+
+Go [here](gr2232/README.md) to view illustartion, package-, sequences-, classdiagram of the application. 
+
+Go [here](gr2232/core/README.md) to view documentation about the core module
+
+Go [here](gr2232/fxui/README.md) to view documentation about the fxui module 
+
+Go [here](gr2232/rest/README.md) to view documentation about the rest module and the rest-api. 
+
+Go [here](gr2232/docs/release2/workhabits.md) to read about workhabits our use of tools and reason for late submission. 
+
+Go [here](brukerhistorier.md) to read about userstories used for developing the application. 
+
+Go [here](typeOfPersitence.md) to read about our reflection about type of persistence. 
 
 Click [here](gr2232/docs/release3/REAMDE.md) to see documentation for the third release. 
 
