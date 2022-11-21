@@ -7,6 +7,9 @@
         <artifactId>parent</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
+    <properties>
+        <argLine>--add-opens gr2232.core/gr2232.json=ALL-UNNAMED</argLine>
+    </properties>
 
     <groupId>it1901.gr2232</groupId>
     <artifactId>core</artifactId>
@@ -57,7 +60,6 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
                     <argLine>
-                        --add-opens gr2232.core/gr2232.json=ALL-UNNAMED
                     </argLine>
                 </configuration>
             </plugin>
