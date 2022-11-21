@@ -15,7 +15,7 @@ After an issue was resolved, a merge request was made. The merge-request had to 
 ### Code quality
 
 Tests were written for every new feature, to ensure better reliablity when changing or writing new code. Unittest were written using JUnit, and end-to-end tests using TestFX. We used Jacoco to check the code coverage. 
-Our final code-coverage is at 92% for both rest and core module, and 74% for fxui module. 
+Our final code-coverage is at 92% for both rest and core module, and 74% for fxui module. The fxui tests are testing the core logic, and not code related to navigating between pages. If we figured a way of testing this, the coverage would be higher. Nonetheless, the fxui tests are testing the important core logic. 
 
 Spotbugs were used to find potential bugs, or poor code. Fixes were issued after finding them using this tool. Checkstyle was also used to improve code quality. Currently, checkstyle shows a lot of errors. None of the errors are major, mostly consisting of incorrect indentations etc. 
 
