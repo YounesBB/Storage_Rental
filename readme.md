@@ -1,4 +1,4 @@
-# gr2232 repository
+# <img src="gr2232/docs/release3/Storage_icon.PNG" alt="Storage-icon" width="60"/> GR2232 repository
 
 ## About
 This is a repository that consists of a JavaFX app. This app can be used for managing units in a unit storage house. Based on if the user is a manager or employee the user can: 
