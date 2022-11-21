@@ -94,8 +94,42 @@
                 <!-- Usage: mvn javafx:run -->
                 <configuration>
                     <mainClass>gr2232.ui.App</mainClass>
+                    <compress>2</compress>
+                    <noHeaderFiles>true</noHeaderFiles>
+                    <stripDebug>true</stripDebug>
+                    <noManPages>true</noManPages>
+                    <launcher>gr2232fx</launcher>
+                    <jlinkImageName>gr2232fx</jlinkImageName>
+                    <jlinkZipName>gr2232fx</jlinkZipName>   
                 </configuration>
             </plugin>
+
+            <plugin>
+                <groupId>org.panteleyev</groupId>
+                <artifactId>jpackage-maven-plugin</artifactId>
+                <version>1.4.0</version>
+                <configuration>
+                    <name>Gr2232FX</name>
+                    <appVersion>1.0.0</appVersion>
+                    <vendor>it1901</vendor>
+                    <destination>target/dist</destination>
+                    <module>gr2232.ui/gr2232.ui.App</module>
+                    <runtimeImage>target/gr2232fx</runtimeImage>
+                    <javaOptions>
+                        <option>-Dfile.encoding=UTF-8</option>
+                    </javaOptions>
+                    <!-- linux options --> 
+                    <linuxShortcut>true</linuxShortcut>
+                    <linuxMenuGroup>Gr2232FX</linuxMenuGroup>
+
+                    <!-- windows options --> 
+                    <winDirChooser>true</winDirChooser>
+                    <winShortcut>true</winShortcut>
+                    <winMenu>true</winMenu>
+                    <winMenuGroup>Gr2232FX</winMenuGroup>
+                </configuration>
+            </plugin>
+
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
