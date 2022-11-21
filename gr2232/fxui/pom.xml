@@ -6,6 +6,13 @@
         <artifactId>parent</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
+    <properties>
+        <argLine>
+             --add-opens gr2232.ui/gr2232.ui=ALL-UNNAMED --add-exports javafx.graphics/com.sun.javafx.application=ALL-UNNAMED
+             --add-opens javafx.graphics/com.sun.glass.ui=ALL-UNNAMED --add-exports javafx.graphics/com.sun.glass.ui=ALL-UNNAMED
+             --add-exports javafx.graphics/com.sun.glass.ui.delegate=ALL-UNNAMED
+        </argLine>
+    </properties>
 
     <artifactId>fxui</artifactId>
 
@@ -75,10 +82,6 @@
         		<artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
                     <argLine>
-                        --add-opens gr2232.ui/gr2232.ui=ALL-UNNAMED --add-exports javafx.graphics/com.sun.javafx.application=ALL-UNNAMED
-                    --add-opens javafx.graphics/com.sun.glass.ui=ALL-UNNAMED --add-exports javafx.graphics/com.sun.glass.ui=ALL-UNNAMED
-                    --add-exports javafx.graphics/com.sun.glass.ui.delegate=ALL-UNNAMED
-
                     </argLine>
                 </configuration>
 	        </plugin>
