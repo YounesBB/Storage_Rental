@@ -111,4 +111,5 @@ Go [here](gr2232/docs/release3/workhabits.md) to read about <em>workhabits</em> 
 
 Go [here](userStories.md) to read about <em>userstories</em> used as a basis developing the application. 
 
-Go [here](typeOfPersitence.md) to read our reflection about type of persistence. 
+Go [here](gr2232/docs/release3/typeOfPersitence.md) to read about our reflection about type of persistence. 
+
