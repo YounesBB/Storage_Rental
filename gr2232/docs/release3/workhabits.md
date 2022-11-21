@@ -14,9 +14,10 @@ After an issue was resolved, a merge request was made. The merge-request had to 
 
 ### Code quality
 
-Tests were written for every new feature, to ensure better reliablity when changing or writing new code. Unittest were written using JUnit, and end-to-end tests using TestFX. 
+Tests were written for every new feature, to ensure better reliablity when changing or writing new code. Unittest were written using JUnit, and end-to-end tests using TestFX. We used Jacoco to check the code coverage. 
+Our final code-coverage is at 92% for both rest and core module, and 74% for fxui module. 
 
-
+Spotbugs were used to find potential bugs, or poor code. Fixes were issued after finding them using this tool. Checkstyle was also used to improve code quality. Currently, checkstyle shows a lot of errors. None of the errors are major, mostly consisting of incorrect indentations etc. 
 
 <!-- We have meetings where we together map out what the project needs, based on the requirements of the next release, when we need it done and an estimate of when we should have the next meeting. We then structure the work thats needed by writing them as issues on Github, which are then delegated between us. Who gets which issues gets decided by trying to give everyone a fair share of work, while also trying to diversify everyones type of work throughout the project. The issues are made with tags which communicate what kind of work that needs to be done. We choose between testing, core, infrastructure, UI, documentation or bug after whats most fitting. In addition to writing a description of what the issue is about. We also choose what release of the project the issue is made for and who gets assigned to it. The assignee then creates a branch out of the issue, and starts working out of said branch. If the assignee gets stuck he can easily get help as theres a high tolerance for anyone to ask for help from the group. The branch is then requested to merge to the masterbranch when the issue is complete, after firstly being commited with a message saying what has been done. The branch gets reviewed by another in the group before being confirmed and merged. We have kept an efficient and structured workflow by using this system.
 
