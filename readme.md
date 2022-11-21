@@ -110,7 +110,7 @@ Go [here](brukerhistorier.md) to read about userstories used for developing the 
 
 Go [here](gr2232/docs/release3/typeOfPersitence.md) to read about our reflection about type of persistence. 
 
-Click [here](gr2232/docs/release3/REAMDE.md) to see documentation for the third release. 
+Click [here](gr2232/docs/release3/README.md) to see documentation for the third release. 
 
 
 ![Semantic description of image](gr2232/docs/release1/low-fidelity-wireframePNG.png "low-fidelity-wireframePNG")
