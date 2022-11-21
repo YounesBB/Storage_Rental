@@ -1,14 +1,17 @@
-# Group gr2232 repository 
+# <img src="gr2232/docs/release3/Storage_icon.png" alt="Storage-icon" width="60"/> GR2232 repository
 
 ## About
 This is a repository that consists of a JavaFX app. This app can be used for managing units in a unit storage house. Based on if the user is a manager or employee the user can: 
 1. Add and delete units (Only Manager)
 2. Add and remove a tenant from a unit. 
+
 The user also has an overview of the units and their status: if the unit is rented, location and size. 
 
 The application reads and stores date to JSON files. The user can choose if this happens remotely or locally. 
 
 The files for the application are located in the [gr2232](/gr2232/) folder. In hindsight we realize this folder should have had a more appropiate name. However, we believe it is not critical. The other files in the same location as this README are files for configuration of Gitpod and [.gitgnore](.gitgnore) file for specifying untracted files Git should ignore. 
+
+For further reading and documentation, please have a look at the end of this page. 
 <p>&nbsp;</p>
 
 ## Getting started: 
@@ -94,23 +97,19 @@ And open the corresponding index.html files. Note that you have to run maven tes
 
 # Further reading
 
-TODO: Link to other readme files and short text what one can find there
+Here is all the documentation in the repository. 
 
-Go [here](gr2232/README.md) to view illustartion, package-, sequences-, classdiagram of the application. 
+Go [here](gr2232/README.md) to view illustration, package-, sequences-, classdiagram of the application. 
 
-Go [here](gr2232/core/README.md) to view documentation about the core module and the JSON-data files that are used
+Go [here](gr2232/core/README.md) to view documentation about the <em>core module</em> and the <em>JSON-data</em> files that are used
 
-Go [here](gr2232/fxui/README.md) to view documentation about the fxui module 
+Go [here](gr2232/fxui/README.md) to view documentation about the <em>fxui module</em>
 
-Go [here](gr2232/rest/README.md) to view documentation about the rest module and the rest-api. 
+Go [here](gr2232/rest/README.md) to view documentation about the <em>rest module</em> and the <em>rest-api</em>. 
 
-Go [here](gr2232/docs/release2/workhabits.md) to read about workhabits our use of tools and reason for late submission. 
+Go [here](gr2232/docs/release3/workhabits.md) to read about <em>workhabits</em> our use of tools and reason for <em>late submission</em>. 
 
-Go [here](brukerhistorier.md) to read about userstories used for developing the application. 
+Go [here](userStories.md) to read about <em>userstories</em> used as a basis developing the application. 
 
 Go [here](gr2232/docs/release3/typeOfPersitence.md) to read about our reflection about type of persistence. 
 
-Click [here](gr2232/docs/release3/README.md) to see documentation for the third release. 
-
-
-![Semantic description of image](gr2232/docs/release1/low-fidelity-wireframePNG.png "low-fidelity-wireframePNG")

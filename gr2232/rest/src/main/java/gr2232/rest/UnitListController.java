@@ -74,31 +74,6 @@ public class UnitListController {
     UnitList ul = UnitListService.getUnitListTestJson();
     return ul.getUnitListEntries();
   }
-   /** 
-   /**
-   * Adds a unit to the servers Unitlist.
-   *
-   * @param unit unit to add
-   * @return true after adding unit
-   * @throws IOException
-   */
-  /** 
-  @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-  protected boolean addUnit(@RequestBody String u) throws IOException {
-    try {
-      ObjectMapper mapper = new ObjectMapper();
-      //Unit u = mapper.readValue(unitstream, Unit.class);
-      //System.out.println("Unit:");
-      //unitListService.addUnit(u); 
-      System.out.println(unitListService.getUnitList().getUnitListEntries());
-    } catch (Exception e) {
-      // TODO: handle exception
-      System.out.println(e);
-    }
-    //unitListService.addUnit(unit); 
-    return true;
-  }
-	*/
 
   /**
    * Adds a unit to the servers Unitlist
