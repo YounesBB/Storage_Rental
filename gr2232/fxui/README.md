@@ -4,7 +4,7 @@ This is the user interface (frontend) module for gr2232.
 
 ## Information
 
-The fxui module consists of all classes, logic and .fxml files that creates the UI and handles user interaction. The UI allows an employee or admin manage units in a unit storage house. The detalies of what the user can do is already explained [here](../../README.md#about) and at [userstories](../../brukerhistorier.md). 
+The fxui module consists of all classes, logic and .fxml files that creates the UI and handles user interaction. The UI allows an employee or admin manage units in a unit storage house. The detalies of what the user can do is already explained [here](../../README.md#about) and at [userstories](../../userStories.md). 
 
 The UI builds by using JavaFX. The JavaFX code is in [src/main/java/gr2232/ui](src/main/java/gr2232/ui) and the FXML files can be found in [src/main/resources/gr2232/ui](src/main/resources/gr2232/ui). The application uses JavaFX version 16. 
 
