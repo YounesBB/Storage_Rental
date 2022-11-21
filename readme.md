@@ -95,6 +95,20 @@ foo@bar:~/gr2232/gr2232/rest/target/site/jacoco
 ```
 And open the corresponding index.html files. Note that you have to run maven test before looking at the test-coverage.
 
+## How to create a shippable product?
+To create a shippable project, navigate to fxui-folder. Note that you need to have Wix installed to create an installer for Windows os. Then execute the following commands. 
+
+```console
+foo@bar:~/gr2232/gr2232/fxui/
+
+foo@bar:~/gr2232/gr2232/fxui/$ mvn javafx:jlink 
+
+foo@bar:~/gr2232/gr2232/fxui/$ mvn jpackage:jpackage
+
+foo@bar:~/gr2232/gr2232/fxui/target/dist
+```
+The installer should now be located inside the dist-directory. 
+
 # Further reading
 
 Here is all the documentation in the repository. 
