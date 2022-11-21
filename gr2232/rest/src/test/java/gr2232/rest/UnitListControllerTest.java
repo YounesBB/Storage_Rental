@@ -25,7 +25,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 @ExtendWith(SpringExtension.class)
 @WebMvcTest(UnitListController.class)
-@ContextConfiguration
+@ContextConfiguration(classes = { UnitListController.class, UnitListService.class, UnitListModule.class})
 @WebAppConfiguration
 class UnitListControllerTest {
 

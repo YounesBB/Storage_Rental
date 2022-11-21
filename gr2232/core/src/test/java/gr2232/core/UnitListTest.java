@@ -21,7 +21,8 @@ public class UnitListTest {
 
   @AfterEach
   public void setUp1() {
-    newUnitList.getUnitListEntries().clear();
+    newUnitList.clearUnitList();
+    newUnitList.setLocationIncrementer(0);
   }
 
   @Test
@@ -146,7 +147,9 @@ public class UnitListTest {
 
   @Test
   public void testGetRentedUnits() {
+    newUnitList.clearUnitList();
     assertTrue(newUnitList.getFreeUnits().isEmpty());
+
 
     Unit a1 = new Unit('M', 1);
     Unit a2 = new Unit('S', 3);
@@ -161,8 +164,12 @@ public class UnitListTest {
     // Testing to see that the units that belong to the same customer don't show up
     // as free units.
     Unit a3 = new Unit('S', 4);
-    a3.setCustomerName("Tom");
+    a3.setCustomerName("Jerry");
     newUnitList.addUnit(a3);
+
+    System.out.println("Rented units:");
+    System.out.println(newUnitList.getRentedUnits());
+    System.out.println(newUnitList.getRentedUnits().size());
 
     assertTrue(newUnitList.getFreeUnits().size() == 1);
     assertTrue(newUnitList.getRentedUnits().size() == 2);
