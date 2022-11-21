@@ -209,6 +209,7 @@ public class UnitList {
    */
   public void clearUnitList() {
     getUnitListEntries().clear();
+    setLocationIncrementer(0);
   }
 
   public boolean removeUnitByLocation(Integer location) {
