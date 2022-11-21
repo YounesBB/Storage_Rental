@@ -25,6 +25,7 @@ Component rest {
 } 
 
 rest ..> [springboot]
+rest ..> [springdoc-openapi-ui]
 gr2232.rest ..> gr2232.core
 gr2232.rest ..> gr2232.json
 
