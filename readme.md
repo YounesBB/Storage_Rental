@@ -107,7 +107,7 @@ Go [here](gr2232/fxui/README.md) to view documentation about the <em>fxui module
 
 Go [here](gr2232/rest/README.md) to view documentation about the <em>rest module</em> and the <em>rest-api</em>. 
 
-Go [here](gr2232/docs/release2/workhabits.md) to read about <em>workhabits</em> our use of tools and reason for <em>late submission</em>. 
+Go [here](gr2232/docs/release3/workhabits.md) to read about <em>workhabits</em> our use of tools and reason for <em>late submission</em>. 
 
 Go [here](userStories.md) to read about <em>userstories</em> used as a basis developing the application. 
 
