@@ -13,7 +13,13 @@ Core contains the logic of the application. It manages units and units in a unit
 
 ### Json: 
 
-Json takes care of persitence to and from .json files. It also handels serializing and deserializing. This means the reading and writing of Unit or UnitList to a .json object. This can be done both remotely and locally. For example the server might pass a UnitList as a json object. This will then be deserialized into a UnitList object. 
+Json takes care of persitence to and from <strong>.json files</strong>. It also handels serializing and deserializing. This means the reading and writing of Unit or UnitList to a .json object. This can be done both remotely and locally. For example the server might pass a UnitList as a json object. This will then be deserialized into a UnitList object. 
+
+### JSON schema:
+
+We decided to use [JSON schema](https://json-schema.org/) to document our JSON-data files. The reason for this is that JSON schema provides clear human- and machine readable documentation. 
+
+Click [here](../../gr2232/config/jsonSchema/unit.schema.json) to see the JSON schema, that is a documentation for the JSON-data files that are used in the application. 
 
 
 ## Maven build

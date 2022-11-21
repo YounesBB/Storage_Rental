@@ -98,7 +98,7 @@ TODO: Link to other readme files and short text what one can find there
 
 Go [here](gr2232/README.md) to view illustartion, package-, sequences-, classdiagram of the application. 
 
-Go [here](gr2232/core/README.md) to view documentation about the core module
+Go [here](gr2232/core/README.md) to view documentation about the core module and the JSON-data files that are used
 
 Go [here](gr2232/fxui/README.md) to view documentation about the fxui module 
 
